@@ -1,6 +1,7 @@
 # SmartMenus
 
 jQuery website menu plugin. Responsive and accessible list-based website menus that work on all devices.
+Check out [the demo page](http://www.jquery.com).
 
 ## Homepage
 
