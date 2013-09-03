@@ -5,7 +5,7 @@
 ul.sm li{position:relative;}
 ul.sm a{position:relative;display:block;}
 ul.sm a.disabled{cursor:default;}
-ul.sm ul{position:absolute;top:-9999999px;left:-800px;width:100px;}
+ul.sm ul{position:absolute;top:-999999px;left:-800px;width:100px;}
 ul.sm li{float:left;}
 ul.sm-rtl{direction:rtl;}
 ul.sm-rtl li{float:right;}

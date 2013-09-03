@@ -13,9 +13,9 @@
 	.sm-simple ul {
 		border:1px solid #bbb;
 		background:#fff;
-		-moz-box-shadow:0 2px 4px rgba(0,0,0,0.3);
-		-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.3);
-		box-shadow:0 2px 4px rgba(0,0,0,0.3);
+		-moz-box-shadow:0 1px 1px rgba(0,0,0,0.2);
+		-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.2);
+		box-shadow:0 1px 1px rgba(0,0,0,0.2);
 	}
 
 
@@ -72,7 +72,7 @@
 ===================*/
 
 	.sm-simple li {
-		border-left:1px solid #eee;
+		border-left:1px solid #f3f3f3;
 	}
 	.sm-simple li:first-child {
 		border-left:0;
@@ -80,7 +80,7 @@
 	.sm-simple ul li,
 	.sm-simple-vertical li {
 		border-left:0;
-		border-top:1px solid #eee;
+		border-top:1px solid #f3f3f3;
 	}
 	.sm-simple ul li:first-child,
 	.sm-simple-vertical li:first-child {
@@ -160,23 +160,15 @@
 /* Menu items
 ===================*/
 
-	.sm-simple a,
-	.sm-simple a:hover, .sm-simple a:focus, .sm-simple a:active,
-	.sm-simple a.highlighted {
+	.sm-simple a {
 		padding-top:13px;
 		padding-bottom:13px;
-		background:#fff;
-		color:#555;
+		background:transparent !important;
+		color:#555 !important;
 	}
-	.sm-simple ul a,
-	.sm-simple ul a:hover, .sm-simple ul a:focus, .sm-simple ul a:active,
-	.sm-simple ul a.highlighted {
-		background:transparent;
-	}
-	.sm-simple a.current, .sm-simple a.current:hover, .sm-simple a.current:focus, .sm-simple a.current:active,
-	.sm-simple ul a.current, .sm-simple ul a.current:hover, .sm-simple ul a.current:focus, .sm-simple ul a.current:active {
-		background:#555;
-		color:#fff;
+	.sm-simple a.current {
+		background:#555 !important;
+		color:#fff !important;
 	}
 	.sm-simple a.has-submenu {
 		padding-right:23px;

@@ -38,8 +38,6 @@
 
 	#main-menu {
 		position:relative;
-		top:0;
-		left:0;
 		z-index:9999;
 		width:auto;
 	}
@@ -62,6 +60,9 @@ body {
 	padding:2em;
 	font:112.5% Lora,Georgia,'Times New Roman',Times,serif;
 	color:#222;
+}
+.columns {
+	overflow:hidden;
 }
 .left-column {
 	float:left;
@@ -96,6 +97,12 @@ p {
 	margin-bottom:1.5em;
 	line-height:1.625em;
 }
+ul {
+	list-style:circle;
+	margin-bottom:1.5em;
+	padding-left:1.3em;
+	line-height:1.625em;
+}
 a {
 	color:#D23600;
 	text-decoration:none;
@@ -105,9 +112,12 @@ a:hover, a:focus, a:active {
 }
 #themes {
 	margin:2.5625em 24px 2em 24px;
-	border:1px solid #dad3c9;
-	padding:0.5em;
-	background:#f5ede2;
+	border:1px solid;
+ 	border-color:#ebe3d9;
+ 	border-color:rgba(0,0,0,0.04);
+	padding:2.5%;
+	background:#f4ece1;
+	background:rgba(0,0,0,0.03);
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 	border-radius:8px;
@@ -115,17 +125,23 @@ a:hover, a:focus, a:active {
 #themes h2 {
 	margin-top:0;
 }
+#themes h3 {
+	font-size:1em;
+	font-weight:normal;
+}
 #themes select {
-	width:100%;
-	font-size:inherit;
+	display:block;
 }
 #themes label {
 	margin-left:0.3em;
 }
 #themes pre {
-	border:1px solid #DAD3C9;
+	border:1px solid;
+	border-color:#e1ddd8;
+	border-color:rgba(0,0,0,0.10);
 	padding:0.5em;
-	background:#FAFAFA;
+	background:#f9f5f0;
+	background:rgba(255,255,255,0.5);
 	overflow:auto;
 	min-width:0;
 	-moz-border-radius:3px;
@@ -142,8 +158,6 @@ a:hover, a:focus, a:active {
 		width:auto;
 	}
 	#content {
-		float:none;
-		width:auto;
 		margin:0;
 		padding:0 5px;
 	}
@@ -194,7 +208,7 @@ a:hover, a:focus, a:active {
     <ul>
       <li><a href="#" class="disabled">Dummy item</a></li>
       <li><a href="#" class="disabled">Dummy item</a></li>
-      <li><a href="#" class="disabled current">Current item test</a></li>
+      <li><a href="#" class="disabled">Dummy item</a></li>
       <li><a href="#" class="disabled">Dummy item</a></li>
       <li><a href="#" class="disabled">more...</a>
         <ul>
@@ -207,7 +221,7 @@ a:hover, a:focus, a:active {
           <li><a href="#" class="disabled">more...</a>
             <ul>
               <li><a href="#" class="disabled">Dummy item</a></li>
-              <li><a href="#" class="disabled">Dummy item</a></li>
+              <li><a href="#" class="disabled current">A 'current' class item</a></li>
               <li><a href="#" class="disabled">Dummy item</a></li>
               <li><a href="#" class="disabled">more...</a>
                 <ul>
@@ -307,28 +321,25 @@ a:hover, a:focus, a:active {
 
 
 
-<div class="left-column">
+<div class="columns">
+ <div class="left-column">
   <div id="content">
    <h1>SmartMenus</h1>
     <p>jQuery website menu plugin. Responsive and accessible list-based website menus that work on all devices.</p>
-
-    <h2>Getting started and API documentation</h2>
-    <p><a href="http://www.smartmenus.org/docs/">http://www.smartmenus.org/docs/</a></p>
-
-    <h2>Bugs and issues</h2>
-    <p><a href="https://github.com/vadikom/smartmenus/issues">https://github.com/vadikom/smartmenus/issues</a></p>
-
-    <h2>Support forums</h2>
-    <p><a href="http://www.smartmenus.org/support/forums/">http://www.smartmenus.org/support/forums/</a></p>
+    <ul>
+     <li><a href="http://www.smartmenus.org/docs/">Getting started and API documentation</a></li>
+     <li><a href="https://github.com/vadikom/smartmenus/issues">Bugs and issues</a></li>
+     <li><a href="http://www.smartmenus.org/support/forums/">Support forums</a></li>
+    </ul>
   </div>
-</div>
+ </div>
 
-<div class="right-column">
+ <div class="right-column">
   <div id="themes">
     <h2>Switch theme (class)</h2>
     <p>
       <select id="themes-classes">
-        <option value="sm-blue" data-init-options="{
+        <option value="sm-blue" data-page-bg="#fbf3e8" data-init-options="{
 			subMenusSubOffsetX: 1,
 			subMenusSubOffsetY: -8
 		}" data-init-options-vertical="{
@@ -337,7 +348,18 @@ a:hover, a:focus, a:active {
 			subMenusSubOffsetX: 1,
 			subMenusSubOffsetY: -8
 		}">sm-blue</option>
-        <option value="sm-simple" data-init-options="{
+        <option value="sm-clean" data-page-bg="#fcfcfc" data-init-options="{
+			mainMenuSubOffsetX: -1,
+			mainMenuSubOffsetY: 4,
+			subMenusSubOffsetX: 6,
+			subMenusSubOffsetY: -6
+		}" data-init-options-vertical="{
+			mainMenuSubOffsetX: 6,
+			mainMenuSubOffsetY: -6,
+			subMenusSubOffsetX: 6,
+			subMenusSubOffsetY: -6
+		}">sm-clean</option>
+        <option value="sm-simple" data-page-bg="#f6f6f6" data-init-options="{
 			mainMenuSubOffsetX: -1,
 			subMenusSubOffsetX: 10,
 			subMenusSubOffsetY: 0
@@ -363,8 +385,6 @@ a:hover, a:focus, a:active {
 
 	#main-menu {
 		position:relative;
-		top:0;
-		left:0;
 		z-index:9999;
 		width:<span class="themes-code-main-width">auto</span>;
 	}
@@ -406,17 +426,19 @@ a:hover, a:focus, a:active {
 		var $select = $('#themes-classes'),
 			className = $select.val(),
 			vertical = $('#themes-vertical')[0].checked,
-			initOptions = $select.children().eq($select[0].selectedIndex).data('init-options' + (vertical ? '-vertical' : '')),
+			$optionElm = $select.children().eq($select[0].selectedIndex),
+			initOptions = $optionElm.data('init-options' + (vertical ? '-vertical' : '')),
 			mainMenuClass = 'sm ' + (vertical ? 'sm-vertical ' + className + ' ' + className + '-vertical' : className),
-			mainMenuWidth = vertical ? '20em' : 'auto';
+			mainMenuWidth = vertical ? '12em' : 'auto';
 
 		// switch #main-menu theme
 		$('#main-menu').smartmenus('destroy').css('width', mainMenuWidth).smartmenus(eval('(' + initOptions + ')'))[0].className = mainMenuClass;
+		$('html,body').css('background', $optionElm.data('page-bg'));
 
 		// update code samples
 		$('#themes span.themes-code-main-width').text(mainMenuWidth);
-		$('#themes span.themes-code-class').text(className);
-		$('#themes span.themes-code-main-class').text(mainMenuClass);
+		$('#themes span.themes-code-class span').text(className);
+		$('#themes span.themes-code-main-class span').text(mainMenuClass);
 		$('#themes span.themes-code-init-options').text(initOptions);
 	});
 
@@ -426,6 +448,7 @@ a:hover, a:focus, a:active {
 
     </script>
   </div>
+ </div>
 </div>
 
 

@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v0.9.0
+ * SmartMenus jQuery v0.9.1
  * http://www.smartmenus.org/
  *
  * Copyright 2013 Vasil Dinkov, Vadikom Web Ltd.
@@ -22,49 +22,44 @@
 	// Handle detection for mouse input (i.e. desktop browsers, tablets with a mouse, etc.)
 	function initMouseDetection(disable) {
 		if (!mouseDetectionEnabled && !disable) {
-			// in IE10 it's simple
-			if (window.navigator.msPointerEnabled) {
-				$(document).bind('MSPointerOver.smartmenus_mouse', function(e) {
-					mouse = e.originalEvent.pointerType == 4;
-				});
-			// in other browsers, if we get two consecutive mousemoves within 2 pixels from each other and within 300ms, we assume a real mouse/cursor is present (we also reset this ontouchstart just in case)
+			// if we get two consecutive mousemoves within 2 pixels from each other and within 300ms, we assume a real mouse/cursor is present
 			// in practice, this seems like impossible to trick unintentianally with a real mouse and a pretty safe detection on touch devices (even with older browsers that do not support touch events)
-			} else {
-				var firstTime = true,
-					lastMove = null;
-				$(document).bind({
-					'mousemove.smartmenus_mouse': function(e) {
-						var thisMove = { x: e.pageX, y: e.pageY, timeStamp: new Date().getTime() };
-						if (lastMove) {
-							var deltaX = Math.abs(lastMove.x - thisMove.x),
-								deltaY = Math.abs(lastMove.y - thisMove.y);
-	 						if ((deltaX > 0 || deltaY > 0) && deltaX <= 2 && deltaY <= 2 && thisMove.timeStamp - lastMove.timeStamp <= 300) {
-								mouse = true;
-								// if this is the first check after page load, check if we are not over some item by chance and call the mouseenter handler if yes
-								if (firstTime) {
-									var $a = $(e.target);
-									if (!$a.is('a')) {
-										$a = $a.parentsUntil('a').parent();
-									}
-									if ($a.is('a')) {
-										$.each(menuTrees, function() {
-											if ($.contains(this.$root[0], $a[0])) {
-												this.itemEnter({ currentTarget: $a[0] });
-												return false;
-											}
-										});
-									}
-									firstTime = false;
+			var firstTime = true,
+				lastMove = null;
+			$(document).bind({
+				'mousemove.smartmenus_mouse': function(e) {
+					var thisMove = { x: e.pageX, y: e.pageY, timeStamp: new Date().getTime() };
+					if (lastMove) {
+						var deltaX = Math.abs(lastMove.x - thisMove.x),
+							deltaY = Math.abs(lastMove.y - thisMove.y);
+	 					if ((deltaX > 0 || deltaY > 0) && deltaX <= 2 && deltaY <= 2 && thisMove.timeStamp - lastMove.timeStamp <= 300) {
+							mouse = true;
+							// if this is the first check after page load, check if we are not over some item by chance and call the mouseenter handler if yes
+							if (firstTime) {
+								var $a = $(e.target);
+								if (!$a.is('a')) {
+									$a = $a.parentsUntil('a').parent();
 								}
+								if ($a.is('a')) {
+									$.each(menuTrees, function() {
+										if ($.contains(this.$root[0], $a[0])) {
+											this.itemEnter({ currentTarget: $a[0] });
+											return false;
+										}
+									});
+								}
+								firstTime = false;
 							}
 						}
-						lastMove = thisMove;
-					},
-					'touchstart.smartmenus_mouse': function(e) {
+					}
+					lastMove = thisMove;
+				},
+				'touchstart.smartmenus_mouse pointerover.smartmenus_mouse MSPointerOver.smartmenus_mouse': function(e) {
+					if (!/^(4|mouse)$/.test(e.originalEvent.pointerType)) {
 						mouse = false;
 					}
-				});
-			}
+				}
+			});
 			mouseDetectionEnabled = true;
 		} else if (mouseDetectionEnabled && disable) {
 			$(document).unbind('.smartmenus_mouse');
@@ -400,13 +395,15 @@
 					if ($a.dataSM('href')) {
 						$a.attr('href', $a.dataSM('href')).removeDataSM('href');
 					}
-					var prevent = $sub && (!$sub.dataSM('shown-before') || !$sub.is(':visible'));
-					if (prevent) {
+					// if the sub is not visible
+					if ($sub && (!$sub.dataSM('shown-before') || !$sub.is(':visible'))) {
+						// try to activate the item and show the sub
 						this.itemActivate($a);
-					}
-					// if "itemActivate" couldn't show it, then the sub menus are disabled with an !important declaration (e.g. in mobile styles) so don't prevent the click
-					if (prevent && $sub.is(':visible')) {
-						return false;
+						// if "itemActivate" showed the sub, prevent the click so that the link is not activated
+						// if it couldn't show it, then the sub menus are disabled with an !important declaration (e.g. via mobile styles) so let the link get activated
+						if ($sub.is(':visible')) {
+							return false;
+						}
 					}
 				} else if (this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 && $sub) {
 					this.clickActivated = true;

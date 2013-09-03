@@ -289,38 +289,33 @@
 /* Menu items
 ===================*/
 
-	.sm-blue a,
-	.sm-blue a:hover, .sm-blue a:focus, .sm-blue a:active,
-	.sm-blue a.highlighted {
+	.sm-blue a {
 		padding:10px 5px 10px 28px !important; /* add some additional left padding to make room for the sub indicator */
-		background:#3193c0; /* Old browsers */
-		background-image:url(css-gradients-fallback/vertical-main-item-bg.png);
-		background-image:-moz-linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
-		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#3fa3d1),color-stop(100%,#2586b3));
-		background-image:-webkit-linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
-		background-image:-o-linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
-		background-image:-ms-linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
-		background-image:linear-gradient(top,#3fa3d1 0%,#2586b3 100%);
-		color:#fff;
+		background:#3193c0 !important; /* Old browsers */
+		background-image:url(css-gradients-fallback/vertical-main-item-bg.png) !important;
+		background-image:-moz-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#3fa3d1),color-stop(100%,#2586b3)) !important;
+		background-image:-webkit-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		background-image:-o-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		background-image:-ms-linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		background-image:linear-gradient(top,#3fa3d1 0%,#2586b3 100%) !important;
+		color:#fff !important;
 	}
-	.sm-blue ul a,
-	.sm-blue ul a:hover, .sm-blue ul a:focus, .sm-blue ul a:active,
-	.sm-blue ul a.highlighted {
-		background:transparent;
-		color:#247eab;
-		text-shadow:none;
+	.sm-blue ul a {
+		background:transparent !important;
+		color:#247eab !important;
+		text-shadow:none !important;
 	}
-	.sm-blue a.current, .sm-blue a.current:hover, .sm-blue a.current:focus, .sm-blue a.current:active,
-	.sm-blue ul a.current, .sm-blue ul a.current:hover, .sm-blue ul a.current:focus, .sm-blue ul a.current:active {
-		background:#006892; /* Old browsers */
-		background-image:url(css-gradients-fallback/current-item-bg.png);
-		background-image:-moz-linear-gradient(top,#005a84 0%,#00749f 100%);
-		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#005a84),color-stop(100%,#00749f));
-		background-image:-webkit-linear-gradient(top,#005a84 0%,#00749f 100%);
-		background-image:-o-linear-gradient(top,#005a84 0%,#00749f 100%);
-		background-image:-ms-linear-gradient(top,#005a84 0%,#00749f 100%);
-		background-image:linear-gradient(top,#005a84 0%,#00749f 100%);
-		color:#fff;
+	.sm-blue a.current {
+		background:#006892 !important; /* Old browsers */
+		background-image:url(css-gradients-fallback/current-item-bg.png) !important;
+		background-image:-moz-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#005a84),color-stop(100%,#00749f)) !important;
+		background-image:-webkit-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:-o-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:-ms-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		color:#fff !important;
 	}
 	/* add some text indentation for the 2+ level sub menu items */
 	.sm-blue ul a {
