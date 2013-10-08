@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v0.9.2
+ * SmartMenus jQuery v0.9.3
  * http://www.smartmenus.org/
  *
  * Copyright 2013 Vasil Dinkov, Vadikom Web Ltd.
