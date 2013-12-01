@@ -6,18 +6,35 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // Metadata.
     pkg: grunt.file.readJSON('smartmenus.jquery.json'),
-    banner:'/*!\n' +
-' * <%= pkg.title || pkg.name %> jQuery Plugin - v<%= pkg.version %> - <%= grunt.template.today("mmmm d, yyyy") %>\n' +
-' * <%= pkg.homepage %>\n' +
-' *\n' +
-' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd.\n' +
-' * <%= pkg.author.url %>\n' +
-' *\n' +
-' * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n' +
-' */\n\n',
-    banner_min:'/*! <%= pkg.title || pkg.name %> jQuery Plugin - v<%= pkg.version %> - <%= grunt.template.today("mmmm d, yyyy") %>\n' +
-' * <%= pkg.homepage %>\n' +
-' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
+
+    banner: '/*!\n\
+ * <%= pkg.title || pkg.name %> jQuery Plugin - v<%= pkg.version %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
+ * <%= pkg.homepage %>\n\
+ *\n\
+ * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd.\n\
+ * <%= pkg.author.url %>\n\
+ *\n\
+ * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n\
+ */\n\n',
+
+    banner_min: '/*! <%= pkg.title || pkg.name %> jQuery Plugin - v<%= pkg.version %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
+ * <%= pkg.homepage %>\n\
+ * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
+
+    banner_keyboard_addon: '/*!\n\
+ * <%= pkg.title || pkg.name %> jQuery Plugin Keyboard Addon - v<%= pkg.version_keyboard_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
+ * <%= pkg.homepage %>\n\
+ *\n\
+ * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd.\n\
+ * <%= pkg.author.url %>\n\
+ *\n\
+ * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n\
+ */\n\n',
+
+    banner_keyboard_addon_min: '/*! <%= pkg.title || pkg.name %> jQuery Plugin Keyboard Addon - v<%= pkg.version_keyboard_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
+ * <%= pkg.homepage %>\n\
+ * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
+
     distdir: '<%= pkg.name %>-<%= pkg.version %>',
     // Task configuration.
     clean: ["dist/*"],
@@ -31,23 +48,38 @@ module.exports = function(grunt) {
       }
     },
     concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: true
-      },
       dist: {
+        options: {
+          banner: '<%= banner %>',
+          stripBanners: true
+        },
         src: ['src/jquery.<%= pkg.name %>.js'],
         dest: 'dist/<%= distdir %>/jquery.<%= pkg.name %>.js'
+      },
+      dist_keyboard_addon: {
+        options: {
+          banner: '<%= banner_keyboard_addon %>',
+          stripBanners: true
+        },
+        src: ['src/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js'],
+        dest: 'dist/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js'
       }
     },
     uglify: {
-      options: {
-        banner: '<%= banner_min %>'
-      },
       dist: {
+        options: {
+          banner: '<%= banner_min %>'
+        },
         src: 'dist/<%= distdir %>/jquery.<%= pkg.name %>.js',
         dest: 'dist/<%= distdir %>/jquery.<%= pkg.name %>.min.js'
       },
+      dist_keyboard_addon: {
+        options: {
+          banner: '<%= banner_keyboard_addon_min %>'
+        },
+        src: 'dist/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js',
+        dest: 'dist/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.min.js'
+      }
     },
     zip: {
       dist: {
@@ -57,7 +89,7 @@ module.exports = function(grunt) {
         },
         src: ['dist/<%= distdir %>/**'],
         dest: 'dist/<%= distdir %>.zip'
-      },
+      }
     }
   });
 
