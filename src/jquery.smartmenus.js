@@ -1,8 +1,8 @@
 /*
- * SmartMenus jQuery v0.9.4
+ * SmartMenus jQuery v0.9.5
  * http://www.smartmenus.org/
  *
- * Copyright 2013 Vasil Dinkov, Vadikom Web Ltd.
+ * Copyright 2014 Vasil Dinkov, Vadikom Web Ltd.
  * http://vadikom.com/
  *
  * Released under the MIT license:
@@ -36,10 +36,7 @@
 							mouse = true;
 							// if this is the first check after page load, check if we are not over some item by chance and call the mouseenter handler if yes
 							if (firstTime) {
-								var $a = $(e.target);
-								if (!$a.is('a')) {
-									$a = $a.parentsUntil('a').parent();
-								}
+								var $a = $(e.target).closest('a');
 								if ($a.is('a')) {
 									$.each(menuTrees, function() {
 										if ($.contains(this.$root[0], $a[0])) {

@@ -35,6 +35,20 @@ module.exports = function(grunt) {
  * <%= pkg.homepage %>\n\
  * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
 
+    banner_bootstrap_addon: '/*!\n\
+ * <%= pkg.title || pkg.name %> jQuery Plugin Bootstrap Addon - v<%= pkg.version_keyboard_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
+ * <%= pkg.homepage %>\n\
+ *\n\
+ * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd.\n\
+ * <%= pkg.author.url %>\n\
+ *\n\
+ * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n\
+ */\n\n',
+
+    banner_bootstrap_addon_min: '/*! <%= pkg.title || pkg.name %> jQuery Plugin Bootstrap Addon - v<%= pkg.version_keyboard_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
+ * <%= pkg.homepage %>\n\
+ * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
+
     distdir: '<%= pkg.name %>-<%= pkg.version %>',
     // Task configuration.
     clean: ["dist/*"],
@@ -43,6 +57,7 @@ module.exports = function(grunt) {
       main: {
         files: [
           { src: ['LICENSE-MIT', 'README.md'], dest: 'dist/<%= distdir %>/' },
+          { src: ['src/addons/bootstrap/jquery.smartmenus.bootstrap.css'], dest: 'dist/<%= distdir %>/addons/bootstrap/jquery.smartmenus.bootstrap.css' },
           { expand: true, cwd: 'src/', src: ['css/**', 'demo/**', 'libs/**'], dest: 'dist/<%= distdir %>/' }
         ]
       }
@@ -63,6 +78,14 @@ module.exports = function(grunt) {
         },
         src: ['src/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js'],
         dest: 'dist/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js'
+      },
+      dist_bootstrap_addon: {
+        options: {
+          banner: '<%= banner_bootstrap_addon %>',
+          stripBanners: true
+        },
+        src: ['src/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.js'],
+        dest: 'dist/<%= distdir %>/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.js'
       }
     },
     uglify: {
@@ -79,6 +102,13 @@ module.exports = function(grunt) {
         },
         src: 'dist/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js',
         dest: 'dist/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.min.js'
+      },
+      dist_bootstrap_addon: {
+        options: {
+          banner: '<%= banner_bootstrap_addon_min %>'
+        },
+        src: 'dist/<%= distdir %>/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.js',
+        dest: 'dist/<%= distdir %>/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.min.js'
       }
     },
     zip: {
