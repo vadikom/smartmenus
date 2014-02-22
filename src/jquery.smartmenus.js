@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v0.9.5
+ * SmartMenus jQuery v0.9.6beta
  * http://www.smartmenus.org/
  *
  * Copyright 2014 Vasil Dinkov, Vadikom Web Ltd.
@@ -594,7 +594,7 @@
 						level++;
 					}
 					// cache stuff
-					$ul.dataSM('parent-a', $ul.prevAll('a'))
+					$ul.dataSM('parent-a', $ul.prevAll('a').eq(-1))
 						.dataSM('level', level)
 						.parent().dataSM('sub', $ul);
 					// add sub indicator to parent item

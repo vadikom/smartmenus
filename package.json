@@ -1,8 +1,8 @@
 {
   "name": "smartmenus",
-  "version": "0.9.5",
+  "version": "0.9.6beta",
   "version_keyboard_addon": "0.1.0",
-  "version_bootstrap_addon": "0.1.0",
+  "version_bootstrap_addon": "0.1.1",
   "engines": {
     "node": ">= 0.8.0"
   },
