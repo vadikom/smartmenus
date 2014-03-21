@@ -625,7 +625,7 @@
 					x, y;
 				if (horizontalParent) {
 					x = this.opts.rightToLeftSubMenus ? itemW - subW - subOffsetX : subOffsetX;
-					y = this.opts.bottomToTopSubMenus ? -subH - subOffsetX : itemH + subOffsetY;
+					y = this.opts.bottomToTopSubMenus ? -subH - subOffsetY : itemH + subOffsetY;
 				} else {
 					x = this.opts.rightToLeftSubMenus ? subOffsetX - subW : itemW - subOffsetX;
 					y = this.opts.bottomToTopSubMenus ? itemH - subOffsetY - subH : subOffsetY;
