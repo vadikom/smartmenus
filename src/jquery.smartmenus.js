@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v0.9.6beta
+ * SmartMenus jQuery v0.9.6
  * http://www.smartmenus.org/
  *
  * Copyright 2014 Vasil Dinkov, Vadikom Web Ltd.

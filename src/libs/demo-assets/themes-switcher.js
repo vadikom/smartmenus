@@ -33,6 +33,15 @@ $(function() {
 			subMenusSubOffsetX: 6,\n\
 			subMenusSubOffsetY: -6\n\
 		}">sm-clean</option>\
+     <option value="sm-mint" data-page-bg="#fff" data-init-options="{\n\
+			subMenusSubOffsetX: 6,\n\
+			subMenusSubOffsetY: -8\n\
+		}" data-init-options-vertical="{\n\
+			mainMenuSubOffsetX: 6,\n\
+			mainMenuSubOffsetY: -7,\n\
+			subMenusSubOffsetX: 6,\n\
+			subMenusSubOffsetY: -8\n\
+		}">sm-mint</option>\
      <option value="sm-simple" data-page-bg="#f6f6f6" data-init-options="{\n\
 			mainMenuSubOffsetX: -1,\n\
 			subMenusSubOffsetX: 10,\n\
