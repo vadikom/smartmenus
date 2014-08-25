@@ -1,7 +1,7 @@
 {
   "name": "smartmenus",
   "title": "SmartMenus",
-  "description": "jQuery website menu plugin. Responsive and accessible list-based website menus that work on all devices.",
+  "description": "Advanced jQuery website menu plugin. Responsive and accessible list-based website menus that work on all devices.",
   "keywords": [
     "menu",
     "navigation",
@@ -9,7 +9,7 @@
     "responsive",
     "ui"
   ],
-  "version": "0.9.6",
+  "version": "0.9.7",
   "version_keyboard_addon": "0.1.0",
   "version_bootstrap_addon": "0.1.1",
   "author": {

@@ -36,7 +36,7 @@ module.exports = function(grunt) {
  * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
 
     banner_bootstrap_addon: '/*!\n\
- * <%= pkg.title || pkg.name %> jQuery Plugin Bootstrap Addon - v<%= pkg.version_keyboard_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
+ * <%= pkg.title || pkg.name %> jQuery Plugin Bootstrap Addon - v<%= pkg.version_bootstrap_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
  * <%= pkg.homepage %>\n\
  *\n\
  * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd.\n\
@@ -45,23 +45,14 @@ module.exports = function(grunt) {
  * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n\
  */\n\n',
 
-    banner_bootstrap_addon_min: '/*! <%= pkg.title || pkg.name %> jQuery Plugin Bootstrap Addon - v<%= pkg.version_keyboard_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
+    banner_bootstrap_addon_min: '/*! <%= pkg.title || pkg.name %> jQuery Plugin Bootstrap Addon - v<%= pkg.version_bootstrap_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
  * <%= pkg.homepage %>\n\
  * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
 
     distdir: '<%= pkg.name %>-<%= pkg.version %>',
+
     // Task configuration.
-    clean: ["dist/*"],
-    // copy stuff to dist
-    copy: {
-      main: {
-        files: [
-          { src: ['LICENSE-MIT', 'README.md'], dest: 'dist/<%= distdir %>/' },
-          { src: ['src/addons/bootstrap/jquery.smartmenus.bootstrap.css'], dest: 'dist/<%= distdir %>/addons/bootstrap/jquery.smartmenus.bootstrap.css' },
-          { expand: true, cwd: 'src/', src: ['css/**', 'demo/**', 'libs/**'], dest: 'dist/<%= distdir %>/' }
-        ]
-      }
-    },
+    clean: ['zip/*', 'dist/*'],
     concat: {
       dist: {
         options: {
@@ -69,7 +60,7 @@ module.exports = function(grunt) {
           stripBanners: true
         },
         src: ['src/jquery.<%= pkg.name %>.js'],
-        dest: 'dist/<%= distdir %>/jquery.<%= pkg.name %>.js'
+        dest: 'zip/<%= distdir %>/jquery.<%= pkg.name %>.js'
       },
       dist_keyboard_addon: {
         options: {
@@ -77,7 +68,7 @@ module.exports = function(grunt) {
           stripBanners: true
         },
         src: ['src/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js'],
-        dest: 'dist/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js'
+        dest: 'zip/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js'
       },
       dist_bootstrap_addon: {
         options: {
@@ -85,7 +76,7 @@ module.exports = function(grunt) {
           stripBanners: true
         },
         src: ['src/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.js'],
-        dest: 'dist/<%= distdir %>/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.js'
+        dest: 'zip/<%= distdir %>/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.js'
       }
     },
     uglify: {
@@ -93,44 +84,60 @@ module.exports = function(grunt) {
         options: {
           banner: '<%= banner_min %>'
         },
-        src: 'dist/<%= distdir %>/jquery.<%= pkg.name %>.js',
-        dest: 'dist/<%= distdir %>/jquery.<%= pkg.name %>.min.js'
+        src: 'zip/<%= distdir %>/jquery.<%= pkg.name %>.js',
+        dest: 'zip/<%= distdir %>/jquery.<%= pkg.name %>.min.js'
       },
       dist_keyboard_addon: {
         options: {
           banner: '<%= banner_keyboard_addon_min %>'
         },
-        src: 'dist/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js',
-        dest: 'dist/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.min.js'
+        src: 'zip/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.js',
+        dest: 'zip/<%= distdir %>/addons/keyboard/jquery.<%= pkg.name %>.keyboard.min.js'
       },
       dist_bootstrap_addon: {
         options: {
           banner: '<%= banner_bootstrap_addon_min %>'
         },
-        src: 'dist/<%= distdir %>/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.js',
-        dest: 'dist/<%= distdir %>/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.min.js'
+        src: 'zip/<%= distdir %>/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.js',
+        dest: 'zip/<%= distdir %>/addons/bootstrap/jquery.<%= pkg.name %>.bootstrap.min.js'
+      }
+    },
+    copy: {
+      main: {
+        files: [
+          // copy stuff to zip/
+          { src: ['LICENSE-MIT', 'README.md'], dest: 'zip/<%= distdir %>/' },
+          { src: ['src/addons/bootstrap/jquery.smartmenus.bootstrap.css'], dest: 'zip/<%= distdir %>/addons/bootstrap/jquery.smartmenus.bootstrap.css' },
+          { expand: true, cwd: 'src/', src: ['css/**', 'demo/**', 'libs/**'], dest: 'zip/<%= distdir %>/' },
+          // copy stuff to dist/
+          { src: ['zip/<%= distdir %>/jquery.smartmenus.js'], dest: 'dist/jquery.smartmenus.js' },
+          { src: ['zip/<%= distdir %>/jquery.smartmenus.min.js'], dest: 'dist/jquery.smartmenus.min.js' },
+          { src: ['src/addons/bootstrap/jquery.smartmenus.bootstrap.css'], dest: 'dist/addons/bootstrap/jquery.smartmenus.bootstrap.css' },
+          { expand: true, cwd: 'src/', src: ['css/**'], dest: 'dist/' },
+          { expand: true, cwd: 'zip/<%= distdir %>/', src: ['addons/**'], dest: 'dist/' }
+        ]
       }
     },
     zip: {
       dist: {
         router: function (filepath) {
-          // remove "dist/" from filepath
-          return filepath.replace(/^dist\//, '');
+          // remove "zip/" from filepath
+          return filepath.replace(/^zip\//, '');
         },
-        src: ['dist/<%= distdir %>/**'],
-        dest: 'dist/<%= distdir %>.zip'
+        src: ['zip/<%= distdir %>/**'],
+        dest: 'zip/<%= distdir %>.zip'
       }
     }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-zip');
 
   // Default task.
-  grunt.registerTask('default', ['clean', 'copy', 'concat', 'uglify', 'zip']);
+  grunt.registerTask('default', ['clean', 'concat', 'uglify', 'copy', 'zip']);
 
 };
