@@ -299,10 +299,6 @@
 		border-top:6px dashed transparent !important;
 		border-bottom:6px dashed transparent !important;
 	}
-	/* Hide sub indicator when item is expanded - we enable the item link when it's expanded */
-	.sm-mint a.highlighted span.sub-arrow {
-		display:none !important;
-	}
 
 
 
