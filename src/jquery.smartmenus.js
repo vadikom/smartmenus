@@ -30,7 +30,7 @@
 					if (lastMove) {
 						var deltaX = Math.abs(lastMove.x - thisMove.x),
 							deltaY = Math.abs(lastMove.y - thisMove.y);
-	 					if ((deltaX > 0 || deltaY > 0) && deltaX <= 2 && deltaY <= 2 && thisMove.timeStamp - lastMove.timeStamp <= 300) {
+						if ((deltaX > 0 || deltaY > 0) && deltaX <= 2 && deltaY <= 2 && thisMove.timeStamp - lastMove.timeStamp <= 300) {
 							mouse = true;
 							// if this is the first check after page load, check if we are not over some item by chance and call the mouseenter handler if yes
 							if (firstTime) {
@@ -403,6 +403,14 @@
 				var $li = $a.parent(),
 					$ul = $li.parent(),
 					level = $ul.dataSM('level');
+
+				// show the expanded indicator of the newly active item
+				if (this.opts.subIndicators) {
+					if (this.opts.subIndicatorsExpandedText) {
+					$a.find('.' + this.$subArrow.attr('class')).html(this.opts.subIndicatorsExpandedText);
+					}
+				}
+
 				// if for some reason the parent item is not activated (e.g. this is an API call to activate the item), activate all parent items first
 				if (level > 1 && (!this.activatedItems[level - 2] || this.activatedItems[level - 2][0] != $ul.dataSM('parent-a')[0])) {
 					var self = this;
@@ -453,6 +461,7 @@
 					if ($a.dataSM('href')) {
 						$a.attr('href', $a.dataSM('href')).removeDataSM('href');
 					}
+					
 					// if the sub is not visible
 					if ($sub && (!$sub.dataSM('shown-before') || !$sub.is(':visible'))) {
 						// try to activate the item and show the sub
@@ -462,6 +471,15 @@
 						if ($sub.is(':visible')) {
 							return false;
 						}
+					}
+
+					var $originalClickedElement = $(e.originalEvent.toElement);
+
+					// if the sub is visible and the click was on the subindicator (or collapse) indicator
+					if ($sub && ($sub.dataSM('shown-before') || $sub.is(':visible')) && $originalClickedElement.hasClass('sub-arrow'))  {
+						// deactivate
+					    this.menuHide($sub);
+					    return false;
 					}
 				} else if (this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 && $sub) {
 					this.clickActivated = true;
@@ -579,6 +597,14 @@
 					}
 					// unhighlight parent item
 					$sub.dataSM('parent-a').removeClass('highlighted');
+
+					// change the parent items indicator back to a collapsed sub-menu indicator
+					if (this.opts.subIndicators) {
+						if (this.opts.subIndicatorsExpandedText) {
+							$sub.dataSM('parent-a').find('.' + this.$subArrow.attr('class')).html(this.opts.subIndicatorsText);
+						}
+					}
+
 					var level = $sub.dataSM('level');
 					this.activatedItems.splice(level - 1, 1);
 					this.visibleSubMenus.splice(level - 1, 1);
@@ -912,11 +938,11 @@
 					if (this.opts.subMenusMinWidth || this.opts.subMenusMaxWidth) {
 						$sub.css({ width: 'auto', minWidth: '', maxWidth: '' }).addClass('sm-nowrap');
 						if (this.opts.subMenusMinWidth) {
-						 	$sub.css('min-width', this.opts.subMenusMinWidth);
+							$sub.css('min-width', this.opts.subMenusMinWidth);
 						}
 						if (this.opts.subMenusMaxWidth) {
-						 	var noMaxWidth = this.getWidth($sub);
-						 	$sub.css('max-width', this.opts.subMenusMaxWidth);
+							var noMaxWidth = this.getWidth($sub);
+							$sub.css('max-width', this.opts.subMenusMaxWidth);
 							if (noMaxWidth > this.getWidth($sub)) {
 								$sub.removeClass('sm-nowrap').css('width', this.opts.subMenusMaxWidth);
 							}
@@ -1044,7 +1070,7 @@
 					// we still need to resize the disable overlay if it's visible
 					if (this.$disableOverlay) {
 						var pos = this.$root.offset();
-	 					this.$disableOverlay.css({
+						this.$disableOverlay.css({
 							top: pos.top,
 							left: pos.left,
 							width: this.$root.outerWidth(),
@@ -1095,34 +1121,35 @@
 
 	// default settings
 	$.fn.smartmenus.defaults = {
-		isPopup:		false,		// is this a popup menu (can be shown via the popupShow/popupHide methods) or a permanent menu bar
-		mainMenuSubOffsetX:	0,		// pixels offset from default position
-		mainMenuSubOffsetY:	0,		// pixels offset from default position
-		subMenusSubOffsetX:	0,		// pixels offset from default position
-		subMenusSubOffsetY:	0,		// pixels offset from default position
-		subMenusMinWidth:	'10em',		// min-width for the sub menus (any CSS unit) - if set, the fixed width set in CSS will be ignored
-		subMenusMaxWidth:	'20em',		// max-width for the sub menus (any CSS unit) - if set, the fixed width set in CSS will be ignored
-		subIndicators: 		true,		// create sub menu indicators - creates a SPAN and inserts it in the A
-		subIndicatorsPos: 	'prepend',	// position of the SPAN relative to the menu item content ('prepend', 'append')
-		subIndicatorsText:	'+',		// [optionally] add text in the SPAN (e.g. '+') (you may want to check the CSS for the sub indicators too)
-		scrollStep: 		30,		// pixels step when scrolling long sub menus that do not fit in the viewport height
-		scrollInterval:		30,		// interval between each scrolling step
-		scrollAccelerate:	true,		// accelerate scrolling or use a fixed step
-		showTimeout:		250,		// timeout before showing the sub menus
-		hideTimeout:		500,		// timeout before hiding the sub menus
-		showDuration:		0,		// duration for show animation - set to 0 for no animation - matters only if showFunction:null
-		showFunction:		null,		// custom function to use when showing a sub menu (the default is the jQuery 'show')
+		isPopup:			false,		// is this a popup menu (can be shown via the popupShow/popupHide methods) or a permanent menu bar
+		mainMenuSubOffsetX:		0,		// pixels offset from default position
+		mainMenuSubOffsetY:		0,		// pixels offset from default position
+		subMenusSubOffsetX:		0,		// pixels offset from default position
+		subMenusSubOffsetY:		0,		// pixels offset from default position
+		subMenusMinWidth:		'10em',		// min-width for the sub menus (any CSS unit) - if set, the fixed width set in CSS will be ignored
+		subMenusMaxWidth:		'20em',		// max-width for the sub menus (any CSS unit) - if set, the fixed width set in CSS will be ignored
+		subIndicators: 			true,		// create sub menu indicators - creates a SPAN and inserts it in the A
+		subIndicatorsPos: 		'prepend',	// position of the SPAN relative to the menu item content ('prepend', 'append')
+		subIndicatorsText:		'+',		// [optionally] add text in the SPAN (e.g. '+') (you may want to check the CSS for the sub indicators too)
+		subIndicatorsExpandedText:	'-',		// [optionally] add text in the SPAN (e.g. '+') (you may want to check the CSS for the sub indicators too)
+		scrollStep: 			30,		// pixels step when scrolling long sub menus that do not fit in the viewport height
+		scrollInterval:			30,		// interval between each scrolling step
+		scrollAccelerate:		true,		// accelerate scrolling or use a fixed step
+		showTimeout:			250,		// timeout before showing the sub menus
+		hideTimeout:			500,		// timeout before hiding the sub menus
+		showDuration:			0,		// duration for show animation - set to 0 for no animation - matters only if showFunction:null
+		showFunction:			null,		// custom function to use when showing a sub menu (the default is the jQuery 'show')
 							// don't forget to call complete() at the end of whatever you do
 							// e.g.: function($ul, complete) { $ul.fadeIn(250, complete); }
-		hideDuration:		0,		// duration for hide animation - set to 0 for no animation - matters only if hideFunction:null
-		hideFunction:		function($ul, complete) { $ul.fadeOut(200, complete); },	// custom function to use when hiding a sub menu (the default is the jQuery 'hide')
+		hideDuration:			0,		// duration for hide animation - set to 0 for no animation - matters only if hideFunction:null
+		hideFunction:			function($ul, complete) { $ul.fadeOut(200, complete); },	// custom function to use when hiding a sub menu (the default is the jQuery 'hide')
 							// don't forget to call complete() at the end of whatever you do
 							// e.g.: function($ul, complete) { $ul.fadeOut(250, complete); }
-		collapsibleShowDuration:0,		// duration for show animation for collapsible sub menus - matters only if collapsibleShowFunction:null
-		collapsibleShowFunction:function($ul, complete) { $ul.slideDown(200, complete); },	// custom function to use when showing a collapsible sub menu
+		collapsibleShowDuration:	0,		// duration for show animation for collapsible sub menus - matters only if collapsibleShowFunction:null
+		collapsibleShowFunction:	function($ul, complete) { $ul.slideDown(200, complete); },	// custom function to use when showing a collapsible sub menu
 							// (i.e. when mobile styles are used to make the sub menus collapsible)
-		collapsibleHideDuration:0,		// duration for hide animation for collapsible sub menus - matters only if collapsibleHideFunction:null
-		collapsibleHideFunction:function($ul, complete) { $ul.slideUp(200, complete); },	// custom function to use when hiding a collapsible sub menu
+		collapsibleHideDuration:	0,		// duration for hide animation for collapsible sub menus - matters only if collapsibleHideFunction:null
+		collapsibleHideFunction:	function($ul, complete) { $ul.slideUp(200, complete); },	// custom function to use when hiding a collapsible sub menu
 							// (i.e. when mobile styles are used to make the sub menus collapsible)
 		showOnClick:		false,		// show the first-level sub menus onclick instead of onmouseover (matters only for mouse input)
 		hideOnClick:		true,		// hide the sub menus on click/tap anywhere on the page

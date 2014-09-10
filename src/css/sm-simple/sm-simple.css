@@ -198,10 +198,6 @@
 		right:auto;
 		margin-left:-14px;
 	}
-	/* Hide sub indicator when item is expanded - we enable the item link when it's expanded */
-	.sm-simple a.highlighted span.sub-arrow {
-		display:none !important;
-	}
 
 
 /* Items separators
