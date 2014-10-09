@@ -1,5 +1,5 @@
 /*!
- * SmartMenus jQuery Plugin - v0.9.7 - August 25, 2014
+ * SmartMenus jQuery Plugin - v0.9.7 - October 9, 2014
  * http://www.smartmenus.org/
  *
  * Copyright 2014 Vasil Dinkov, Vadikom Web Ltd.
@@ -486,13 +486,15 @@
 				if (!this.handleItemEvents($a)) {
 					return;
 				}
-				if (!this.isTouchMode()) {
+				if (!this.isTouchMode() && (!this.opts.showOnClick || $a.parent().parent().dataSM('level') > 1)) {
 					if (this.showTimeout) {
 						clearTimeout(this.showTimeout);
 						this.showTimeout = 0;
 					}
 					var self = this;
-					this.showTimeout = setTimeout(function() { self.itemActivate($a); }, this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 ? 1 : this.opts.showTimeout);
+					this.showTimeout = setTimeout(function() {
+						self.itemActivate($a);
+					}, this.opts.showTimeout);
 				}
 				this.$root.triggerHandler('mouseenter.smapi', $a[0]);
 			},
