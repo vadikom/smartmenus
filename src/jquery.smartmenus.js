@@ -1026,7 +1026,7 @@
 					clearTimeout(this.hideTimeout);
 					this.hideTimeout = 0;
 				}
-				if (!this.opts.showOnClick || !this.opts.hideOnClick) {
+				if (!this.opts.hideOnClickOut && (!this.opts.showOnClick || !this.opts.hideOnClick) ) {
 					var self = this;
 					this.hideTimeout = setTimeout(function() { self.menuHideAll(); }, this.opts.hideTimeout);
 				}
@@ -1133,7 +1133,8 @@
 		markCurrentTree:	true,		// add the 'current' class also to the A elements of all ancestor items of the current item
 		rightToLeftSubMenus:	false,		// right to left display of the sub menus (check the CSS for the sub indicators' position)
 		bottomToTopSubMenus:	false,		// bottom to top display of the sub menus
-		overlapControlsInIE:	true		// make sure sub menus appear on top of special OS controls in IE (i.e. SELECT, OBJECT, EMBED, etc.)
+		overlapControlsInIE:	true,		// make sure sub menus appear on top of special OS controls in IE (i.e. SELECT, OBJECT, EMBED, etc.)
+		hideOnClickOut:	true,		//hide menu only clicking outside its area 
 	};
 
 })(jQuery);
