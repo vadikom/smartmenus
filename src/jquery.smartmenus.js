@@ -1,4 +1,14 @@
 /*!
+ * SmartMenus jQuery Plugin - v0.9.7 - March 18, 2015
+ * http://www.smartmenus.org/
+ *
+ * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
+ * http://vadikom.com
+ *
+ * Licensed MIT
+ */
+
+/*!
  * SmartMenus jQuery Plugin - v0.9.7 - August 25, 2014
  * http://www.smartmenus.org/
  *
@@ -547,7 +557,7 @@
 					return;
 				}
 				$sub.stop(true, true);
-				if ($sub.is(':visible')) {
+
 					var complete = function() {
 						// unset z-index
 						$sub.css('z-index', '');
@@ -582,7 +592,7 @@
 					this.activatedItems.splice(level - 1, 1);
 					this.visibleSubMenus.splice(level - 1, 1);
 					this.$root.triggerHandler('hide.smapi', $sub[0]);
-				}
+
 			},
 			menuHideAll: function() {
 				if (this.showTimeout) {
@@ -594,18 +604,18 @@
 				// hide root if it's popup
 				if (this.opts.isPopup) {
 					this.$root.stop(true, true);
-					if (this.$root.is(':visible')) {
-						if (this.opts.hideFunction) {
-							this.opts.hideFunction.call(this, this.$root);
-						} else {
-							this.$root.hide(this.opts.hideDuration);
-						}
-						this.$root.triggerHandler('menuHidden.smapi');
-						// remove IE iframe shim
-						if (this.$root.dataSM('ie-shim')) {
-							this.$root.dataSM('ie-shim').remove();
-						}
+
+					if (this.opts.hideFunction) {
+						this.opts.hideFunction.call(this, this.$root);
+					} else {
+						this.$root.hide(this.opts.hideDuration);
 					}
+					this.$root.triggerHandler('menuHidden.smapi');
+					// remove IE iframe shim
+					if (this.$root.dataSM('ie-shim')) {
+						this.$root.dataSM('ie-shim').remove();
+					}
+
 				}
 				this.activatedItems = [];
 				this.visibleSubMenus = [];
@@ -1134,7 +1144,7 @@
 		rightToLeftSubMenus:	false,		// right to left display of the sub menus (check the CSS for the sub indicators' position)
 		bottomToTopSubMenus:	false,		// bottom to top display of the sub menus
 		overlapControlsInIE:	true,		// make sure sub menus appear on top of special OS controls in IE (i.e. SELECT, OBJECT, EMBED, etc.)
-		hideOnClickOut:	true,		//hide menu only clicking outside its area 
+		hideOnClickOut:	true,		//hide menu only clicking outside its area
 	};
 
 })(jQuery);
