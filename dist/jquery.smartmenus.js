@@ -1,5 +1,5 @@
 /*!
- * SmartMenus jQuery Plugin - v0.9.7 - March 17, 2015
+ * SmartMenus jQuery Plugin - v0.9.7 - March 18, 2015
  * http://www.smartmenus.org/
  *
  * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
