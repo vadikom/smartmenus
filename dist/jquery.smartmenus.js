@@ -1,4 +1,34 @@
 /*!
+ * SmartMenus jQuery Plugin - v0.9.7 - March 18, 2015
+ * http://www.smartmenus.org/
+ *
+ * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
+ * http://vadikom.com
+ *
+ * Licensed MIT
+ */
+
+/*!
+ * SmartMenus jQuery Plugin - v0.9.7 - March 18, 2015
+ * http://www.smartmenus.org/
+ *
+ * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
+ * http://vadikom.com
+ *
+ * Licensed MIT
+ */
+
+/*!
+ * SmartMenus jQuery Plugin - v0.9.7 - March 18, 2015
+ * http://www.smartmenus.org/
+ *
+ * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
+ * http://vadikom.com
+ *
+ * Licensed MIT
+ */
+
+/*!
  * SmartMenus jQuery Plugin - v0.9.7 - August 25, 2014
  * http://www.smartmenus.org/
  *
@@ -486,14 +516,13 @@
 				if (!this.handleItemEvents($a)) {
 					return;
 				}
-				if (!this.isTouchMode()) {
-					if (this.showTimeout) {
-						clearTimeout(this.showTimeout);
-						this.showTimeout = 0;
-					}
-					var self = this;
-					this.showTimeout = setTimeout(function() { self.itemActivate($a); }, this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 ? 1 : this.opts.showTimeout);
+				if (this.showTimeout) {
+					clearTimeout(this.showTimeout);
+					this.showTimeout = 0;
 				}
+				var self = this;
+				this.showTimeout = setTimeout(function() { self.itemActivate($a); }, this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 ? 1 : this.opts.showTimeout);
+
 				this.$root.triggerHandler('mouseenter.smapi', $a[0]);
 			},
 			itemFocus: function(e) {
@@ -502,7 +531,7 @@
 					return;
 				}
 				// fix (the mousedown check): in some browsers a tap/click produces consecutive focus + click events so we don't need to activate the item on focus
-				if ((!this.isTouchMode() || !$a.dataSM('mousedown')) && (!this.activatedItems.length || this.activatedItems[this.activatedItems.length - 1][0] != $a[0])) {
+				if ( !$a.dataSM('mousedown') && (!this.activatedItems.length || this.activatedItems[this.activatedItems.length - 1][0] != $a[0])) {
 					this.itemActivate($a);
 				}
 				this.$root.triggerHandler('focus.smapi', $a[0]);
@@ -547,7 +576,7 @@
 					return;
 				}
 				$sub.stop(true, true);
-				if ($sub.is(':visible')) {
+
 					var complete = function() {
 						// unset z-index
 						$sub.css('z-index', '');
@@ -582,7 +611,7 @@
 					this.activatedItems.splice(level - 1, 1);
 					this.visibleSubMenus.splice(level - 1, 1);
 					this.$root.triggerHandler('hide.smapi', $sub[0]);
-				}
+
 			},
 			menuHideAll: function() {
 				if (this.showTimeout) {
@@ -594,17 +623,18 @@
 				// hide root if it's popup
 				if (this.opts.isPopup) {
 					this.$root.stop(true, true);
-					if (this.$root.is(':visible')) {
-						if (this.opts.hideFunction) {
-							this.opts.hideFunction.call(this, this.$root);
-						} else {
-							this.$root.hide(this.opts.hideDuration);
-						}
-						// remove IE iframe shim
-						if (this.$root.dataSM('ie-shim')) {
-							this.$root.dataSM('ie-shim').remove();
-						}
+
+					if (this.opts.hideFunction) {
+						this.opts.hideFunction.call(this, this.$root);
+					} else {
+						this.$root.hide(this.opts.hideDuration);
 					}
+					this.$root.triggerHandler('menuHidden.smapi');
+					// remove IE iframe shim
+					if (this.$root.dataSM('ie-shim')) {
+						this.$root.dataSM('ie-shim').remove();
+					}
+
 				}
 				this.activatedItems = [];
 				this.visibleSubMenus = [];
@@ -981,6 +1011,7 @@
 					var self = this,
 						complete = function() {
 							self.$root.css('overflow', '');
+							self.$root.triggerHandler('menuShown.smapi');
 						};
 					if (this.opts.showFunction) {
 						this.opts.showFunction.call(this, this.$root, complete);
@@ -1024,7 +1055,7 @@
 					clearTimeout(this.hideTimeout);
 					this.hideTimeout = 0;
 				}
-				if (!this.opts.showOnClick || !this.opts.hideOnClick) {
+				if (!this.opts.hideOnClickOut && (!this.opts.showOnClick || !this.opts.hideOnClick) ) {
 					var self = this;
 					this.hideTimeout = setTimeout(function() { self.menuHideAll(); }, this.opts.hideTimeout);
 				}
@@ -1131,7 +1162,8 @@
 		markCurrentTree:	true,		// add the 'current' class also to the A elements of all ancestor items of the current item
 		rightToLeftSubMenus:	false,		// right to left display of the sub menus (check the CSS for the sub indicators' position)
 		bottomToTopSubMenus:	false,		// bottom to top display of the sub menus
-		overlapControlsInIE:	true		// make sure sub menus appear on top of special OS controls in IE (i.e. SELECT, OBJECT, EMBED, etc.)
+		overlapControlsInIE:	true,		// make sure sub menus appear on top of special OS controls in IE (i.e. SELECT, OBJECT, EMBED, etc.)
+		hideOnClickOut:	true,		//hide menu only clicking outside its area
 	};
 
 })(jQuery);
