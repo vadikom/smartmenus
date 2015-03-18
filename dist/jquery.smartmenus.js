@@ -19,6 +19,16 @@
  */
 
 /*!
+ * SmartMenus jQuery Plugin - v0.9.7 - March 18, 2015
+ * http://www.smartmenus.org/
+ *
+ * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
+ * http://vadikom.com
+ *
+ * Licensed MIT
+ */
+
+/*!
  * SmartMenus jQuery Plugin - v0.9.7 - August 25, 2014
  * http://www.smartmenus.org/
  *
@@ -506,14 +516,13 @@
 				if (!this.handleItemEvents($a)) {
 					return;
 				}
-				if (!this.isTouchMode()) {
-					if (this.showTimeout) {
-						clearTimeout(this.showTimeout);
-						this.showTimeout = 0;
-					}
-					var self = this;
-					this.showTimeout = setTimeout(function() { self.itemActivate($a); }, this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 ? 1 : this.opts.showTimeout);
+				if (this.showTimeout) {
+					clearTimeout(this.showTimeout);
+					this.showTimeout = 0;
 				}
+				var self = this;
+				this.showTimeout = setTimeout(function() { self.itemActivate($a); }, this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 ? 1 : this.opts.showTimeout);
+
 				this.$root.triggerHandler('mouseenter.smapi', $a[0]);
 			},
 			itemFocus: function(e) {
@@ -522,7 +531,7 @@
 					return;
 				}
 				// fix (the mousedown check): in some browsers a tap/click produces consecutive focus + click events so we don't need to activate the item on focus
-				if ((!this.isTouchMode() || !$a.dataSM('mousedown')) && (!this.activatedItems.length || this.activatedItems[this.activatedItems.length - 1][0] != $a[0])) {
+				if ( !$a.dataSM('mousedown') && (!this.activatedItems.length || this.activatedItems[this.activatedItems.length - 1][0] != $a[0])) {
 					this.itemActivate($a);
 				}
 				this.$root.triggerHandler('focus.smapi', $a[0]);
