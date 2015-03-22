@@ -400,6 +400,10 @@
 				return !mouse || this.isCollapsible();
 			},
 			itemActivate: function($a) {
+				// if the item is disabled, don't do anything
+				if ($a.hasClass('sm-disabled')) {
+					return;
+				}
 				var $li = $a.parent(),
 					$ul = $li.parent(),
 					level = $ul.dataSM('level');
@@ -444,6 +448,10 @@
 					return;
 				}
 				$a.removeDataSM('mousedown');
+				// if the item is disabled, don't do anything
+				if ($a.hasClass('sm-disabled')) {
+					return false;
+				}
 				if (this.$root.triggerHandler('click.smapi', $a[0]) === false) {
 					return false;
 				}
@@ -466,9 +474,6 @@
 				} else if (this.opts.showOnClick && $a.parent().parent().dataSM('level') == 1 && $sub) {
 					this.clickActivated = true;
 					this.menuShow($sub);
-					return false;
-				}
-				if ($a.hasClass('disabled')) {
 					return false;
 				}
 				if (this.$root.triggerHandler('select.smapi', $a[0]) === false) {
