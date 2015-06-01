@@ -18,8 +18,8 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 
@@ -51,7 +51,7 @@
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
-              <li><a href="#">Dropdown</a>
+              <li><a href="#">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
                   <li><a href="#">Another action</a></li>
@@ -59,11 +59,11 @@
                   <li class="divider"></li>
                   <li class="dropdown-header">Nav header</li>
                   <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a>
+                  <li><a href="#">One more separated link <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="#">Action</a></li>
                       <li><a href="#">Another action</a></li>
-                      <li><a href="#">A long sub menu</a>
+                      <li><a href="#">A long sub menu <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                           <li><a href="#">Action</a></li>
                           <li><a href="#">Something else here</a></li>
@@ -145,14 +145,14 @@
               <li><a href="bootstrap-navbar-static-top.html">Static top</a></li>
               <li class="active"><a href="bootstrap-navbar-fixed-top.html">Fixed top</a></li>
               <li><a href="bootstrap-navbar-fixed-bottom.html">Fixed bottom</a></li>
-              <li><a href="#">Dropdown</a>
+              <li><a href="#">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
                   <li><a href="#">Another action</a></li>
                   <li><a href="#">Something else here</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">A sub menu</a>
+                  <li><a href="#">A sub menu <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="#">Action</a></li>
                       <li><a href="#">Another action</a></li>
@@ -193,7 +193,7 @@
 &lt;link href="../addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet"></span></pre>
 
       <h3>HTML</h3>
-      <p>A sample multi-level dropdown navbar with left and right aligned navs.</p>
+      <p><em>Note that the syntax is slightly different from Bootstrap's default code - e.g. no <code>data-toggle="dropdown"</code> attributes are used, etc.</em></p>
       <pre>&lt;!-- Static navbar -->
 &lt;div class="navbar navbar-default navbar-fixed-top" role="navigation">
   &lt;div class="navbar-header">
@@ -212,7 +212,7 @@
       &lt;li>&lt;a href="#">Link&lt;/a>&lt;/li>
       &lt;li>&lt;a href="#">Link&lt;/a>&lt;/li>
       &lt;li>&lt;a href="#">Link&lt;/a>&lt;/li>
-      &lt;li>&lt;a href="#">Dropdown&lt;/a>
+      &lt;li>&lt;a href="#">Dropdown &lt;span class="caret">&lt;/span>&lt;/a>
         &lt;ul class="dropdown-menu">
           &lt;li>&lt;a href="#">Action&lt;/a>&lt;/li>
           &lt;li>&lt;a href="#">Another action&lt;/a>&lt;/li>
@@ -220,11 +220,11 @@
           &lt;li class="divider">&lt;/li>
           &lt;li class="dropdown-header">Nav header&lt;/li>
           &lt;li>&lt;a href="#">Separated link&lt;/a>&lt;/li>
-          &lt;li>&lt;a href="#">One more separated link&lt;/a>
+          &lt;li>&lt;a href="#">One more separated link &lt;span class="caret">&lt;/span>&lt;/a>
             &lt;ul class="dropdown-menu">
               &lt;li>&lt;a href="#">Action&lt;/a>&lt;/li>
               &lt;li>&lt;a href="#">Another action&lt;/a>&lt;/li>
-              &lt;li>&lt;a href="#">A long sub menu&lt;/a>
+              &lt;li>&lt;a href="#">A long sub menu &lt;span class="caret">&lt;/span>&lt;/a>
                 &lt;ul class="dropdown-menu">
                   &lt;li>&lt;a href="#">Action&lt;/a>&lt;/li>
                   &lt;li>&lt;a href="#">Something else here&lt;/a>&lt;/li>
@@ -306,14 +306,14 @@
       &lt;li>&lt;a href="bootstrap-navbar-static-top.html">Static top&lt;/a>&lt;/li>
       &lt;li class="active">&lt;a href="bootstrap-navbar-fixed-top.html">Fixed top&lt;/a>&lt;/li>
       &lt;li>&lt;a href="bootstrap-navbar-fixed-bottom.html">Fixed bottom&lt;/a>&lt;/li>
-      &lt;li>&lt;a href="#">Dropdown&lt;/a>
+      &lt;li>&lt;a href="#">Dropdown &lt;span class="caret">&lt;/span>&lt;/a>
         &lt;ul class="dropdown-menu">
           &lt;li>&lt;a href="#">Action&lt;/a>&lt;/li>
           &lt;li>&lt;a href="#">Another action&lt;/a>&lt;/li>
           &lt;li>&lt;a href="#">Something else here&lt;/a>&lt;/li>
           &lt;li class="divider">&lt;/li>
           &lt;li class="dropdown-header">Nav header&lt;/li>
-          &lt;li>&lt;a href="#">A sub menu&lt;/a>
+          &lt;li>&lt;a href="#">A sub menu &lt;span class="caret">&lt;/span>&lt;/a>
             &lt;ul class="dropdown-menu">
               &lt;li>&lt;a href="#">Action&lt;/a>&lt;/li>
               &lt;li>&lt;a href="#">Another action&lt;/a>&lt;/li>
@@ -335,7 +335,7 @@
       <pre>&lt;!-- Bootstrap core JavaScript
 ================================================== -->
 &lt;!-- Placed at the end of the document so the pages load faster -->
-&lt;script src="https://code.jquery.com/jquery-1.10.2.min.js">&lt;/script>
+&lt;script src="https://code.jquery.com/jquery-1.11.3.min.js">&lt;/script>
 &lt;script src="../libs/demo-assets/bootstrap/js/bootstrap.min.js">&lt;/script>
 
 <span style="color:#419641;">&lt;!-- SmartMenus jQuery plugin -->
@@ -343,6 +343,13 @@
 
 &lt;!-- SmartMenus jQuery Bootstrap Addon -->
 &lt;script type="text/javascript" src="../addons/bootstrap/jquery.smartmenus.bootstrap.js">&lt;/script></span></pre>
+
+      <h2>Quick customization</h2>
+      <p>The following <code>data-*</code> attributes that you can set to any <code>ul.navbar-nav</code> allow you to customise some core aspects of the SmartMenus Bootstrap Addon without tinkering with the JavaScript file:</p>
+      <ul>
+        <li><code>data-sm-skip</code> - this will tell the script to skip this navbar and not apply any SmartMenus features to it so it will behave like a regular Bootstrap navbar.</li>
+        <li><code>data-sm-skip-collapsible-behavior</code> - this will tell the script to not apply SmartMenus' specific behavior to this navbar in collapsible mode (mobile view). Bootstrap's behavior for navbars in collapsible mode is to use the whole area of the parent items just as a toggle button for their sub menus and thus it's impossible to set a link to the parent items that can be followed on click/tap. SmartMenus' behavior is to add a separate dedicated +/- sub menus toggle button to parent items and thus allows the link of the parent items to be activated on the second click/tap (the first click/tap displays the sub menu if it's not visible).</li>
+      </ul>
 
       <hr />
 
@@ -358,7 +365,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="../libs/demo-assets/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- SmartMenus jQuery plugin -->

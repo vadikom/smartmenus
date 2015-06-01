@@ -1,7 +1,7 @@
 {
   "name": "smartmenus",
-  "version": "0.9.7",
-  "description": "Advanced jQuery website menu plugin. Responsive and accessible list-based website menus that work on all devices.",
+  "version": "1.0.0-beta1",
+  "description": "Advanced jQuery website menu plugin. Mobile first, responsive and accessible list-based website menus that work on all devices.",
   "homepage": "http://www.smartmenus.org/",
   "main": [
     "dist/jquery.smartmenus.js"
@@ -14,6 +14,7 @@
     "navigation",
     "accessible",
     "responsive",
+    "mobile",
     "ui"
   ],
   "repository": {

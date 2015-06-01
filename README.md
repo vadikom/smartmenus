@@ -1,6 +1,6 @@
 # SmartMenus
 
-Advanced jQuery website menu plugin. Responsive and accessible list-based website menus that work on all devices.
+Advanced jQuery website menu plugin. Mobile first, responsive and accessible list-based website menus that work on all devices.
 Check out [the demo page](http://vadikom.github.io/smartmenus/src/demo/).
 
 ## Quick start
@@ -17,12 +17,12 @@ Check out the [project documentation](http://www.smartmenus.org/docs/) for quick
 
 ## Community and support
 
-- Visit the [Community forums](http://www.smartmenus.org/support/forums/) for free support.
+- Visit the [Community forums](http://www.smartmenus.org/forums/) for free support.
 - Read and subscribe to [the project blog](http://www.smartmenus.org/blog/).
 - Follow [@vadikom on Twitter](http://twitter.com/vadikom).
 
 ## Bugs and issues
 
-For bugs and issues only please. For support requests please use the [Community forums](http://www.smartmenus.org/support/forums/).
+For bugs and issues only please. For support requests please use the [Community forums](http://www.smartmenus.org/forums/).
 
 <https://github.com/vadikom/smartmenus/issues>

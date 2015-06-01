@@ -9,7 +9,7 @@
 
 
 <!-- jQuery -->
-<script type="text/javascript" src="../libs/jquery-loader.js"></script>
+<script type="text/javascript" src="../libs/jquery/jquery.js"></script>
 
 <!-- SmartMenus jQuery plugin -->
 <script type="text/javascript" src="../jquery.smartmenus.js"></script>
@@ -34,16 +34,24 @@
 <link href="../css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
 
 <!-- #main-menu config - instance specific stuff not covered in the theme -->
+<!-- Put this in an external stylesheet if you want the media query to work in IE8 (e.g. where the rest of your page styles are) -->
 <style type="text/css">
-	#main-menu {
-		position:relative;
-		z-index:9999;
-		width:auto;
-	}
-	#main-menu ul {
-		width:12em; /* fixed width only please - you can use the "subMenusMinWidth"/"subMenusMaxWidth" script options to override this if you like */
+	@media screen and (min-width: 768px) {
+		#main-menu {
+			position:relative;
+			z-index:9999;
+			width:auto;
+		}
+		#main-menu ul {
+			width:12em; /* fixed width only please - you can use the "subMenusMinWidth"/"subMenusMaxWidth" script options to override this if you like */
+		}
 	}
 </style>
+
+<!-- Respond.js for IE8 support of media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 
 
 
@@ -61,140 +69,142 @@
 
 
 
-<!-- Sample menu definition -->
-<ul id="main-menu" class="sm sm-blue">
-  <li><a href="http://www.smartmenus.org/">Home</a></li>
-  <li><a href="http://www.smartmenus.org/about/">About</a>
-    <ul>
-      <li><a href="http://www.smartmenus.org/about/introduction-to-smartmenus-jquery/">Introduction to SmartMenus jQuery</a></li>
-      <li><a href="http://www.smartmenus.org/about/themes/">Themes</a></li>
-      <li><a href="http://vadikom.com/about/#vasil-dinkov">The author</a></li>
-      <li><a href="http://www.smartmenus.org/about/vadikom/">The company</a>
-        <ul>
-          <li><a href="http://vadikom.com/about/">About Vadikom</a></li>
-          <li><a href="http://vadikom.com/projects/">Projects</a></li>
-          <li><a href="http://vadikom.com/services/">Services</a></li>
-          <li><a href="http://www.smartmenus.org/about/vadikom/privacy-policy/">Privacy policy</a></li>
-        </ul>
-      </li>
-      <li><a href="http://www.smartmenus.org/about/old-smartmenus-versions/">Old SmartMenus versions</a></li>
-    </ul>
-  </li>
-  <li><a href="http://www.smartmenus.org/download/">Download</a></li>
-  <li><a href="http://www.smartmenus.org/support/">Support</a>
-    <ul>
-      <li><a href="http://www.smartmenus.org/support/premium-support/">Premium support</a></li>
-      <li><a href="http://www.smartmenus.org/support/forums/">Forums</a></li>
-    </ul>
-  </li>
-  <li><a href="http://www.smartmenus.org/docs/">Docs</a></li>
-  <li><a href="#">Sub test</a>
-    <ul>
-      <li><a href="#">Dummy item</a></li>
-      <li><a href="#">Dummy item</a></li>
-      <li><a href="#" class="disabled">Disabled menu item</a></li>
-      <li><a href="#">Dummy item</a></li>
-      <li><a href="#">more...</a>
-        <ul>
-          <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">more...</a>
-            <ul>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#" class="current">A 'current' class item</a></li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">more...</a>
-                <ul>
-                  <li><a href="#">subMenusMinWidth</a></li>
-                  <li><a href="#">10em</a></li>
-                  <li><a href="#">forced.</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dummy item</a></li>
-              <li><a href="#">Dummy item</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-          <li><a href="#">Dummy item</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#">Mega menu</a>
-    <ul class="mega-menu">
-      <li>
-        <!-- The mega drop down contents -->
-        <div style="width:400px;max-width:100%;">
-          <div style="padding:5px 24px;">
-            <p>This is a mega drop down test. Just set the "mega-menu" class to the parent UL element to inform the SmartMenus script. It can contain <strong>any HTML</strong>.</p>
-            <p>Just style the contents as you like (you may need to reset some SmartMenus inherited styles - e.g. for lists, links, etc.)</p>
-	  </div>
-	</div>
-      </li>
-    </ul>
-  </li>
-</ul>
+<nav role="navigation">
+  <!-- Sample menu definition -->
+  <ul id="main-menu" class="sm sm-blue">
+    <li><a href="http://www.smartmenus.org/">Home</a></li>
+    <li><a href="http://www.smartmenus.org/about/">About</a>
+      <ul>
+        <li><a href="http://www.smartmenus.org/about/introduction-to-smartmenus-jquery/">Introduction to SmartMenus jQuery</a></li>
+        <li><a href="http://www.smartmenus.org/about/themes/">Themes</a></li>
+        <li><a href="http://vadikom.com/about/#vasil-dinkov">The author</a></li>
+        <li><a href="http://www.smartmenus.org/about/vadikom/">The company</a>
+          <ul>
+            <li><a href="http://vadikom.com/about/">About Vadikom</a></li>
+            <li><a href="http://vadikom.com/projects/">Projects</a></li>
+            <li><a href="http://vadikom.com/services/">Services</a></li>
+            <li><a href="http://www.smartmenus.org/about/vadikom/privacy-policy/">Privacy policy</a></li>
+          </ul>
+        </li>
+        <li><a href="http://www.smartmenus.org/about/old-smartmenus-versions/">Old SmartMenus versions</a></li>
+      </ul>
+    </li>
+    <li><a href="http://www.smartmenus.org/download/">Download</a></li>
+    <li><a href="http://www.smartmenus.org/support/">Support</a>
+      <ul>
+        <li><a href="http://www.smartmenus.org/support/premium-support/">Premium support</a></li>
+        <li><a href="http://www.smartmenus.org/support/forums/">Forums</a></li>
+      </ul>
+    </li>
+    <li><a href="http://www.smartmenus.org/docs/">Docs</a></li>
+    <li><a href="#">Sub test</a>
+      <ul>
+        <li><a href="#">Dummy item</a></li>
+        <li><a href="#">Dummy item</a></li>
+        <li><a href="#" class="disabled">Disabled menu item</a></li>
+        <li><a href="#">Dummy item</a></li>
+        <li><a href="#">more...</a>
+          <ul>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">more...</a>
+              <ul>
+                <li><a href="#">Dummy item</a></li>
+                <li><a href="#" class="current">A 'current' class item</a></li>
+                <li><a href="#">Dummy item</a></li>
+                <li><a href="#">more...</a>
+                  <ul>
+                    <li><a href="#">subMenusMinWidth</a></li>
+                    <li><a href="#">10em</a></li>
+                    <li><a href="#">forced.</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dummy item</a></li>
+                <li><a href="#">Dummy item</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+            <li><a href="#">Dummy item</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#">Mega menu</a>
+      <ul class="mega-menu">
+        <li>
+          <!-- The mega drop down contents -->
+          <div style="width:400px;max-width:100%;">
+            <div style="padding:5px 24px;">
+              <p>This is a mega drop down test. Just set the "mega-menu" class to the parent UL element to inform the SmartMenus script. It can contain <strong>any HTML</strong>.</p>
+              <p>Just style the contents as you like (you may need to reset some SmartMenus inherited styles - e.g. for lists, links, etc.)</p>
+  	  </div>
+  	</div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -213,7 +223,7 @@
    <ul>
     <li><a href="http://www.smartmenus.org/docs/">Getting started and API documentation</a></li>
     <li><a href="https://github.com/vadikom/smartmenus/issues">Bugs and issues</a></li>
-    <li><a href="http://www.smartmenus.org/support/forums/">Support forums</a></li>
+    <li><a href="http://www.smartmenus.org/forums/">Support forums</a></li>
    </ul>
    <h2>Examples</h2>
    <ul>
