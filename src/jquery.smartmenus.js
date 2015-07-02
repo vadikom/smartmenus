@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v1.0.0-beta1
+ * SmartMenus jQuery v1.0.0-beta1+
  * http://www.smartmenus.org/
  *
  * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
@@ -239,7 +239,7 @@
 							}
 							$this.css({ zIndex: '', top: '', left: '', marginLeft: '', marginTop: '', display: '' });
 						}
-						if ($this.attr('id').indexOf(self.accessIdPrefix) == 0) {
+						if (($this.attr('id') || '').indexOf(self.accessIdPrefix) == 0) {
 							$this.removeAttr('id');
 						}
 					})
@@ -726,7 +726,7 @@
 					winY = $win.scrollTop(),
 					winW = this.getViewportWidth(),
 					winH = this.getViewportHeight(),
-					horizontalParent = $ul.hasClass('sm') && !$ul.hasClass('sm-vertical'),
+					horizontalParent = level == 2 && !$ul.hasClass('sm-vertical'),
 					rightToLeft = this.opts.rightToLeftSubMenus && !$li.is('[data-sm-reverse]') || !this.opts.rightToLeftSubMenus && $li.is('[data-sm-reverse]'),
 					subOffsetX = level == 2 ? this.opts.mainMenuSubOffsetX : this.opts.subMenusSubOffsetX,
 					subOffsetY = level == 2 ? this.opts.mainMenuSubOffsetY : this.opts.subMenusSubOffsetY,
