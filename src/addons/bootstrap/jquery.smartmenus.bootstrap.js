@@ -14,7 +14,7 @@
 	$.extend($.SmartMenus.Bootstrap = {}, {
 		init: function() {
 			// init all navbars that don't have the "data-sm-skip" attribute set
-			var $navbars = $('ul.navbar-nav:not([data-sm-skip])');
+			var $navbars = $('ul.sm.navbar-nav:not([data-sm-skip])');
 			$navbars.each(function() {
 				var $this = $(this),
 					obj = $this.data('smartmenus');
