@@ -431,7 +431,7 @@
 				return $(this.getClosestMenu($a[0])).hasClass('mega-menu');
 			},
 			isTouchMode: function() {
-				return !mouse || this.isCollapsible();
+				return (!mouse || this.opts.noMouseOver) || this.isCollapsible();
 			},
 			itemActivate: function($a, focus) {
 				var $ul = $a.closest('ul'),
@@ -1215,6 +1215,7 @@
 		rightToLeftSubMenus:	false,		// right to left display of the sub menus (check the CSS for the sub indicators' position)
 		bottomToTopSubMenus:	false,		// bottom to top display of the sub menus
 		overlapControlsInIE:	true		// make sure sub menus appear on top of special OS controls in IE (i.e. SELECT, OBJECT, EMBED, etc.)
+		noMouseOver: false 					// set if th menu list will appear on mouse over event
 	};
 
 })(jQuery);
