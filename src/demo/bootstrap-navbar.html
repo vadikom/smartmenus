@@ -11,7 +11,7 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="../libs/demo-assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
     <link href="../addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet">
@@ -34,7 +34,7 @@
 
 
 
-      <!-- Static navbar -->
+      <!-- Navbar -->
       <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -184,14 +184,13 @@
       <h3>CSS</h3>
       <p>In addition to Bootstrap's CSS just include the SmartMenus jQuery Bootstrap Addon CSS. It's just static CSS code you don't need to edit at all (and probably shouldn't try to).</p>
       <pre>&lt;!-- Bootstrap core CSS -->
-&lt;link href="../libs/demo-assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+&lt;link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
 <span style="color:#419641;">&lt;!-- SmartMenus jQuery Bootstrap Addon CSS -->
 &lt;link href="../addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet"></span></pre>
 
       <h3>HTML</h3>
-      <p><em>Note that the syntax is slightly different from Bootstrap's default code - e.g. no <code>data-toggle="dropdown"</code> attributes are used, etc.</em></p>
-      <pre>&lt;!-- Static navbar -->
+      <pre>&lt;!-- Navbar -->
 &lt;div class="navbar navbar-default" role="navigation">
   &lt;div class="navbar-header">
     &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -333,7 +332,7 @@
 ================================================== -->
 &lt;!-- Placed at the end of the document so the pages load faster -->
 &lt;script src="https://code.jquery.com/jquery-1.11.3.min.js">&lt;/script>
-&lt;script src="../libs/demo-assets/bootstrap/js/bootstrap.min.js">&lt;/script>
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">&lt;/script>
 
 <span style="color:#419641;">&lt;!-- SmartMenus jQuery plugin -->
 &lt;script type="text/javascript" src="../jquery.smartmenus.js">&lt;/script>
@@ -342,10 +341,18 @@
 &lt;script type="text/javascript" src="../addons/bootstrap/jquery.smartmenus.bootstrap.js">&lt;/script></span></pre>
 
       <h2>Quick customization</h2>
-      <p>The following <code>data-*</code> attributes that you can set to any <code>ul.navbar-nav</code> allow you to customise some core aspects of the SmartMenus Bootstrap Addon without tinkering with the JavaScript file:</p>
+
+      <h3><code>data-*</code> attributes</h3>
+      <p>The following <code>data-*</code> attributes can be set to any <code>ul.navbar-nav</code>:</p>
       <ul>
         <li><code>data-sm-skip</code> - this will tell the script to skip this navbar and not apply any SmartMenus features to it so it will behave like a regular Bootstrap navbar.</li>
         <li><code>data-sm-skip-collapsible-behavior</code> - this will tell the script to not apply SmartMenus' specific behavior to this navbar in collapsible mode (mobile view). Bootstrap's behavior for navbars in collapsible mode is to use the whole area of the parent items just as a toggle button for their sub menus and thus it's impossible to set a link to the parent items that can be followed on click/tap. SmartMenus' behavior is to add a separate dedicated +/- sub menus toggle button to parent items and thus allows the link of the parent items to be activated on the second click/tap (the first click/tap displays the sub menu if it's not visible).</li>
+      </ul>
+
+      <h3>API</h3>
+      <p>The following methods are available:</p>
+      <ul>
+        <li><code>jQuery.SmartMenus.Bootstrap.init()</code> - reinit the addon. Useful if you add any navbars dynamically on your page and need to init them (all navbars are normally initialized ondomready).</li>
       </ul>
 
       <hr />
@@ -363,7 +370,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="../libs/demo-assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!-- SmartMenus jQuery plugin -->
     <script type="text/javascript" src="../jquery.smartmenus.js"></script>

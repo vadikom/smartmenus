@@ -20,10 +20,10 @@ $sm-blue__blue-light:									lighten($sm-blue__blue, 30%) !default;
 $sm-blue__white:										#fff !default;
 $sm-blue__gray:											darken($sm-blue__white, 34%) !default;
 
-$sm-blue__text-shadow:									rgba(0, 0, 0, 0.3) !default;
-$sm-blue__box-shadow:									rgba(0, 0, 0, 0.3) !default;
+$sm-blue__text-shadow:									rgba(0, 0, 0, 0.2) !default;
+$sm-blue__box-shadow:									rgba(0, 0, 0, 0.2) !default;
 
-$sm-blue__gradients_amount:								5% !default;
+$sm-blue__gradients_amount:								2% !default;
 
 
 // ----------------------------------------------------------
@@ -299,7 +299,7 @@ $sm-blue__toggle-spacing: floor($sm-blue__item-height * 0.1);
 	   collapsible to desktop (navbar + dropdowns)
 	-----------------------------------------------*/
 	/* start... (it's not recommended editing these rules) */
-	.sm-blue ul{position:absolute;}
+	.sm-blue ul{position:absolute;width:12em;}
 	.sm-blue li{float:left;}
 	.sm-blue.sm-rtl li{float:right;}
 	.sm-blue ul li,.sm-blue.sm-rtl ul li,.sm-blue.sm-vertical li{float:none;}
@@ -370,9 +370,12 @@ $sm-blue__toggle-spacing: floor($sm-blue__item-height * 0.1);
 			}
 		}
 
-		// round the corners of the first item
+		// round the corners of the first and last items
 		> li:first-child > a, > li:first-child > :not(ul) a {
 			@include border-radius($sm-blue__desktop-border-radius 0 0 $sm-blue__desktop-border-radius);
+		}
+		> li:last-child > a, > li:last-child > :not(ul) a {
+			@include border-radius(0 $sm-blue__desktop-border-radius $sm-blue__desktop-border-radius 0 !important);
 		}
 
 		// Main menu items separators
@@ -409,6 +412,7 @@ $sm-blue__toggle-spacing: floor($sm-blue__item-height * 0.1);
 					padding: $sm-blue__desktop-sub-item-padding-vertical $sm-blue__desktop-sub-item-padding-horizontal;
 					background: $sm-blue__desktop-sub-item-bg;
 					color: $sm-blue__desktop-sub-item-color;
+					@include border-radius(0 !important);
 				}
 
 				&:hover,
@@ -500,9 +504,12 @@ $sm-blue__toggle-spacing: floor($sm-blue__item-height * 0.1);
 				}
 			}
 
-			// round the corners of the first item
+			// round the corners of the first and last items
 			> li:first-child > a, > li:first-child > :not(ul) a {
 				@include border-radius(0 $sm-blue__desktop-border-radius $sm-blue__desktop-border-radius 0);
+			}
+			> li:last-child > a, > li:last-child > :not(ul) a {
+				@include border-radius($sm-blue__desktop-border-radius 0 0 $sm-blue__desktop-border-radius !important);
 			}
 
 			// Main menu items separators
@@ -558,7 +565,7 @@ $sm-blue__toggle-spacing: floor($sm-blue__item-height * 0.1);
 				@include border-radius($sm-blue__desktop-border-radius $sm-blue__desktop-border-radius 0 0);
 			}
 			> li:last-child > a, > li:last-child > :not(ul) a {
-				@include border-radius(0 0 $sm-blue__desktop-border-radius $sm-blue__desktop-border-radius);
+				@include border-radius(0 0 $sm-blue__desktop-border-radius $sm-blue__desktop-border-radius !important);
 			}
 
 			// No main menu item separators

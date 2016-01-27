@@ -11,7 +11,7 @@ module.exports = function(grunt) {
  * <%= pkg.title || pkg.name %> jQuery Plugin - v<%= pkg.version %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
  * <%= pkg.homepage %>\n\
  *\n\
- * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd.\n\
+ * Copyright <%= pkg.author.name %>, Vadikom Web Ltd.\n\
  * <%= pkg.author.url %>\n\
  *\n\
  * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n\
@@ -19,13 +19,13 @@ module.exports = function(grunt) {
 
     banner_min: '/*! <%= pkg.title || pkg.name %> jQuery Plugin - v<%= pkg.version %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
  * <%= pkg.homepage %>\n\
- * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
+ * Copyright <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
 
     banner_keyboard_addon: '/*!\n\
  * <%= pkg.title || pkg.name %> jQuery Plugin Keyboard Addon - v<%= pkg.version_keyboard_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
  * <%= pkg.homepage %>\n\
  *\n\
- * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd.\n\
+ * Copyright <%= pkg.author.name %>, Vadikom Web Ltd.\n\
  * <%= pkg.author.url %>\n\
  *\n\
  * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n\
@@ -33,13 +33,13 @@ module.exports = function(grunt) {
 
     banner_keyboard_addon_min: '/*! <%= pkg.title || pkg.name %> jQuery Plugin Keyboard Addon - v<%= pkg.version_keyboard_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
  * <%= pkg.homepage %>\n\
- * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
+ * Copyright <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
 
     banner_bootstrap_addon: '/*!\n\
  * <%= pkg.title || pkg.name %> jQuery Plugin Bootstrap Addon - v<%= pkg.version_bootstrap_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
  * <%= pkg.homepage %>\n\
  *\n\
- * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd.\n\
+ * Copyright <%= pkg.author.name %>, Vadikom Web Ltd.\n\
  * <%= pkg.author.url %>\n\
  *\n\
  * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n\
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 
     banner_bootstrap_addon_min: '/*! <%= pkg.title || pkg.name %> jQuery Plugin Bootstrap Addon - v<%= pkg.version_bootstrap_addon %> - <%= grunt.template.today("mmmm d, yyyy") %>\n\
  * <%= pkg.homepage %>\n\
- * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
+ * Copyright <%= pkg.author.name %>, Vadikom Web Ltd. <%= pkg.author.url %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */',
 
     distdir: '<%= pkg.name %>-<%= pkg.version %>',
 

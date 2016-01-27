@@ -37,22 +37,9 @@
 <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
 <link href="../css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
 
-<!-- #main-menu config - instance specific stuff not covered in the theme -->
-<style type="text/css">
-	@media screen and (min-width: 768px) {
-		#main-menu {
-			position:relative;
-			z-index:9999;
-			width:auto;
-		}
-		#main-menu ul {
-			width:12em; /* fixed width only please - you can use the "subMenusMinWidth"/"subMenusMaxWidth" script options to override this if you like */
-		}
-	}
-</style>
-
-<!-- Respond.js for IE8 support of media queries -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
@@ -72,7 +59,7 @@
 
 
 
-<nav role="navigation">
+<nav id="main-nav" role="navigation">
   <!-- Sample menu definition -->
   <ul id="main-menu" class="sm sm-blue">
     <li><h2><a href="http://www.smartmenus.org/">Home</a></h2></li>
@@ -89,7 +76,6 @@
             <li><a href="http://www.smartmenus.org/about/vadikom/privacy-policy/">Privacy policy</a></li>
           </ul>
         </li>
-        <li><a href="http://www.smartmenus.org/about/old-smartmenus-versions/">Old SmartMenus versions</a></li>
       </ul>
     </li>
     <li><h2><a href="http://www.smartmenus.org/download/">Download</a></h2></li>
@@ -223,7 +209,7 @@
  <div class="left-column">
   <div id="content">
    <h1>SmartMenus Keyboard Addon</h1>
-   <p>This demo includes the SmartMenus jQuery Keyboard Addon which you can optionally include on your pages in addition to the SmartMenus jQuery plugin. It brings advanced keyboard navigation for all menu trees you may have on your pages.</p>
+   <p>This is a demo of the SmartMenus jQuery Keyboard Addon which you can optionally include on your pages in addition to the SmartMenus jQuery plugin. It brings advanced keyboard navigation for all menu trees you may have on your pages.</p>
    <p>By default without this addon the SmartMenus plugin includes basic keyboard navigation support - a user can use the <kbd>Tab</kbd> key to cycle through all main menu links, the <kbd>Enter</kbd> or <kbd>Space</kbd> key to activate the sub menus and also include their links in the tab order and the <kbd>Esc</kbd> key to deactivate the sub menus.</p>
    <p>This addon takes keyboard navigation to a more advanced level by allowing the use of the keyboard <kbd>&larr;</kbd> <kbd>&rarr;</kbd> <kbd>&uarr;</kbd> <kbd>&darr;</kbd> arrow keys to browse the menu tree conveniently. Additionally a hotkey can be set too if needed - i.e. a keyboard shortcut that will send focus to any menu tree.</p>
    <h2>Improving further accessibility</h2>

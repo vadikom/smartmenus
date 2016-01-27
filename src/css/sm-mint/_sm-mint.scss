@@ -240,7 +240,7 @@ $sm-mint__toggle-spacing: floor($sm-mint__item-height * 0.1);
 	   collapsible to desktop (navbar + dropdowns)
 	-----------------------------------------------*/
 	/* start... (it's not recommended editing these rules) */
-	.sm-mint ul{position:absolute;}
+	.sm-mint ul{position:absolute;width:12em;}
 	.sm-mint li{float:left;}
 	.sm-mint.sm-rtl li{float:right;}
 	.sm-mint ul li,.sm-mint.sm-rtl ul li,.sm-mint.sm-vertical li{float:none;}

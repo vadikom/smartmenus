@@ -25,7 +25,6 @@ h1 {
 	margin-top:1em;
 	margin-bottom:0.36em;
 	font-size:2.26em;
-	text-shadow:0 1px 1px #FFF;
 }
 h2 {
 	font-size:1.667em;
@@ -48,6 +47,9 @@ a {
 }
 a:hover, a:focus, a:active {
 	color:#980000;
+}
+small {
+	font-size:0.8em;
 }
 #themes {
 	margin:2.5625em 0 2em 0;

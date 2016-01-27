@@ -220,7 +220,7 @@ $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 	li {
 		border-top: 1px solid $sm-clean__collapsible-separators-color;
 	}
-        > li:first-child {
+	> li:first-child {
 		border-top: 0;
 	}
 
@@ -258,7 +258,7 @@ $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 	   collapsible to desktop (navbar + dropdowns)
 	-----------------------------------------------*/
 	/* start... (it's not recommended editing these rules) */
-	.sm-clean ul{position:absolute;}
+	.sm-clean ul{position:absolute;width:12em;}
 	.sm-clean li{float:left;}
 	.sm-clean.sm-rtl li{float:right;}
 	.sm-clean ul li,.sm-clean.sm-rtl ul li,.sm-clean.sm-vertical li{float:none;}
