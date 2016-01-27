@@ -90,6 +90,7 @@
   /* start... (it's not recommended editing these rules) */
   .sm-mint ul {
     position: absolute;
+    width: 12em;
   }
 
   .sm-mint li {

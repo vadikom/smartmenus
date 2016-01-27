@@ -1,10 +1,42 @@
 {
   "name": "smartmenus",
-  "version": "1.0.0-beta1",
-  "version_keyboard_addon": "0.2.0",
-  "version_bootstrap_addon": "0.2.0",
-  "engines": {
-    "node": ">= 0.8.0"
+  "title": "SmartMenus",
+  "description": "Advanced jQuery website menu plugin. Mobile first, responsive and accessible list-based website menus that work on all devices.",
+  "keywords": [
+    "menu",
+    "navigation",
+    "accessible",
+    "responsive",
+    "mobile",
+    "ui",
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "version": "1.0.0",
+  "version_keyboard_addon": "0.3.0",
+  "version_bootstrap_addon": "0.3.0",
+  "main": "dist/jquery.smartmenus.js",
+  "author": {
+    "name": "Vasil Dinkov",
+    "email": "vasko.dinkov@gmail.com",
+    "url": "http://vadikom.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vadikom/smartmenus.git"
+  },
+  "bugs": "https://github.com/vadikom/smartmenus/issues",
+  "homepage": "http://www.smartmenus.org/",
+  "docs": "http://www.smartmenus.org/docs/",
+  "download": "http://www.smartmenus.org/download/",
+  "dependencies": {
+    "jquery": ">=1.4.4"
   },
   "devDependencies": {
     "grunt-contrib-concat": "~0.1.2",

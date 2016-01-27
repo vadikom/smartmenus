@@ -1,17 +1,29 @@
 /*
- * SmartMenus jQuery Bootstrap Addon - v0.2.0+
+ * SmartMenus jQuery Bootstrap Addon - v0.3.0
  * http://www.smartmenus.org/
  *
- * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
+ * Copyright Vasil Dinkov, Vadikom Web Ltd.
  * http://vadikom.com/
  *
  * Released under the MIT license:
  * http://www.opensource.org/licenses/MIT
  */
 
-(function($) {
+(function(factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['jquery', 'jquery.smartmenus'], factory);
+	} else if (typeof module === 'object' && typeof module.exports === 'object') {
+		// CommonJS
+		module.exports = factory(require('jquery'));
+	} else {
+		// Global jQuery
+		factory(jQuery);
+	}
+} (function($) {
 
 	$.extend($.SmartMenus.Bootstrap = {}, {
+		keydownFix: false,
 		init: function() {
 			// init all navbars that don't have the "data-sm-skip" attribute set
 			var $navbars = $('ul.navbar-nav:not([data-sm-skip])');
@@ -46,28 +58,56 @@
 							'hide.smapi': function(e, menu) {
 								$(menu).parent().removeClass('open');
 							}
-						})
+						});
+
+					function onInit() {
 						// set Bootstrap's "active" class to SmartMenus "current" items (should someone decide to enable markCurrentItem: true)
-						.find('a.current').parent().addClass('active');
+						$this.find('a.current').parent().addClass('active');
+						// remove any Bootstrap required attributes that might cause conflicting issues with the SmartMenus script
+						$this.find('a.has-submenu').each(function() {
+							var $this = $(this);
+							if ($this.is('[data-toggle="dropdown"]')) {
+								$this.dataSM('bs-data-toggle-dropdown', true).removeAttr('data-toggle');
+							}
+							if ($this.is('[role="button"]')) {
+								$this.dataSM('bs-role-button', true).removeAttr('role');
+							}
+						});
+					}
+
+					onInit();
+
+					function onBeforeDestroy() {
+						$this.find('a.current').parent().removeClass('active');
+						$this.find('a.has-submenu').each(function() {
+							var $this = $(this);
+							if ($this.dataSM('bs-data-toggle-dropdown')) {
+								$this.attr('data-toggle', 'dropdown').removeDataSM('bs-data-toggle-dropdown');
+							}
+							if ($this.dataSM('bs-role-button')) {
+								$this.attr('role', 'button').removeDataSM('bs-role-button');
+							}
+						});
+					}
 
 					obj = $this.data('smartmenus');
 
 					// custom "isCollapsible" method for Bootstrap
 					obj.isCollapsible = function() {
-						return this.$firstLink.parent().css('float') != 'left';
+						return !/^(left|right)$/.test(this.$firstLink.parent().css('float'));
 					};
 
 					// custom "refresh" method for Bootstrap
 					obj.refresh = function() {
 						$.SmartMenus.prototype.refresh.call(this);
-						$this.find('a.current').parent().addClass('active');
+						onInit();
 						// update collapsible detection
 						detectCollapsible(true);
 					}
 
 					// custom "destroy" method for Bootstrap
 					obj.destroy = function(refresh) {
-						$this.find('a.current').parent().removeClass('active');
+						onBeforeDestroy();
 						$.SmartMenus.prototype.destroy.call(this, refresh);
 					}
 
@@ -115,10 +155,21 @@
 					$(window).bind('resize.smartmenus' + obj.rootId, detectCollapsible);
 				}
 			});
+			// keydown fix for Bootstrap 3.3.5+ conflict
+			if ($navbars.length && !$.SmartMenus.Bootstrap.keydownFix) {
+				// unhook BS keydown handler for all dropdowns
+				$(document).off('keydown.bs.dropdown.data-api', '.dropdown-menu');
+				// restore BS keydown handler for dropdowns that are not inside SmartMenus navbars
+				if ($.fn.dropdown && $.fn.dropdown.Constructor) {
+					$(document).on('keydown.bs.dropdown.data-api', '.dropdown-menu:not([id^="sm-"])', $.fn.dropdown.Constructor.prototype.keydown);
+				}
+				$.SmartMenus.Bootstrap.keydownFix = true;
+			}
 		}
 	});
 
 	// init ondomready
 	$($.SmartMenus.Bootstrap.init);
 
-})(jQuery);
+	return $;
+}));

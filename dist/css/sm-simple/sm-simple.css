@@ -88,6 +88,7 @@
   /* start... (it's not recommended editing these rules) */
   .sm-simple ul {
     position: absolute;
+    width: 12em;
   }
 
   .sm-simple li {

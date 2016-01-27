@@ -1,20 +1,34 @@
 /*
- * SmartMenus jQuery v1.0.0-beta1+
+ * SmartMenus jQuery v1.0.0
  * http://www.smartmenus.org/
  *
- * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
+ * Copyright Vasil Dinkov, Vadikom Web Ltd.
  * http://vadikom.com/
  *
  * Released under the MIT license:
  * http://www.opensource.org/licenses/MIT
  */
 
-(function($) {
+(function(factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['jquery'], factory);
+	} else if (typeof module === 'object' && typeof module.exports === 'object') {
+		// CommonJS
+		module.exports = factory(require('jquery'));
+	} else {
+		// Global jQuery
+		factory(jQuery);
+	}
+} (function($) {
 
 	var menuTrees = [],
 		IE = !!window.createPopup, // detect it for the iframe shim
 		mouse = false, // optimize for touch by default - we will detect for mouse input
-		mouseDetectionEnabled = false;
+		touchEvents = 'ontouchstart' in window, // we use this just to choose between toucn and pointer events, not for touch screen detection
+		mouseDetectionEnabled = false,
+		requestAnimationFrame = window.requestAnimationFrame || function(callback) { return setTimeout(callback, 1000 / 60); },
+		cancelAnimationFrame = window.cancelAnimationFrame || function(id) { clearTimeout(id); };
 
 	// Handle detection for mouse input (i.e. desktop browsers, tablets with a mouse, etc.)
 	function initMouseDetection(disable) {
@@ -49,7 +63,7 @@
 					}
 					lastMove = thisMove;
 				}],
-				[touchEvents() ? 'touchstart' : 'pointerover pointermove pointerout MSPointerOver MSPointerMove MSPointerOut', function(e) {
+				[touchEvents ? 'touchstart' : 'pointerover pointermove pointerout MSPointerOver MSPointerMove MSPointerOut', function(e) {
 					if (isTouchEvent(e.originalEvent)) {
 						mouse = false;
 					}
@@ -64,11 +78,6 @@
 
 	function isTouchEvent(e) {
 		return !/^(4|mouse)$/.test(e.pointerType);
-	}
-
-	// we use this just to choose between toucn and pointer events when we need to, not for touch screen detection
-	function touchEvents() {
-		return 'ontouchstart' in window;
 	}
 
 	// returns a jQuery bind() ready object
@@ -102,7 +111,8 @@
 		this.$firstSub = null; // at runtime so we'll cache them
 		this.disabled = false;
 		this.$disableOverlay = null;
-		this.isTouchScrolling = false;
+		this.$touchScrollingSub = null;
+		this.cssTransforms3d = 'perspective' in elm.style || 'webkitPerspective' in elm.style;
 		this.wasCollapsible = false;
 		this.init();
 	};
@@ -150,8 +160,7 @@
 							['mousedown', $.proxy(this.itemDown, this)],
 							['focus', $.proxy(this.itemFocus, this)],
 							['blur', $.proxy(this.itemBlur, this)],
-							['click', $.proxy(this.itemClick, this)],
-							['touchend', $.proxy(this.itemTouchEnd, this)]
+							['click', $.proxy(this.itemClick, this)]
 						], eNS));
 
 					// hide menus on tap or click outside the root UL
@@ -303,8 +312,8 @@
 				}
 			},
 			docClick: function(e) {
-				if (this.isTouchScrolling) {
-					this.isTouchScrolling = false;
+				if (this.$touchScrollingSub) {
+					this.$touchScrollingSub = null;
 					return;
 				}
 				// hide on any click outside the menu or on a menu link
@@ -431,7 +440,7 @@
 				return $(this.getClosestMenu($a[0])).hasClass('mega-menu');
 			},
 			isTouchMode: function() {
-				return !mouse || this.isCollapsible();
+				return !mouse || this.opts.noMouseOver || this.isCollapsible();
 			},
 			itemActivate: function($a, focus) {
 				var $ul = $a.closest('ul'),
@@ -466,26 +475,26 @@
 				this.$root.triggerHandler('blur.smapi', $a[0]);
 			},
 			itemClick: function(e) {
-				if (this.isTouchScrolling) {
-					this.isTouchScrolling = false;
-					e.stopPropagation();
-					return false;
-				}
 				var $a = $(e.currentTarget);
 				if (!this.handleItemEvents($a)) {
 					return;
 				}
+				if (this.$touchScrollingSub && this.$touchScrollingSub[0] == $a.closest('ul')[0]) {
+					this.$touchScrollingSub = null;
+					e.stopPropagation();
+					return false;
+				}
 				if (this.$root.triggerHandler('click.smapi', $a[0]) === false) {
 					return false;
 				}
-				// undo fix: prevent the address bar on iPhone from sliding down when expanding a sub menu
-				if ($a.dataSM('href')) {
-					$a.attr('href', $a.dataSM('href')).removeDataSM('href');
-				}
 				var subArrowClicked = $(e.target).is('span.sub-arrow'),
-					$sub = $a.dataSM('sub');
+					$sub = $a.dataSM('sub'),
+					firstLevelSub = $sub ? $sub.dataSM('level') == 2 : false;
 				// if the sub is not visible
 				if ($sub && !$sub.is(':visible')) {
+					if (this.opts.showOnClick && firstLevelSub) {
+						this.clickActivated = true;
+					}
 					// try to activate the item and show the sub
 					this.itemActivate($a);
 					// if "itemActivate" showed the sub, prevent the click so that the link is not loaded
@@ -499,15 +508,7 @@
 					this.menuHide($sub);
 					return false;
 				}
-				if (this.opts.showOnClick && $sub && $sub.dataSM('level') == 2) {
-					this.clickActivated = true;
-					this.menuShow($sub);
-					return false;
-				}
-				if ($a.hasClass('disabled')) {
-					return false;
-				}
-				if (this.$root.triggerHandler('select.smapi', $a[0]) === false) {
+				if (this.opts.showOnClick && firstLevelSub || $a.hasClass('disabled') || this.$root.triggerHandler('select.smapi', $a[0]) === false) {
 					return false;
 				}
 			},
@@ -550,6 +551,7 @@
 					return;
 				}
 				if (!this.isTouchMode()) {
+					$a[0].blur();
 					if (this.showTimeout) {
 						clearTimeout(this.showTimeout);
 						this.showTimeout = 0;
@@ -557,18 +559,6 @@
 				}
 				$a.removeDataSM('mousedown');
 				this.$root.triggerHandler('mouseleave.smapi', $a[0]);
-			},
-			itemTouchEnd: function(e) {
-				var $a = $(e.currentTarget);
-				if (!this.handleItemEvents($a)) {
-					return;
-				}
-				// prevent the address bar on iPhone from sliding down when expanding a sub menu
-				var $sub = $a.dataSM('sub');
-				if ($a.attr('href').charAt(0) !== '#' && $sub && !$sub.is(':visible')) {
-					$a.dataSM('href', $a.attr('href'))
-						.attr('href', '#');
-				}
 			},
 			menuHide: function($sub) {
 				if (this.$root.triggerHandler('beforehide.smapi', $sub[0]) === false) {
@@ -596,12 +586,12 @@
 					}
 					// remove IE iframe shim
 					if ($sub.dataSM('ie-shim')) {
-						$sub.dataSM('ie-shim').remove();
+						$sub.dataSM('ie-shim').remove().css({ '-webkit-transform': '', transform: '' });
 					}
 					// deactivate scrolling if it is activated for this sub
 					if ($sub.dataSM('scroll')) {
 						this.menuScrollStop($sub);
-						$sub.css({ 'touch-action': '', '-ms-touch-action': '' })
+						$sub.css({ 'touch-action': '', '-ms-touch-action': '', '-webkit-transform': '', transform: '' })
 							.unbind('.smartmenus_scroll').removeDataSM('scroll').dataSM('scroll-arrows').hide();
 					}
 					// unhighlight parent item + accessibility
@@ -648,6 +638,7 @@
 				this.focusActivated = false;
 				// reset z-index increment
 				this.zIndexInc = 0;
+				this.$root.triggerHandler('hideAll.smapi');
 			},
 			menuHideSubMenus: function(level) {
 				for (var i = this.activatedItems.length - 1; i >= level; i--) {
@@ -726,7 +717,7 @@
 					winY = $win.scrollTop(),
 					winW = this.getViewportWidth(),
 					winH = this.getViewportHeight(),
-					horizontalParent = level == 2 && !$ul.hasClass('sm-vertical'),
+					horizontalParent = $ul.parent().is('[data-sm-horizontal-sub]') || level == 2 && !$ul.hasClass('sm-vertical'),
 					rightToLeft = this.opts.rightToLeftSubMenus && !$li.is('[data-sm-reverse]') || !this.opts.rightToLeftSubMenus && $li.is('[data-sm-reverse]'),
 					subOffsetX = level == 2 ? this.opts.mainMenuSubOffsetX : this.opts.subMenusSubOffsetX,
 					subOffsetY = level == 2 ? this.opts.mainMenuSubOffsetY : this.opts.subMenusSubOffsetY,
@@ -776,6 +767,7 @@
 						// bind scroll events and save scroll data for this sub
 						var eNS = '.smartmenus_scroll';
 						$sub.dataSM('scroll', {
+								y: this.cssTransforms3d ? 0 : y - itemH,
 								step: 1,
 								// cache stuff for faster recalcs later
 								itemH: itemH,
@@ -794,7 +786,7 @@
 						if (this.isFixed()) {
 							$sub.css({ 'touch-action': 'none', '-ms-touch-action': 'none' })
 								.bind(getEventsNS([
-									[touchEvents() ? 'touchstart touchmove touchend' : 'pointerdown pointermove pointerup MSPointerDown MSPointerMove MSPointerUp', function(e) {
+									[touchEvents ? 'touchstart touchmove touchend' : 'pointerdown pointermove pointerup MSPointerDown MSPointerMove MSPointerUp', function(e) {
 										self.menuScrollTouch($sub, e);
 									}]
 								], eNS));
@@ -811,12 +803,11 @@
 			menuScroll: function($sub, once, step) {
 				var data = $sub.dataSM('scroll'),
 					$arrows = $sub.dataSM('scroll-arrows'),
-					y = parseFloat($sub.css('margin-top')),
 					end = data.up ? data.upEnd : data.downEnd,
 					diff;
-				if (!once && data.velocity) {
-					data.velocity *= 0.9;
-					diff = data.velocity;
+				if (!once && data.momentum) {
+					data.momentum *= 0.92;
+					diff = data.momentum;
 					if (diff < 0.5) {
 						this.menuScrollStop($sub);
 						return;
@@ -829,24 +820,24 @@
 				if (this.activatedItems[level - 1] && this.activatedItems[level - 1].dataSM('sub') && this.activatedItems[level - 1].dataSM('sub').is(':visible')) {
 					this.menuHideSubMenus(level - 1);
 				}
-				var newY = data.up && end <= y || !data.up && end >= y ? y : (Math.abs(end - y) > diff ? y + (data.up ? diff : -diff) : end);
-				$sub.add($sub.dataSM('ie-shim')).css('margin-top', newY);
+				data.y = data.up && end <= data.y || !data.up && end >= data.y ? data.y : (Math.abs(end - data.y) > diff ? data.y + (data.up ? diff : -diff) : end);
+				$sub.add($sub.dataSM('ie-shim')).css(this.cssTransforms3d ? { '-webkit-transform': 'translate3d(0, ' + data.y + 'px, 0)', transform: 'translate3d(0, ' + data.y + 'px, 0)' } : { marginTop: data.y });
 				// show opposite arrow if appropriate
-				if (mouse && (data.up && newY > data.downEnd || !data.up && newY < data.upEnd)) {
+				if (mouse && (data.up && data.y > data.downEnd || !data.up && data.y < data.upEnd)) {
 					$arrows.eq(data.up ? 1 : 0).show();
 				}
 				// if we've reached the end
-				if (newY == end) {
+				if (data.y == end) {
 					if (mouse) {
 						$arrows.eq(data.up ? 0 : 1).hide();
 					}
 					this.menuScrollStop($sub);
 				} else if (!once) {
 					if (this.opts.scrollAccelerate && data.step < this.opts.scrollStep) {
-						data.step += 0.5;
+						data.step += 0.2;
 					}
 					var self = this;
-					this.scrollTimeout = setTimeout(function() { self.menuScroll($sub); }, this.opts.scrollInterval);
+					this.scrollTimeout = requestAnimationFrame(function() { self.menuScroll($sub); });
 				}
 			},
 			menuScrollMousewheel: function($sub, e) {
@@ -871,30 +862,30 @@
 				if (mouse) {
 					if (!/^scroll-(up|down)/.test(e.target.className) && this.getClosestMenu(e.target) == $sub[0]) {
 						this.menuScrollRefreshData($sub);
-						var data = $sub.dataSM('scroll');
-						$sub.dataSM('scroll-arrows').eq(0).css('margin-top', data.upEnd).end()
-							.eq(1).css('margin-top', data.downEnd + data.subH - data.arrowDownH).end()
+						var data = $sub.dataSM('scroll'),
+							upEnd = $(window).scrollTop() - $sub.dataSM('parent-a').offset().top - data.itemH;
+						$sub.dataSM('scroll-arrows').eq(0).css('margin-top', upEnd).end()
+							.eq(1).css('margin-top', upEnd + this.getViewportHeight() - data.arrowDownH).end()
 							.css('visibility', 'visible');
 					}
 				}
 			},
 			menuScrollRefreshData: function($sub) {
 				var data = $sub.dataSM('scroll'),
-					$win = $(window),
-					vportY = $win.scrollTop() - $sub.dataSM('parent-a').offset().top - data.itemH;
+					upEnd = $(window).scrollTop() - $sub.dataSM('parent-a').offset().top - data.itemH;
+				if (this.cssTransforms3d) {
+					upEnd = -(parseFloat($sub.css('margin-top')) - upEnd);
+				}
 				$.extend(data, {
-					upEnd: vportY,
-					downEnd: vportY + this.getViewportHeight() - data.subH
+					upEnd: upEnd,
+					downEnd: upEnd + this.getViewportHeight() - data.subH
 				});
 			},
 			menuScrollStop: function($sub) {
 				if (this.scrollTimeout) {
-					clearTimeout(this.scrollTimeout);
+					cancelAnimationFrame(this.scrollTimeout);
 					this.scrollTimeout = 0;
-					$.extend($sub.dataSM('scroll'), {
-						step: 1,
-						velocity: 0
-					});
+					$sub.dataSM('scroll').step = 1;
 					return true;
 				}
 			},
@@ -909,36 +900,39 @@
 							if (this.menuScrollStop($sub)) {
 								// if we were scrolling, just stop and don't activate any link on the first touch
 								e.preventDefault();
-								this.isTouchScrolling = true;
+								this.$touchScrollingSub = $sub;
 							} else {
-								this.isTouchScrolling = false;
+								this.$touchScrollingSub = null;
 							}
 							// update scroll data since the user might have zoomed, etc.
 							this.menuScrollRefreshData($sub);
 							// extend it with the touch properties
 							$.extend(data, {
-								touchY: touchPoint.pageY,
-								touchTimestamp: e.timeStamp,
-								velocity: 0
+								touchStartY: touchPoint.pageY,
+								touchStartTime: e.timeStamp
 							});
 						} else if (/move$/i.test(e.type)) {
-							var prevY = data.touchY;
+							var prevY = data.touchY !== undefined ? data.touchY : data.touchStartY;
 							if (prevY !== undefined && prevY != touchPoint.pageY) {
-								this.isTouchScrolling = true;
+								this.$touchScrollingSub = $sub;
+								var up = prevY < touchPoint.pageY;
+								// changed direction? reset...
+								if (data.up !== undefined && data.up != up) {
+									$.extend(data, {
+										touchStartY: touchPoint.pageY,
+										touchStartTime: e.timeStamp
+									});
+								}
 								$.extend(data, {
-									up: prevY < touchPoint.pageY,
-									touchY: touchPoint.pageY,
-									touchTimestamp: e.timeStamp,
-									velocity: data.velocity + Math.abs(touchPoint.pageY - prevY) * 0.5
+									up: up,
+									touchY: touchPoint.pageY
 								});
-								this.menuScroll($sub, true, Math.abs(data.touchY - prevY));
+								this.menuScroll($sub, true, Math.abs(touchPoint.pageY - prevY));
 							}
 							e.preventDefault();
 						} else { // touchend/pointerup
 							if (data.touchY !== undefined) {
-								// check if we need to scroll
-								if (e.timeStamp - data.touchTimestamp < 120 && data.velocity > 0) {
-									data.velocity *= 0.5;
+								if (data.momentum = Math.pow(Math.abs(touchPoint.pageY - data.touchStartY) / (e.timeStamp - data.touchStartTime), 2) * 15) {
 									this.menuScrollStop($sub);
 									this.menuScroll($sub);
 									e.preventDefault();
@@ -1188,7 +1182,6 @@
 		subIndicatorsPos: 	'prepend',	// position of the SPAN relative to the menu item content ('prepend', 'append')
 		subIndicatorsText:	'+',		// [optionally] add text in the SPAN (e.g. '+') (you may want to check the CSS for the sub indicators too)
 		scrollStep: 		30,		// pixels step when scrolling long sub menus that do not fit in the viewport height
-		scrollInterval:		30,		// interval between each scrolling step
 		scrollAccelerate:	true,		// accelerate scrolling or use a fixed step
 		showTimeout:		250,		// timeout before showing the sub menus
 		hideTimeout:		500,		// timeout before hiding the sub menus
@@ -1206,8 +1199,9 @@
 		collapsibleHideDuration:0,		// duration for hide animation for collapsible sub menus - matters only if collapsibleHideFunction:null
 		collapsibleHideFunction:function($ul, complete) { $ul.slideUp(200, complete); },	// custom function to use when hiding a collapsible sub menu
 							// (i.e. when mobile styles are used to make the sub menus collapsible)
-		showOnClick:		false,		// show the first-level sub menus onclick instead of onmouseover (matters only for mouse input)
+		showOnClick:		false,		// show the first-level sub menus onclick instead of onmouseover (i.e. mimic desktop app menus) (matters only for mouse input)
 		hideOnClick:		true,		// hide the sub menus on click/tap anywhere on the page
+		noMouseOver:		false,		// disable sub menus activation onmouseover (i.e. behave like in touch mode - use just mouse clicks) (matters only for mouse input)
 		keepInViewport:		true,		// reposition the sub menus if needed to make sure they always appear inside the viewport
 		keepHighlighted:	true,		// keep all ancestor items of the current sub menu highlighted (adds the 'highlighted' class to the A's)
 		markCurrentItem:	false,		// automatically add the 'current' class to the A element of the item linking to the current URL
@@ -1217,4 +1211,5 @@
 		overlapControlsInIE:	true		// make sure sub menus appear on top of special OS controls in IE (i.e. SELECT, OBJECT, EMBED, etc.)
 	};
 
-})(jQuery);
+	return $;
+}));

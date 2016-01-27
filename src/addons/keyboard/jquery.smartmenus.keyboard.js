@@ -1,15 +1,26 @@
 /*
- * SmartMenus jQuery Keyboard Addon - v0.2.0
+ * SmartMenus jQuery Keyboard Addon - v0.3.0
  * http://www.smartmenus.org/
  *
- * Copyright 2015 Vasil Dinkov, Vadikom Web Ltd.
+ * Copyright Vasil Dinkov, Vadikom Web Ltd.
  * http://vadikom.com/
  *
  * Released under the MIT license:
  * http://www.opensource.org/licenses/MIT
  */
 
-(function($) {
+(function(factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['jquery', 'jquery.smartmenus'], factory);
+	} else if (typeof module === 'object' && typeof module.exports === 'object') {
+		// CommonJS
+		module.exports = factory(require('jquery'));
+	} else {
+		// Global jQuery
+		factory(jQuery);
+	}
+} (function($) {
 
 	function getFirstItemLink($ul) {
 		// make sure we also allow the link to be nested deeper inside the LI's (e.g. in a heading)
@@ -84,6 +95,9 @@
 					} else {
 						if (level == 1 && !$root.hasClass('sm-vertical') && obj.opts.bottomToTopSubMenus) {
 							if (!obj.activatedItems[0] && $target.dataSM('sub')) {
+								if (obj.opts.showOnClick) {
+									obj.clickActivated = true;
+								}
 								obj.itemActivate($target);
 								if ($target.dataSM('sub').is(':visible')) {
 									obj.focusActivated = true;
@@ -103,6 +117,9 @@
 					}
 					if (level == 1 && $root.hasClass('sm-vertical')) {
 						if (!obj.activatedItems[0] && $target.dataSM('sub')) {
+							if (obj.opts.showOnClick) {
+								obj.clickActivated = true;
+							}
 							obj.itemActivate($target);
 							if ($target.dataSM('sub').is(':visible')) {
 								obj.focusActivated = true;
@@ -143,6 +160,9 @@
 					} else {
 						if (level == 1 && !$root.hasClass('sm-vertical') && !obj.opts.bottomToTopSubMenus) {
 							if (!obj.activatedItems[0] && $target.dataSM('sub')) {
+								if (obj.opts.showOnClick) {
+									obj.clickActivated = true;
+								}
 								obj.itemActivate($target);
 								if ($target.dataSM('sub').is(':visible')) {
 									obj.focusActivated = true;
@@ -163,7 +183,7 @@
 	});
 
 	// hook it
-	$(document).delegate('ul.sm', 'keydown.smartmenus', $.SmartMenus.Keyboard.docKeydown);
+	$(document).delegate('ul.sm, ul.navbar-nav:not([data-sm-skip])', 'keydown.smartmenus', $.SmartMenus.Keyboard.docKeydown);
 
 	$.extend($.SmartMenus.prototype, {
 		keyboardSetHotkey: function(keyCode, modifiers) {
@@ -192,4 +212,5 @@
 		}
 	});
 
-})(jQuery);
+	return $;
+}));
