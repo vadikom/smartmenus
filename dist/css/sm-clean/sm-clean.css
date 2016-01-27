@@ -122,6 +122,7 @@
   /* start... (it's not recommended editing these rules) */
   .sm-clean ul {
     position: absolute;
+    width: 12em;
   }
 
   .sm-clean li {
