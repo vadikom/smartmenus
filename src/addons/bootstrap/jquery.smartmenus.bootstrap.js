@@ -103,13 +103,13 @@
 						onInit();
 						// update collapsible detection
 						detectCollapsible(true);
-					}
+					};
 
 					// custom "destroy" method for Bootstrap
 					obj.destroy = function(refresh) {
 						onBeforeDestroy();
 						$.SmartMenus.prototype.destroy.call(this, refresh);
-					}
+					};
 
 					// keep Bootstrap's default behavior for parent items when the "data-sm-skip-collapsible-behavior" attribute is set to the ul.navbar-nav
 					// i.e. use the whole item area just as a sub menu toggle and don't customize the carets
@@ -150,7 +150,7 @@
 							}
 							winW = newW;
 						}
-					};
+					}
 					detectCollapsible();
 					$(window).bind('resize.smartmenus' + obj.rootId, detectCollapsible);
 				}
