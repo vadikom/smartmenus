@@ -42,8 +42,8 @@ package.json:
   "license": "MIT",
   "dependencies": {
     "jquery": ">=2.1.3",
-    "smartmenus": ">=1.0.0",
-    "smartmenus-keyboard": ">=0.2.0"
+    "smartmenus": ">=1.0.1",
+    "smartmenus-keyboard": ">=0.3.1"
   },
   "devDependencies": {
     "browserify": ">=9.0.3"
@@ -71,11 +71,12 @@ Run browserify to create bundle.js: `browserify entry.js > bundle.js`
 ## Community and support
 
 - Visit the [Community forums](http://www.smartmenus.org/forums/) for free support.
+- [Premium support](http://www.smartmenus.org/support/premium-support/) is also available.
 - Read and subscribe to [the project blog](http://www.smartmenus.org/blog/).
 - Follow [@vadikom on Twitter](http://twitter.com/vadikom).
 
 ## Bugs and issues
 
-For bugs and issues only please. For support requests please use the [Community forums](http://www.smartmenus.org/forums/).
+For bugs and issues only please. For support requests please use the [Community forums](http://www.smartmenus.org/forums/) or contact us directly via our [Premium support](http://www.smartmenus.org/support/premium-support/).
 
 <https://github.com/vadikom/smartmenus/issues>

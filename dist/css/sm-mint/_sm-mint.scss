@@ -123,7 +123,7 @@ $sm-mint__desktop-sub-padding-horizontal:				0 !default;
 // Items
 $sm-mint__desktop-sub-item-color:						$sm-mint__black !default;
 $sm-mint__desktop-sub-item-hover-color:					$sm-mint__white !default;
-$sm-mint__desktop-sub-item-hover-bg:					$sm-mint__green_dark !default;
+$sm-mint__desktop-sub-item-hover-bg:					$sm-mint__green-dark !default;
 $sm-mint__desktop-sub-item-disabled-color:				lighten($sm-mint__black, 50%) !default;
 $sm-mint__desktop-sub-item-padding-vertical:			10px !default;
 $sm-mint__desktop-sub-item-padding-horizontal:			20px !default;
@@ -355,8 +355,8 @@ $sm-mint__toggle-spacing: floor($sm-mint__item-height * 0.1);
 				&:focus,
 				&:active,
 				&.highlighted {
-					background: $sm-mint__desktop-item-hover-bg;
-					color: $sm-mint__desktop-item-hover-color;
+					background: $sm-mint__desktop-sub-item-hover-bg;
+					color: $sm-mint__desktop-sub-item-hover-color;
 					@include box-shadow(none);
 				}
 

@@ -90,7 +90,7 @@ $sm-clean__desktop-border-radius:						100px !default;
 $sm-clean__desktop-padding-horizontal:					10px !default;
 
 // Items
-$sm-clean__desktop-item-color:							$sm-clean__gray_darker !default;
+$sm-clean__desktop-item-color:							$sm-clean__gray-darker !default;
 $sm-clean__desktop-item-hover-color:					$sm-clean__red !default;
 $sm-clean__desktop-item-current-color:					$sm-clean__red !default;
 $sm-clean__desktop-item-disabled-color:					darken($sm-clean__gray, 20%) !default;
@@ -125,7 +125,7 @@ $sm-clean__desktop-sub-padding-vertical:				5px !default;
 $sm-clean__desktop-sub-padding-horizontal:				0 !default;
 
 // Items
-$sm-clean__desktop-sub-item-color:						$sm-clean__gray_darker !default;
+$sm-clean__desktop-sub-item-color:						$sm-clean__gray-darker !default;
 $sm-clean__desktop-sub-item-hover-color:				$sm-clean__red !default;
 $sm-clean__desktop-sub-item-hover-bg:					$sm-clean__gray !default;
 $sm-clean__desktop-sub-item-current-color:				$sm-clean__red !default;
@@ -341,7 +341,7 @@ $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 			overflow: hidden;
 			border-width: ($sm-clean__desktop-sub-caret-size + $sm-clean__border-width);
 			border-style: dashed dashed solid dashed;
-			border-color: transparent transparent $sm-clean__gray-dark transparent;
+			border-color: transparent transparent $sm-clean__desktop-sub-border-color transparent;
 		}
 		> li > ul:after {
 			top: -($sm-clean__desktop-sub-caret-size * 2);
@@ -352,7 +352,7 @@ $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 
 		// Sub menus box
 		ul {
-			border: $sm-clean__border-width solid $sm-clean__gray-dark;
+			border: $sm-clean__border-width solid $sm-clean__desktop-sub-border-color;
 			padding: $sm-clean__desktop-sub-padding-vertical $sm-clean__desktop-sub-padding-horizontal;
 			background: $sm-clean__desktop-sub-bg;
 			@include border-radius($sm-clean__desktop-sub-border-radius !important);
