@@ -38,7 +38,7 @@ $sm-blue__desktop-vp:									768px !default;		// switch from collapsible to des
 // ----------------------------------------------------------
 
 // Import "PT Sans Narrow" font from Google fonts
-@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
 
 $sm-blue__font-family:									"PT Sans Narrow", "Arial Narrow", Arial, Helvetica, sans-serif !default;
 $sm-blue__font-size-base:								18px !default;
@@ -389,15 +389,15 @@ $sm-blue__toggle-spacing: floor($sm-blue__item-height * 0.1);
 
 		// Sub menus box
 		ul {
-			border: $sm-blue__border-width solid $sm-blue__gray;
+			border: $sm-blue__border-width solid $sm-blue__desktop-sub-border-color;
 			padding: $sm-blue__desktop-sub-padding-vertical $sm-blue__desktop-sub-padding-horizontal;
 			background: $sm-blue__desktop-sub-bg;
-			@include border-radius(0 0 $sm-blue__desktop-sub-border-radius $sm-blue__desktop-sub-border-radius);
+			@include border-radius(0 0 $sm-blue__desktop-sub-border-radius $sm-blue__desktop-sub-border-radius !important);
 			@include box-shadow($sm-blue__desktop-sub-box-shadow);
 
 			// 2+ sub levels need rounding of all corners
 			ul {
-				@include border-radius($sm-blue__desktop-sub-border-radius);
+				@include border-radius($sm-blue__desktop-sub-border-radius !important);
 				background: $sm-blue__desktop-sub-bg;
 			}
 

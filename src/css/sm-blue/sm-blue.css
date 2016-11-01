@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
 .sm-blue {
   background: transparent;
   -webkit-border-radius: 8px;
@@ -283,21 +283,21 @@
     border: 1px solid #a8a8a8;
     padding: 7px 0;
     background: white;
-    -webkit-border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
-    -ms-border-radius: 0 0 4px 4px;
-    -o-border-radius: 0 0 4px 4px;
-    border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px !important;
+    -moz-border-radius: 0 0 4px 4px !important;
+    -ms-border-radius: 0 0 4px 4px !important;
+    -o-border-radius: 0 0 4px 4px !important;
+    border-radius: 0 0 4px 4px !important;
     -webkit-box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
   }
   .sm-blue ul ul {
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    -ms-border-radius: 4px !important;
+    -o-border-radius: 4px !important;
+    border-radius: 4px !important;
     background: white;
   }
   .sm-blue ul a, .sm-blue ul a:hover, .sm-blue ul a:focus, .sm-blue ul a:active, .sm-blue ul a.highlighted {

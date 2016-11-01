@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery Keyboard Addon - v0.3.0
+ * SmartMenus jQuery Keyboard Addon - v0.3.1
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
@@ -45,7 +45,7 @@
 			this[0].focus();
 		}
 		return this;
-	}
+	};
 
 	$.extend($.SmartMenus.Keyboard = {}, {
 		docKeydown: function(e) {

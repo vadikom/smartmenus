@@ -1,5 +1,5 @@
 /*!
- * SmartMenus jQuery Plugin - v1.0.0 - January 27, 2016
+ * SmartMenus jQuery Plugin - v1.0.1 - November 1, 2016
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
@@ -1144,11 +1144,11 @@
 			return this.data(key + '_smartmenus', val);
 		}
 		return this.data(key + '_smartmenus');
-	}
+	};
 
 	$.fn.removeDataSM = function(key) {
 		return this.removeData(key + '_smartmenus');
-	}
+	};
 
 	$.fn.smartmenus = function(options) {
 		if (typeof options == 'string') {
@@ -1162,11 +1162,20 @@
 				}
 			});
 		}
-		var opts = $.extend({}, $.fn.smartmenus.defaults, options);
+		// [data-sm-options] attribute on the root UL
+		var dataOpts = this.data('sm-options') || null;
+		if (dataOpts) {
+			try {
+				dataOpts = eval('(' + dataOpts + ')');
+			} catch(e) {
+				dataOpts = null;
+				alert('ERROR\n\nSmartMenus jQuery init:\nInvalid "data-sm-options" attribute value syntax.');
+			};
+		}
 		return this.each(function() {
-			new $.SmartMenus(this, opts);
+			new $.SmartMenus(this, $.extend({}, $.fn.smartmenus.defaults, options, dataOpts));
 		});
-	}
+	};
 
 	// default settings
 	$.fn.smartmenus.defaults = {
