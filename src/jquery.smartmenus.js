@@ -1163,17 +1163,17 @@
 				}
 			});
 		}
-		// [data-sm-options] attribute on the root UL
-		var dataOpts = this.data('sm-options') || null;
-		if (dataOpts) {
-			try {
-				dataOpts = eval('(' + dataOpts + ')');
-			} catch(e) {
-				dataOpts = null;
-				alert('ERROR\n\nSmartMenus jQuery init:\nInvalid "data-sm-options" attribute value syntax.');
-			};
-		}
 		return this.each(function() {
+			// [data-sm-options] attribute on the root UL
+			var dataOpts = $(this).data('sm-options') || null;
+			if (dataOpts) {
+				try {
+					dataOpts = eval('(' + dataOpts + ')');
+				} catch(e) {
+					dataOpts = null;
+					alert('ERROR\n\nSmartMenus jQuery init:\nInvalid "data-sm-options" attribute value syntax.');
+				};
+			}
 			new $.SmartMenus(this, $.extend({}, $.fn.smartmenus.defaults, options, dataOpts));
 		});
 	};
