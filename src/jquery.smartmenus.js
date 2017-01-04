@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v1.0.1
+ * SmartMenus jQuery v1.0.1+
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
@@ -422,7 +422,7 @@
 				return this.$firstSub.css('position') == 'static';
 			},
 			isCSSOn: function() {
-				return this.$firstLink.css('display') == 'block';
+				return this.$firstLink.css('display') != 'inline';
 			},
 			isFixed: function() {
 				var isFixed = this.$root.css('position') == 'fixed';
