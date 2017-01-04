@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v1.0.1
+ * SmartMenus jQuery v1.0.1+
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
@@ -422,7 +422,7 @@
 				return this.$firstSub.css('position') == 'static';
 			},
 			isCSSOn: function() {
-				return this.$firstLink.css('display') == 'block';
+				return this.$firstLink.css('display') != 'inline';
 			},
 			isFixed: function() {
 				var isFixed = this.$root.css('position') == 'fixed';
@@ -1163,17 +1163,17 @@
 				}
 			});
 		}
-		// [data-sm-options] attribute on the root UL
-		var dataOpts = this.data('sm-options') || null;
-		if (dataOpts) {
-			try {
-				dataOpts = eval('(' + dataOpts + ')');
-			} catch(e) {
-				dataOpts = null;
-				alert('ERROR\n\nSmartMenus jQuery init:\nInvalid "data-sm-options" attribute value syntax.');
-			};
-		}
 		return this.each(function() {
+			// [data-sm-options] attribute on the root UL
+			var dataOpts = $(this).data('sm-options') || null;
+			if (dataOpts) {
+				try {
+					dataOpts = eval('(' + dataOpts + ')');
+				} catch(e) {
+					dataOpts = null;
+					alert('ERROR\n\nSmartMenus jQuery init:\nInvalid "data-sm-options" attribute value syntax.');
+				};
+			}
 			new $.SmartMenus(this, $.extend({}, $.fn.smartmenus.defaults, options, dataOpts));
 		});
 	};
