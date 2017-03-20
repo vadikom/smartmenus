@@ -16,11 +16,11 @@ Check out the [project documentation](http://www.smartmenus.org/docs/) for quick
 If you need to use any of the addons from the "addons" directory as an AMD or CommonJS module:
 
 ### AMD
-Make sure your SmartMenus jQuery plugin module is named `jquery.smartmenus` since the addons require that name. For example, in RequireJS you may need to add this in your config if you would like to use the minified version:
+Make sure your SmartMenus jQuery plugin module is named `smartmenus` since the addons require that name. For example, in RequireJS you may need to add this in your config:
 ```javascript
 requirejs.config({
   "paths": {
-    'jquery.smartmenus': 'jquery.smartmenus.min'
+    'smartmenus': 'jquery.smartmenus.min'
   }
   // ...
 ```
