@@ -317,7 +317,7 @@
 					return;
 				}
 				// hide on any click outside the menu or on a menu link
-				if (this.visibleSubMenus.length && !$.contains(this.$root[0], e.target) || $(e.target).is('a')) {
+				if (this.visibleSubMenus.length && !$.contains(this.$root[0], e.target) || $(e.target).closest('a').length) {
 					this.menuHideAll();
 				}
 			},
