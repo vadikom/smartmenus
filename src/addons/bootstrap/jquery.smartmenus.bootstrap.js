@@ -94,7 +94,7 @@
 
 					// custom "isCollapsible" method for Bootstrap
 					obj.isCollapsible = function() {
-						return !/^(left|right)$/.test(this.$firstLink.parent().css('float'));
+						return !/^(left|right)$/.test(this.$firstLink.parent().css('float')) && this.$root.css('display') == 'block';
 					};
 
 					// custom "refresh" method for Bootstrap
