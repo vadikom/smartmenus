@@ -11,7 +11,7 @@
 (function(factory) {
 	if (typeof define === 'function' && define.amd) {
 		// AMD
-		define(['jquery', 'jquery.smartmenus'], factory);
+		define(['jquery', 'smartmenus'], factory);
 	} else if (typeof module === 'object' && typeof module.exports === 'object') {
 		// CommonJS
 		module.exports = factory(require('jquery'));
