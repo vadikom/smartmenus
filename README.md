@@ -28,6 +28,8 @@ requirejs.config({
 ### CommonJS (npm)
 The addons are available as separate npm packages so you could properly install/require them in your project in addition to `jquery` and `smartmenus`:
 
+- Bootstrap 4 Addon: `npm install smartmenus-bootstrap-4`
+
 - Bootstrap Addon: `npm install smartmenus-bootstrap`
 
 - Keyboard Addon: `npm install smartmenus-keyboard`
@@ -42,8 +44,8 @@ package.json:
   "license": "MIT",
   "dependencies": {
     "jquery": ">=2.1.3",
-    "smartmenus": ">=1.0.1",
-    "smartmenus-keyboard": ">=0.3.1"
+    "smartmenus": ">=1.1.0",
+    "smartmenus-keyboard": ">=0.4.0"
   },
   "devDependencies": {
     "browserify": ">=9.0.3"
@@ -67,6 +69,10 @@ Run browserify to create bundle.js: `browserify entry.js > bundle.js`
 ## Homepage
 
 <http://www.smartmenus.org/>
+
+## Documentation
+
+<http://www.smartmenus.org/docs/>
 
 ## Community and support
 

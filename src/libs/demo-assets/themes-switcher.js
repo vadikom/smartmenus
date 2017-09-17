@@ -74,17 +74,18 @@ $(function() {
 &lt;link href="../css/sm-core-css.css" rel="stylesheet" type="text/css" /&gt;\n\
 \n\
 &lt;!-- "<span class="themes-code-class">sm-blue</span>" menu theme (optional, you can use your own CSS, too) --&gt;\n\
-&lt;link href="../css/<span class="themes-code-class">sm-blue</span>/<span class="themes-code-class">sm-blue</span>.css" rel="stylesheet" type="text/css" /&gt;\n' + (window.addonCSS ? window.addonCSS : '') + '\
-\n\
-<span class="themes-code-main-menu-css-holder" style="display:none;">&lt;!-- #main-menu config - instance specific stuff not covered in the theme --&gt;\n\
-&lt;!-- Put this in an external stylesheet if you want the media query to work in IE8 (e.g. where the rest of your page styles are) --&gt;\n\
-&lt;style type="text/css"&gt;\n' + (window.addonCSSBefore ? window.addonCSSBefore : '') + '<span class="themes-code-main-menu-css"></span>' + (window.addonCSSAfter ? window.addonCSSAfter : '') + '&lt;/style&gt;\n\
-\n</span>\
-&lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;\n\
-&lt;!--[if lt IE 9]&gt;\n\
-  &lt;script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"&gt;&lt;/script&gt;\n\
-  &lt;script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"&gt;&lt;/script&gt;\n\
-&lt;![endif]--&gt;</pre>\
+&lt;link href="../css/<span class="themes-code-class">sm-blue</span>/<span class="themes-code-class">sm-blue</span>.css" rel="stylesheet" type="text/css" /&gt;\
+<span class="themes-code-main-menu-css-holder" style="display:none;">\n\n\
+&lt;!-- #main-menu config - instance specific stuff not covered in the theme --&gt;\n\
+&lt;!-- You could put this in an external stylesheet (e.g. where the rest of your page styles are) --&gt;\n\
+&lt;style type="text/css"&gt;\n<span class="themes-code-main-menu-css"></span>&lt;/style&gt;\
+</span></pre>\
+   <h4>HTML:</h4>\
+   <pre class="sh_html sh_sourceCode">' + (window.addonHTMLBefore ? window.addonHTMLBefore : '') + '\&lt;nav id="main-nav">\n\
+	&lt;ul id="main-menu" class="<span class="themes-code-main-class">' + $menu[0].className + '</span>"&gt;\n\
+		...\n\
+	&lt;/ul>\n\
+&lt;/nav>' + (window.addonHTMLAfter ? window.addonHTMLAfter : '') + '</pre>\
    <h4>JavaScript:</h4>\
    <pre class="sh_html sh_sourceCode">&lt;!-- jQuery --&gt;\n\
 &lt;script type="text/javascript" src="../libs/jquery/jquery.js"&gt;&lt;/script&gt;\n\
@@ -103,12 +104,6 @@ $(function() {
 		}</span>);\n' + (window.addonScriptInit ? window.addonScriptInit : '') + '\
 	});\n\
 &lt;/script&gt;</pre>\
-   <h4>HTML:</h4>\
-   <pre class="sh_html sh_sourceCode">' + (window.addonHTMLBefore ? window.addonHTMLBefore : '') + '\&lt;nav id="main-nav" role="navigation">\n\
-	&lt;ul id="main-menu" class="<span class="themes-code-main-class">' + $menu[0].className + '</span>"&gt;\n\
-		...\n\
-	&lt;/ul>\n\
-&lt;/nav>' + (window.addonHTMLAfter ? window.addonHTMLAfter : '') + '</pre>\
   </div>\
 ');
 
@@ -204,15 +199,13 @@ $(function() {
 			// remove the inline style on init
 			$('style').eq(0).remove();
 		}
-		mainMenuCSS = (window.addonCSSBefore ? window.addonCSSBefore : '') + (
-			horizontalLeft ? mainMenuConfigs['horizontalLeft'] :
+		mainMenuCSS = (horizontalLeft ? mainMenuConfigs['horizontalLeft'] :
 			horizontalCenter ? mainMenuConfigs['horizontalCenter'] :
 			horizontalRight ? mainMenuConfigs['horizontalRight'] :
 			horizontalFullwidthLeft ? mainMenuConfigs['horizontalFullwidthLeft'] :
 			horizontalFullwidthJustified ? mainMenuConfigs['horizontalFullwidthJustified'] :
 			// vertical
-			!rtl ? mainMenuConfigs['vertical'] : mainMenuConfigs['verticalRTL']
-		) + (window.addonCSSAfter ? window.addonCSSAfter : '');
+			!rtl ? mainMenuConfigs['vertical'] : mainMenuConfigs['verticalRTL']);
 		$('<style id="main-menu-css">' + mainMenuCSS + '</style>').appendTo('head');
 
 		// show/hide sub options
@@ -229,7 +222,7 @@ $(function() {
 		$('#themes-codepen-url').attr('href', $optionElm.data('codepen-url'));
 		$('span.themes-code-main-class span').text(mainMenuClass);
 		$('span.themes-code-main-menu-css').text(mainMenuCSS);
-		$('span.themes-code-main-menu-css-holder')[mainMenuCSS || window.addonCSSBefore || window.addonCSSAfter ? 'show' : 'hide']();
+		$('span.themes-code-main-menu-css-holder')[mainMenuCSS ? 'show' : 'hide']();
 		$('span.themes-code-init-options').text(initOptions);
 
 		// display horizontal justified note if needed
