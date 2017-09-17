@@ -10,11 +10,13 @@
     "mobile",
     "ui",
     "jquery-plugin",
+    "bootstrap",
     "ecosystem:jquery"
   ],
-  "version": "1.0.1",
-  "version_keyboard_addon": "0.3.1",
-  "version_bootstrap_addon": "0.3.1",
+  "version": "1.1.0",
+  "version_keyboard_addon": "0.4.0",
+  "version_bootstrap_addon": "0.4.0",
+  "version_bootstrap_4_addon": "0.1.0",
   "main": "dist/jquery.smartmenus.js",
   "author": {
     "name": "Vasil Dinkov",
@@ -36,14 +38,16 @@
   "docs": "http://www.smartmenus.org/docs/",
   "download": "http://www.smartmenus.org/download/",
   "dependencies": {
-    "jquery": ">=1.4.4"
+    "jquery": ">=1.7.0"
   },
   "devDependencies": {
-    "grunt-contrib-concat": "~0.1.2",
-    "grunt-contrib-uglify": "~0.1.1",
+    "grunt": "~0.4.1",
     "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-concat": "~0.1.2",
     "grunt-contrib-copy": "~0.4.1",
-    "grunt-zip": "~0.7.0",
-    "grunt": "~0.4.1"
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-zip": "~0.7.0"
   }
 }
