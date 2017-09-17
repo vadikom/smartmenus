@@ -1,5 +1,5 @@
 /*!
- * SmartMenus jQuery Plugin Bootstrap Addon - v0.4.0 - September 17, 2017
+ * SmartMenus jQuery Plugin Bootstrap Addon - v0.4.1 - September 17, 2017
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
