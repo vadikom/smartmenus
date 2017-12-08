@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v1.1.0
+ * SmartMenus jQuery v1.1.0+
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
@@ -486,36 +486,38 @@
 				if (this.$root.triggerHandler('click.smapi', $a[0]) === false) {
 					return false;
 				}
-				var subArrowClicked = $(e.target).is('.sub-arrow'),
-					$sub = $a.dataSM('sub'),
-					firstLevelSub = $sub ? $sub.dataSM('level') == 2 : false,
-					collapsible = this.isCollapsible(),
-					behaviorToggle = /toggle$/.test(this.opts.collapsibleBehavior),
-					behaviorLink = /link$/.test(this.opts.collapsibleBehavior),
-					behaviorAccordion = /^accordion/.test(this.opts.collapsibleBehavior);
-				// if the sub is hidden, try to show it
-				if ($sub && !$sub.is(':visible')) {
-					if (!behaviorLink || !collapsible || subArrowClicked) {
-						if (this.opts.showOnClick && firstLevelSub) {
-							this.clickActivated = true;
+				var $sub = $a.dataSM('sub'),
+					firstLevelSub = $sub ? $sub.dataSM('level') == 2 : false;
+				if ($sub) {
+					var subArrowClicked = $(e.target).is('.sub-arrow'),
+						collapsible = this.isCollapsible(),
+						behaviorToggle = /toggle$/.test(this.opts.collapsibleBehavior),
+						behaviorLink = /link$/.test(this.opts.collapsibleBehavior),
+						behaviorAccordion = /^accordion/.test(this.opts.collapsibleBehavior);
+					// if the sub is hidden, try to show it
+					if (!$sub.is(':visible')) {
+						if (!behaviorLink || !collapsible || subArrowClicked) {
+							if (this.opts.showOnClick && firstLevelSub) {
+								this.clickActivated = true;
+							}
+							// try to activate the item and show the sub
+							this.itemActivate($a, behaviorAccordion);
+							// if "itemActivate" showed the sub, prevent the click so that the link is not loaded
+							// if it couldn't show it, then the sub menus are disabled with an !important declaration (e.g. via mobile styles) so let the link get loaded
+							if ($sub.is(':visible')) {
+								this.focusActivated = true;
+								return false;
+							}
 						}
-						// try to activate the item and show the sub
+					// if the sub is visible and we are in collapsible mode
+					} else if (collapsible && (behaviorToggle || subArrowClicked)) {
 						this.itemActivate($a, behaviorAccordion);
-						// if "itemActivate" showed the sub, prevent the click so that the link is not loaded
-						// if it couldn't show it, then the sub menus are disabled with an !important declaration (e.g. via mobile styles) so let the link get loaded
-						if ($sub.is(':visible')) {
-							this.focusActivated = true;
-							return false;
+						this.menuHide($sub);
+						if (behaviorToggle) {
+							this.focusActivated = false;
 						}
+						return false;
 					}
-				// if the sub is visible and we are in collapsible mode
-				} else if (collapsible && (behaviorToggle || subArrowClicked)) {
-					this.itemActivate($a, behaviorAccordion);
-					this.menuHide($sub);
-					if (behaviorToggle) {
-						this.focusActivated = false;
-					}
-					return false;
 				}
 				if (this.opts.showOnClick && firstLevelSub || $a.hasClass('disabled') || this.$root.triggerHandler('select.smapi', $a[0]) === false) {
 					return false;
