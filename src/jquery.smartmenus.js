@@ -200,7 +200,7 @@
 						reHash = /#.*/,
 						locHref = window.location.href.replace(reDefaultDoc, ''),
 						locHrefNoHash = locHref.replace(reHash, '');
-					this.$root.find('a').each(function() {
+					this.$root.find('a:not(.mega-menu a)').each(function() {
 						var href = this.href.replace(reDefaultDoc, ''),
 							$this = $(this);
 						if (href == locHref || href == locHrefNoHash) {
