@@ -237,10 +237,13 @@ $(function() {
 	});
 
 	// init SHJS syntax highlighter
-	$('<link href="../libs/demo-assets/shjs/shjs.css" rel="stylesheet" type="text/css" />').appendTo('head');
-	sh_highlightDocument();
+	if (window.sh_highlightDocument) {
+		sh_highlightDocument();
+	}
 
 });
 
-// load SHJS syntax highlighter synchronously
-document.write('<scr' + 'ipt type="text/javascript" src="../libs/demo-assets/shjs/shjs.js"></scr' + 'ipt>');
+// load SHJS syntax highlighter
+document.write('<scr' + 'ipt type="text/javascript" src="http://shjs.sourceforge.net/sh_main.min.js" defer></scr' + 'ipt>');
+document.write('<scr' + 'ipt type="text/javascript" src="http://shjs.sourceforge.net/lang/sh_javascript.js" defer></scr' + 'ipt>');
+document.write('<scr' + 'ipt type="text/javascript" src="http://shjs.sourceforge.net/lang/sh_html.js" defer></scr' + 'ipt>');
