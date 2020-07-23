@@ -12,7 +12,7 @@
     "jquery-plugin",
     "ecosystem:jquery"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "version_keyboard_addon": "0.3.1",
   "version_bootstrap_addon": "0.3.1",
   "main": "dist/jquery.smartmenus.js",

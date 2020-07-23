@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v1.0.1
+ * SmartMenus jQuery v1.0.2
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
@@ -44,7 +44,7 @@
 					if (lastMove) {
 						var deltaX = Math.abs(lastMove.x - thisMove.x),
 							deltaY = Math.abs(lastMove.y - thisMove.y);
-	 					if ((deltaX > 0 || deltaY > 0) && deltaX <= 2 && deltaY <= 2 && thisMove.timeStamp - lastMove.timeStamp <= 300) {
+	 					if ((deltaX > 0 || deltaY > 0) && deltaX <= 4 && deltaY <= 4 && thisMove.timeStamp - lastMove.timeStamp <= 300) {
 							mouse = true;
 							// if this is the first check after page load, check if we are not over some item by chance and call the mouseenter handler if yes
 							if (firstTime) {
