@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v1.1.0+
+ * SmartMenus jQuery v1.1.1
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
@@ -44,7 +44,7 @@
 						if (lastMove) {
 							var deltaX = Math.abs(lastMove.x - thisMove.x),
 								deltaY = Math.abs(lastMove.y - thisMove.y);
-		 					if ((deltaX > 0 || deltaY > 0) && deltaX <= 2 && deltaY <= 2 && thisMove.timeStamp - lastMove.timeStamp <= 300) {
+		 					if ((deltaX > 0 || deltaY > 0) && deltaX <= 4 && deltaY <= 4 && thisMove.timeStamp - lastMove.timeStamp <= 300) {
 								mouse = true;
 								// if this is the first check after page load, check if we are not over some item by chance and call the mouseenter handler if yes
 								if (firstTime) {
@@ -497,7 +497,7 @@
 					// if the sub is hidden, try to show it
 					if (!$sub.is(':visible')) {
 						if (!behaviorLink || !collapsible || subArrowClicked) {
-							if (this.opts.showOnClick && firstLevelSub) {
+							if (!collapsible && this.opts.showOnClick && firstLevelSub) {
 								this.clickActivated = true;
 							}
 							// try to activate the item and show the sub
@@ -509,17 +509,20 @@
 								return false;
 							}
 						}
+					// if the sub is visible and showOnClick: true, hide the sub
+					} else if (!collapsible && this.opts.showOnClick && firstLevelSub) {
+						this.menuHide($sub);
+						this.clickActivated = false;
+						this.focusActivated = false;
+						return false;
 					// if the sub is visible and we are in collapsible mode
 					} else if (collapsible && (behaviorToggle || subArrowClicked)) {
 						this.itemActivate($a, behaviorAccordion);
 						this.menuHide($sub);
-						if (behaviorToggle) {
-							this.focusActivated = false;
-						}
 						return false;
 					}
 				}
-				if (this.opts.showOnClick && firstLevelSub || $a.hasClass('disabled') || this.$root.triggerHandler('select.smapi', $a[0]) === false) {
+				if (!collapsible && this.opts.showOnClick && firstLevelSub || $a.hasClass('disabled') || this.$root.triggerHandler('select.smapi', $a[0]) === false) {
 					return false;
 				}
 			},
@@ -1155,7 +1158,7 @@
 		return this.each(function() {
 			// [data-sm-options] attribute on the root UL
 			var dataOpts = $(this).data('sm-options') || null;
-			if (dataOpts) {
+			if (dataOpts && typeof dataOpts !== 'object') {
 				try {
 					dataOpts = eval('(' + dataOpts + ')');
 				} catch(e) {
