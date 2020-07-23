@@ -187,16 +187,16 @@
          <div>Arguments:</div>
          <dl class="docs-arguments">
           <dt>keyCode</dt>
-          <dd>Type: Integer<br />The key code for the hotkey (<a href="http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes">a good char code reference</a>).</dd>
+          <dd>Type: Integer<br />The key code for the hotkey (<a href="http://gcctech.org/csc/javascript/javascript_keycodes.htm">a key code reference</a>).</dd>
           <dt>modifiers</dt>
           <dd>Type: String, Array<br />The hotkey modifier key. None, one or multiple of <code>'ctrlKey'</code>, <code>'shiftKey'</code>, <code>'altKey'</code>, <code>'metaKey'</code>.</dd>
          </dl>
          <div>Code sample:</div>
          <pre class="sh_javascript sh_sourceCode">// set Shift + F12 hotkey
-    $('#main-menu').smartmenus('keyboardSetHotkey', 123, 'shiftKey');
+$('#main-menu').smartmenus('keyboardSetHotkey', 123, 'shiftKey');
 
-    // set Ctrl + Alt + Shift + F12 hotkey
-    $('#main-menu').smartmenus('keyboardSetHotkey', 123, ['ctrlKey', 'altKey', 'shiftKey']);</pre>
+// set Ctrl + Alt + Shift + F12 hotkey
+$('#main-menu').smartmenus('keyboardSetHotkey', 123, ['ctrlKey', 'altKey', 'shiftKey']);</pre>
          <div>Note: It is recommended to always use a combination (i.e. modifier + key) rather than use just a single key to avoid preventing important default browser features from working. <code>'shiftKey'</code> is best supported and probably the safest modifier you could use. <code>'ctrlKey'</code> and <code>'altKey'</code> generally work well too, there were just some issues with older Opera versions. <code>'metaKey'</code> is the Mac <kbd title="Apple / Command">&#8984;</kbd> key and it only works on Macs so, unless you know what you are doing, you probably shouldn't use it.</div>
         </dd>
        </dl>
