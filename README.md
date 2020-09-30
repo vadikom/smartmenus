@@ -1,4 +1,4 @@
-# SmartMenus
+# SmartMenus - An Amazing Website
 
 Advanced jQuery website menu plugin. Mobile first, responsive and accessible list-based website menus that work on all devices.
 Check out [the demo page](http://vadikom.github.io/smartmenus/src/demo/).
