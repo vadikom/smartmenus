@@ -10,7 +10,7 @@ Check out [the demo page](http://vadikom.github.io/smartmenus/src/demo/).
 - Install with [npm](https://www.npmjs.com): `npm install smartmenus`.
 - Clone the repo: `git clone https://github.com/vadikom/smartmenus.git`.
 
-Check out the [project documentation](http://www.smartmenus.org/docs/) for quick setup instructions, API reference, tutorials and more.
+Check out the [project documentation](http://www.smartmenus.org/docs/) for quick setup instructions, API reference, tutorials and more...
 
 ## Addons usage as modules
 If you need to use any of the addons from the "addons" directory as an AMD or CommonJS module:
