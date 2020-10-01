@@ -15,7 +15,7 @@ Check out the [project documentation](http://www.smartmenus.org/docs/) for quick
 ## Addons usage as modules
 If you need to use any of the addons from the "addons" directory as an AMD or CommonJS module:
 
-### AMD
+### AMD(Advanced Micro Devices)
 Make sure your SmartMenus jQuery plugin module is named `smartmenus` since the addons require that name. For example, in RequireJS you may need to add this in your config:
 ```javascript
 requirejs.config({
