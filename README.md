@@ -83,6 +83,6 @@ Run browserify to create bundle.js: `browserify entry.js > bundle.js`
 
 ## Bugs and issues
 
-For only bugs and issues click on below link. For support requests please use the [Community forums](http://www.smartmenus.org/forums/) or contact us directly via our [Premium support](http://www.smartmenus.org/support/premium-support/).
+For only bugs and issues click on the link below. For support requests please use the [Community forums](http://www.smartmenus.org/forums/) or contact us directly via our [Premium support](http://www.smartmenus.org/support/premium-support/).
 
 <https://github.com/vadikom/smartmenus/issues>
