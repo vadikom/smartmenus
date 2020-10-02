@@ -66,7 +66,7 @@ jQuery(function() {
 
 Run browserify to create bundle.js: `browserify entry.js > bundle.js`
 
-## Homepage
+## Visit our Homepage
 
 <http://www.smartmenus.org/>
 
@@ -81,7 +81,7 @@ Run browserify to create bundle.js: `browserify entry.js > bundle.js`
 - Read and subscribe to [the project blog](http://www.smartmenus.org/blog/).
 - Follow [@vadikom on Twitter](http://twitter.com/vadikom).
 
-## Bugs and issues
+## report Bugs and issues
 
 For bugs and issues only please. For support requests please use the [Community forums](http://www.smartmenus.org/forums/) or contact us directly via our [Premium support](http://www.smartmenus.org/support/premium-support/).
 
