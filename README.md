@@ -1,9 +1,11 @@
-# SmartMenus
+# Smart Menus!
+----------------
 
 Advanced jQuery website menu plugin. Mobile first, responsive and accessible list-based website menus that work on all devices.
 Check out [the demo page](http://vadikom.github.io/smartmenus/src/demo/).
 
-## Quick start
+## Quick start:
+---------------
 
 - [Download the latest release](http://www.smartmenus.org/download/).
 - Install with [Bower](http://bower.io): `bower install smartmenus`.
@@ -13,9 +15,11 @@ Check out [the demo page](http://vadikom.github.io/smartmenus/src/demo/).
 Check out the [project documentation](http://www.smartmenus.org/docs/) for quick setup instructions, API reference, tutorials and more.
 
 ## Addons usage as modules
+---------------------------
 If you need to use any of the addons from the "addons" directory as an AMD or CommonJS module:
 
 ### AMD
+---------
 Make sure your SmartMenus jQuery plugin module is named `smartmenus` since the addons require that name. For example, in RequireJS you may need to add this in your config:
 ```javascript
 requirejs.config({
@@ -26,7 +30,8 @@ requirejs.config({
 ```
 
 ### CommonJS (npm)
-The addons are available as separate npm packages so you could properly install/require them in your project in addition to `jquery` and `smartmenus`:
+----------------------
+-The addons are available as separate npm packages so you could properly install/require them in your project in addition to `jquery` and `smartmenus`:
 
 - Bootstrap 4 Addon: `npm install smartmenus-bootstrap-4`
 
@@ -35,6 +40,7 @@ The addons are available as separate npm packages so you could properly install/
 - Keyboard Addon: `npm install smartmenus-keyboard`
 
 #### Example with npm + Browserify
+------------------------------------
 
 package.json:
 ```javascript
@@ -67,22 +73,26 @@ jQuery(function() {
 Run browserify to create bundle.js: `browserify entry.js > bundle.js`
 
 ## Homepage
+----------------
 
 <http://www.smartmenus.org/>
 
 ## Documentation
+-------------------
 
 <http://www.smartmenus.org/docs/>
 
 ## Community and support
+----------------------------
 
 - Visit the [Community forums](http://www.smartmenus.org/forums/) for free support.
 - [Premium support](http://www.smartmenus.org/support/premium-support/) is also available.
 - Read and subscribe to [the project blog](http://www.smartmenus.org/blog/).
 - Follow [@vadikom on Twitter](http://twitter.com/vadikom).
 
-## Bugs and issues
+## Bugs and issues:
+--------------------
 
-For bugs and issues only please. For support requests please use the [Community forums](http://www.smartmenus.org/forums/) or contact us directly via our [Premium support](http://www.smartmenus.org/support/premium-support/).
+For bugs and issues only please. For support requests please use the [Community forums](http://www.smartmenus.org/forums/) or contact us directly via our [Premium support](http://www.smartmenus.org/support/premium-support/). :)
 
 <https://github.com/vadikom/smartmenus/issues>
