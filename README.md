@@ -1,6 +1,6 @@
 # SmartMenus
 
-Advanced jQuery website menu plugin. Mobile first, responsive and accessible list-based website menus that work on all devices.
+Here is a Advanced jQuery website menu plugin. Mobile first, responsive and accessible list-based website menus that work on all devices.
 Check out [the demo page](http://vadikom.github.io/smartmenus/src/demo/).
 
 ## Quick start
@@ -20,7 +20,7 @@ Make sure your SmartMenus jQuery plugin module is named `smartmenus` since the a
 ```javascript
 requirejs.config({
   "paths": {
-    'smartmenus': 'jquery.smartmenus.min'
+    'smartmenus: 'jquery.smartmenus.min'
   }
   // ...
 ```
@@ -83,6 +83,6 @@ Run browserify to create bundle.js: `browserify entry.js > bundle.js`
 
 ## Bugs and issues
 
-For bugs and issues only please. For support requests please use the [Community forums](http://www.smartmenus.org/forums/) or contact us directly via our [Premium support](http://www.smartmenus.org/support/premium-support/).
+For bugs and issues only please. For support this  requests please use the link [Community forums](http://www.smartmenus.org/forums/) or contact us directly via our [Premium support](http://www.smartmenus.org/support/premium-support/).
 
 <https://github.com/vadikom/smartmenus/issues>
