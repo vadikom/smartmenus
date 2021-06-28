@@ -5,8 +5,7 @@
 	$selector: $chain + 'a, ' + $chain + '*:not(ul) a, ' + $chain + 'ul';
 	@for $i from 1 through $level {
 		$chain: $chain + $chainable;
-		$selector: $selector + ',
-' + $chain + ' a, ' + $chain + '*:not(ul) a, ' + $chain + ' ul';
+		$selector: $selector + ', ' + $chain + ' a, ' + $chain + '*:not(ul) a, ' + $chain + ' ul';
 	}
 	#{$selector} {
 		border-radius: 0 0 $amount $amount;
@@ -16,8 +15,7 @@
 	$selector: $chain + 'a.highlighted, ' + $chain + '*:not(ul) a.highlighted';
 	@for $i from 1 through $level {
 		$chain: $chain + $chainable;
-		$selector: $selector + ',
-' + $chain + ' a.highlighted, ' + $chain + '*:not(ul) a.highlighted';
+		$selector: $selector + ', ' + $chain + ' a.highlighted, ' + $chain + '*:not(ul) a.highlighted';
 	}
 	#{$selector} {
 		border-radius: 0;
