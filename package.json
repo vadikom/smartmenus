@@ -41,10 +41,10 @@
     "jquery": ">=1.7.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-concat": "~0.1.2",
-    "grunt-contrib-copy": "~0.4.1",
+    "grunt": "~1.5.3",
+    "grunt-contrib-clean": "~2.0.1",
+    "grunt-contrib-concat": "~2.1.0",
+    "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "~2.0.0",
     "grunt-contrib-watch": "^1.0.0",
