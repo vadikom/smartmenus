@@ -13,10 +13,10 @@
     "bootstrap",
     "ecosystem:jquery"
   ],
-  "version": "1.2.0",
+  "version": "1.2.1",
   "version_keyboard_addon": "0.4.0",
   "version_bootstrap_addon": "0.4.1",
-  "version_bootstrap_4_addon": "0.1.0",
+  "version_bootstrap_4_addon": "0.1.1",
   "author": {
     "name": "Vasil Dinkov",
     "email": "vasko.dinkov@gmail.com",

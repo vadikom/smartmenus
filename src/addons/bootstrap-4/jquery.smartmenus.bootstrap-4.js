@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery Bootstrap 4 Addon - v0.1.0+
+ * SmartMenus jQuery Bootstrap 4 Addon - v0.1.1
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
