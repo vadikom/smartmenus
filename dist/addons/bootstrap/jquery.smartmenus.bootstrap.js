@@ -1,5 +1,5 @@
 /*!
- * SmartMenus jQuery Plugin Bootstrap Addon - v0.4.1 - July 23, 2020
+ * SmartMenus jQuery Plugin Bootstrap Addon - v0.4.1 - November 3, 2022
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.

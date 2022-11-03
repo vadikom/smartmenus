@@ -1,5 +1,5 @@
 /*
- * SmartMenus jQuery v1.1.1
+ * SmartMenus jQuery v1.2.0
  * http://www.smartmenus.org/
  *
  * Copyright Vasil Dinkov, Vadikom Web Ltd.
@@ -1158,13 +1158,17 @@
 		return this.each(function() {
 			// [data-sm-options] attribute on the root UL
 			var dataOpts = $(this).data('sm-options') || null;
-			if (dataOpts && typeof dataOpts !== 'object') {
-				try {
-					dataOpts = eval('(' + dataOpts + ')');
-				} catch(e) {
-					dataOpts = null;
-					alert('ERROR\n\nSmartMenus jQuery init:\nInvalid "data-sm-options" attribute value syntax.');
-				};
+			if (dataOpts && typeof dataOpts != 'object') {
+				dataOpts = null;
+				alert('ERROR\n\nSmartMenus jQuery init:\nThe value of the "data-sm-options" attribute must be valid JSON.');
+			}
+			// do not support function options
+			if (dataOpts) {
+				$.each(['showFunction', 'hideFunction', 'collapsibleShowFunction', 'collapsibleHideFunction'], function() {
+					if (this in dataOpts) {
+						delete dataOpts[this];
+					}
+				});
 			}
 			new $.SmartMenus(this, $.extend({}, $.fn.smartmenus.defaults, options, dataOpts));
 		});
