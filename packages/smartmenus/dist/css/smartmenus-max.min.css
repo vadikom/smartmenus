@@ -1,5 +1,5 @@
 /*!
- * SmartMenus 2.0.0-alpha.0 - Dec 29, 2023
+ * SmartMenus 2.0.0-alpha.1 - Dec 29, 2023
  * https://www.smartmenus.org/
  * Copyright (c) since 2001 Vasil Dinkov, Vadikom Web Ltd. https://vadikom.com
  * Licensed MIT https://github.com/vadikom/smartmenus/blob/master/LICENSE-MIT
