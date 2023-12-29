@@ -2,11 +2,11 @@
   "name": "smartmenus-monorepo",
   "private": true,
   "scripts": {
-    "build": "npx lerna run build",
-    "dev": "npx lerna run --parallel dev",
-    "lint": "npx lerna run lint",
-    "version": "npx lerna version",
-    "publish": "npx lerna publish from-git"
+    "build-all": "npx lerna run build",
+    "dev-all": "npx lerna run --parallel dev",
+    "lint-all": "npx lerna run lint",
+    "version-all": "npx lerna version",
+    "publish-all": "npx lerna publish from-git"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
