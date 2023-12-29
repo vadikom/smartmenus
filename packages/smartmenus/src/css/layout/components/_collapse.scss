@@ -1,0 +1,62 @@
+// Collapse
+
+.sm-collapse {
+  display: none;
+  flex-basis: 100%;
+}
+.sm-collapse.sm-show,
+.sm-collapse.sm-hiding {
+  display: block;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sm-collapse.sm-showing {
+    animation: var(--#{$prefix}-collapse-show-animation);
+  }
+  .sm-collapse.sm-hiding {
+    animation: var(--#{$prefix}-collapse-hide-animation);
+  }
+}
+.sm-navbar--dropdowns-only .sm-collapse {
+  display: inherit;
+  flex-flow: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+@media (min-width: $vp-large-min) {
+  .sm-navbar:not(.sm-navbar--collapsible-only) .sm-collapse {
+    display: inherit;
+    flex-flow: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+}
+
+@if $support-navbar-sticky or $support-navbar-fixed {
+  // Sticky/Fixed navbar
+  .sm-navbar[class*='sm-navbar--sticky'] .sm-collapse,
+  .sm-navbar[class*='sm-navbar--fixed'] .sm-collapse {
+    max-height: var(--#{$prefix}-collapse-max-height);
+    overflow-y: auto;
+  }
+  .sm-navbar[class*='sm-navbar--sticky'].sm-navbar--dropdowns-only .sm-collapse,
+  .sm-navbar[class*='sm-navbar--fixed'].sm-navbar--dropdowns-only .sm-collapse {
+    max-height: none;
+    overflow-y: visible;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-navbar[class*='sm-navbar--sticky']:not(.sm-navbar--collapsible-only) .sm-collapse,
+    .sm-navbar[class*='sm-navbar--fixed']:not(.sm-navbar--collapsible-only) .sm-collapse {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+}
+
+@if $support-navbar-sidebar {
+  // Sidebar navbar
+  @media (min-width: $vp-large-min) {
+    .sm-navbar[class*='sm-navbar--sidebar'] .sm-collapse {
+      display: block;
+    }
+  }
+}

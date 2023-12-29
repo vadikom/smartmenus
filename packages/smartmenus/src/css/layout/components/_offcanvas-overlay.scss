@@ -1,0 +1,26 @@
+@if $support-navbar-offcanvas {
+  // Offcanvas Overlay
+
+  .sm-offcanvas-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--#{$prefix}-offcanvas-overlay-bg);
+    cursor: default;
+  }
+  .sm-offcanvas-overlay.sm-show,
+  .sm-offcanvas-overlay.sm-hiding {
+    display: block;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sm-offcanvas-overlay.sm-showing {
+      animation: sm-ani-fade 0.25s;
+    }
+    .sm-offcanvas-overlay.sm-hiding {
+      animation: sm-ani-fade 0.25s reverse;
+    }
+  }
+}

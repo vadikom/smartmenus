@@ -1,0 +1,335 @@
+//
+// Theme dropdowns - CSS
+//
+
+// This is used when all the rules below need to be scoped to a custom .sm-navbar selector (e.g. in the max stylesheet)
+$scope-class: #{if(&, '&', '')};
+
+
+// Navbar
+
+#{$scope-class}.sm-navbar {
+  border-width: var(--#{$prefix}-dropdowns-navbar-border-width);
+  border-style: var(--#{$prefix}-dropdowns-navbar-border-style);
+  border-color: var(--#{$prefix}-dropdowns-navbar-border-color);
+  padding: var(--#{$prefix}-dropdowns-navbar-padding-y) var(--#{$prefix}-dropdowns-navbar-padding-x);
+  background: var(--#{$prefix}-dropdowns-navbar-bg);
+  color: var(--#{$prefix}-dropdowns-navbar-color);
+  text-shadow: var(--#{$prefix}-dropdowns-navbar-text-shadow);
+  box-shadow: var(--#{$prefix}-dropdowns-navbar-box-shadow);
+
+  // internal use
+  @if $support-navbar-sidebar {
+    --#{$prefix}-navbar-sidebar-centered-padding-x: var(--#{$prefix}-dropdowns-navbar-padding-x);
+  }
+}
+
+
+// Brand
+
+.sm-brand {
+  padding: var(--#{$prefix}-dropdowns-nav-link-padding-y) var(--#{$prefix}-dropdowns-nav-link-padding-x);
+  color: var(--#{$prefix}-dropdowns-brand-color);
+  font-family: var(--#{$prefix}-font-family);
+  font-size: var(--#{$prefix}-dropdowns-brand-font-size);
+  font-weight: var(--#{$prefix}-dropdowns-brand-font-weight);
+  line-height: var(--#{$prefix}-line-height);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.sm-brand > a,
+.sm-brand > a:hover,
+.sm-brand > a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+// Toggler
+
+.sm-toggler-anchor {
+  padding: var(--#{$prefix}-dropdowns-nav-link-padding-y) var(--#{$prefix}-dropdowns-nav-link-padding-x);
+  line-height: var(--#{$prefix}-line-height);
+  text-shadow: none;
+}
+
+
+// Offcanvas
+
+.sm-offcanvas {
+  padding: var(--#{$prefix}-dropdowns-navbar-padding-y) var(--#{$prefix}-dropdowns-navbar-padding-x);
+  background: var(--#{$prefix}-dropdowns-navbar-bg);
+}
+
+
+// Nav Item Separator
+
+.sm-nav-item-separator {
+  --#{$prefix}-nav-item-separator-border: var(--#{$prefix}-dropdowns-nav-item-separator-border);
+  --#{$prefix}-nav-item-separator-spacing: var(--#{$prefix}-dropdowns-nav-item-separator-spacing);
+  --#{$prefix}-nav-item-separator-fullsize-offset: var(--#{$prefix}-dropdowns-nav-item-separator-fullsize-offset);
+}
+
+
+// Nav Link
+
+.sm-nav-link {
+  grid-area: link / link / link / link-split-toggler;
+  border-radius: var(--#{$prefix}-dropdowns-nav-link-border-radius);
+  padding: var(--#{$prefix}-dropdowns-nav-link-padding-y) var(--#{$prefix}-dropdowns-nav-link-padding-x);
+  background: var(--#{$prefix}-dropdowns-nav-link-bg);
+  color: var(--#{$prefix}-dropdowns-nav-link-color);
+  font-family: var(--#{$prefix}-font-family);
+  font-size: var(--#{$prefix}-font-size);
+  font-weight: var(--#{$prefix}-dropdowns-nav-link-font-weight);
+  line-height: var(--#{$prefix}-line-height);
+  text-decoration: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .sm-nav-link:hover {
+    background: var(--#{$prefix}-dropdowns-nav-link-hover-bg);
+    color: var(--#{$prefix}-dropdowns-nav-link-hover-color);
+  }
+}
+.sm-nav-link:active {
+  background: var(--#{$prefix}-dropdowns-nav-link-active-bg);
+  color: var(--#{$prefix}-dropdowns-nav-link-active-color);
+}
+
+.sm-nav-link.sm-expanded {
+  border-radius: var(--#{$prefix}-dropdowns-nav-link-expanded-border-radius);
+  background: var(--#{$prefix}-dropdowns-nav-link-expanded-bg);
+  color: var(--#{$prefix}-dropdowns-nav-link-expanded-color);
+}
+.sm-nav-link.sm-selected {
+  background: var(--#{$prefix}-dropdowns-nav-link-selected-bg);
+  color: var(--#{$prefix}-dropdowns-nav-link-selected-color);
+  font-weight: var(--#{$prefix}-dropdowns-nav-link-selected-font-weight);
+}
+.sm-nav-link.sm-disabled {
+  background: var(--#{$prefix}-dropdowns-nav-link-bg);
+  color: var(--#{$prefix}-dropdowns-nav-link-disabled-color);
+}
+
+// Round the corners of the first and last items
+.sm-nav-item:first-child .sm-nav-link {
+  @if not $rtl {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-first-border-radius);
+  } @else {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-last-border-radius);
+  }
+}
+.sm-nav-item:last-child .sm-nav-link {
+  @if not $rtl {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-last-border-radius);
+  } @else {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-first-border-radius);
+  }
+}
+.sm-nav-item:first-child .sm-nav-link.sm-expanded {
+  @if not $rtl {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-first-expanded-border-radius);
+  } @else {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-last-expanded-border-radius);
+  }
+}
+.sm-nav-item:last-child .sm-nav-link.sm-expanded {
+  @if not $rtl {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-last-expanded-border-radius);
+  } @else {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-first-expanded-border-radius);
+  }
+}
+
+@if $support-navbar-vertical {
+  // Vertical navbar - Round the corners of the first and last item
+  #{$scope-class}.sm-navbar--vertical .sm-nav-item:first-child .sm-nav-link {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-first-border-radius);
+  }
+  #{$scope-class}.sm-navbar--vertical .sm-nav-item:last-child .sm-nav-link {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-last-border-radius);
+  }
+  #{$scope-class}.sm-navbar--vertical .sm-nav-item:first-child .sm-nav-link.sm-expanded {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-first-expanded-border-radius);
+  }
+  #{$scope-class}.sm-navbar--vertical .sm-nav-item:last-child .sm-nav-link.sm-expanded {
+    border-radius: var(--#{$prefix}-dropdowns-nav-link-last-expanded-border-radius);
+  }
+}
+
+// Split nav link
+
+// Toggler
+.sm-nav-link--split + .sm-nav-link--split {
+  border-radius: var(--#{$prefix}-dropdowns-nav-link-split-toggler-border-radius) !important;
+}
+
+// Separator
+.sm-nav-link--split + .sm-nav-link--split::before {
+  margin: var(--#{$prefix}-dropdowns-nav-link-split-separator-fullsize-offset) 0;
+  border-left: var(--#{$prefix}-dropdowns-nav-link-split-separator-border);
+  opacity: var(--#{$prefix}-dropdowns-nav-link-split-separator-opacity);
+}
+
+// Make room for the split toggler
+.sm-nav-link--split:not(.sm-nav-link--split + .sm-nav-link--split) {
+  @if not $rtl {
+    padding-right: calc((var(--#{$prefix}-dropdowns-nav-link-padding-x) * 3) + var(--#{$prefix}-dropdowns-sub-toggler-icon-size) + (var(--#{$prefix}-dropdowns-sub-toggler-split-icon-spacing) * 2));
+  } @else {
+    padding-left: calc((var(--#{$prefix}-dropdowns-nav-link-padding-x) * 3) + var(--#{$prefix}-dropdowns-sub-toggler-icon-size) + (var(--#{$prefix}-dropdowns-sub-toggler-split-icon-spacing) * 2));
+  }
+}
+
+// Emulate active state for the split toggler
+.sm-nav-link--split:active:not(.sm-expanded, .sm-selected, .sm-disabled) + .sm-nav-link--split {
+  color: var(--#{$prefix}-dropdowns-nav-link-active-color);
+}
+
+
+// Sub Toggler
+
+.sm-sub-toggler {
+  border: 0;
+}
+
+// The chevron
+.sm-sub-toggler::after {
+  --#{$prefix}-sub-toggler-icon-size: var(--#{$prefix}-dropdowns-sub-toggler-icon-size);
+  --#{$prefix}-sub-toggler-icon-spacing: var(--#{$prefix}-dropdowns-sub-toggler-icon-spacing);
+  --#{$prefix}-sub-toggler-split-icon-spacing: var(--#{$prefix}-dropdowns-sub-toggler-split-icon-spacing);
+
+  content: '' !important;
+  margin-top: calc(-0.5 * var(--#{$prefix}-dropdowns-sub-toggler-icon-size));
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+  border-color: var(--#{$prefix}-dropdowns-sub-toggler-color);
+  opacity: var(--#{$prefix}-dropdowns-sub-toggler-opacity);
+  transform: rotate(-45deg);
+}
+
+// Sub / Vertical navbar
+.sm-sub .sm-sub-toggler::after,
+#{$scope-class}.sm-navbar--vertical .sm-sub-toggler::after {
+  margin-top: 0;
+  @if not $rtl {
+    transform: rotate(225deg);
+  } @else {
+    transform: rotate(45deg);
+  }
+}
+
+// Dropup navbar
+#{$scope-class}.sm-navbar--drop-reverse-y:not(.sm-navbar--vertical) .sm-nav-item:not([data-#{$prefix}-drop-reverse-y]) .sm-nav-link.sm-sub-toggler::after {
+  margin-top: calc(0.5 * var(--#{$prefix}-dropdowns-sub-toggler-icon-size));
+  transform: rotate(-225deg);
+}
+
+
+// Sub
+
+.sm-sub {
+  border-width: var(--#{$prefix}-dropdowns-sub-border-width);
+  border-style: var(--#{$prefix}-dropdowns-sub-border-style);
+  border-color: var(--#{$prefix}-dropdowns-sub-border-color);
+  border-radius: var(--#{$prefix}-dropdowns-sub-first-level-border-radius);
+  padding: var(--#{$prefix}-dropdowns-sub-padding-y) var(--#{$prefix}-dropdowns-sub-padding-x);
+  background: var(--#{$prefix}-dropdowns-sub-bg);
+  text-shadow: var(--#{$prefix}-dropdowns-sub-text-shadow);
+  box-shadow: var(--#{$prefix}-dropdowns-sub-box-shadow);
+}
+
+.sm-sub .sm-sub {
+  border-radius: var(--#{$prefix}-dropdowns-sub-border-radius);
+}
+
+
+// Sub Item Separator
+
+.sm-sub-item-separator {
+  margin: var(--#{$prefix}-dropdowns-sub-item-separator-spacing) var(--#{$prefix}-dropdowns-sub-item-separator-fullsize-offset);
+  border-top: var(--#{$prefix}-dropdowns-sub-item-separator-border);
+}
+
+
+// Sub Link
+
+.sm-sub-link {
+  grid-area: link / link / link / link-split-toggler;
+  border-radius: var(--#{$prefix}-dropdowns-sub-link-border-radius);
+  padding: var(--#{$prefix}-dropdowns-sub-link-padding-y) var(--#{$prefix}-dropdowns-sub-link-padding-x);
+  background: var(--#{$prefix}-dropdowns-sub-link-bg);
+  color: var(--#{$prefix}-dropdowns-sub-link-color);
+  font-family: var(--#{$prefix}-font-family);
+  font-size: var(--#{$prefix}-font-size-small);
+  font-weight: var(--#{$prefix}-dropdowns-sub-link-font-weight);
+  line-height: var(--#{$prefix}-line-height);
+  text-decoration: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .sm-sub-link:hover {
+    background: var(--#{$prefix}-dropdowns-sub-link-hover-bg);
+    color: var(--#{$prefix}-dropdowns-sub-link-hover-color);
+  }
+}
+.sm-sub-link:active {
+  background: var(--#{$prefix}-dropdowns-sub-link-active-bg);
+  color: var(--#{$prefix}-dropdowns-sub-link-active-color);
+}
+
+.sm-sub-link.sm-expanded {
+  border-radius: var(--#{$prefix}-dropdowns-sub-link-expanded-border-radius);
+  background: var(--#{$prefix}-dropdowns-sub-link-expanded-bg);
+  color: var(--#{$prefix}-dropdowns-sub-link-expanded-color);
+}
+.sm-sub-link.sm-selected {
+  background: var(--#{$prefix}-dropdowns-sub-link-selected-bg);
+  color: var(--#{$prefix}-dropdowns-sub-link-selected-color);
+  font-weight: var(--#{$prefix}-dropdowns-sub-link-selected-font-weight);
+}
+.sm-sub-link.sm-disabled {
+  background: var(--#{$prefix}-dropdowns-sub-link-bg);
+  color: var(--#{$prefix}-dropdowns-sub-link-disabled-color);
+}
+
+// Round the corners of the first and last items
+.sm-sub-item:first-child > .sm-sub-link {
+  border-radius: var(--#{$prefix}-dropdowns-sub-link-first-border-radius);
+}
+.sm-sub-item:last-child > .sm-sub-link {
+  border-radius: var(--#{$prefix}-dropdowns-sub-link-last-border-radius);
+}
+.sm-sub-item:first-child > .sm-sub-link.sm-expanded {
+  border-radius: var(--#{$prefix}-dropdowns-sub-link-first-expanded-border-radius);
+}
+.sm-sub-item:last-child > .sm-sub-link.sm-expanded {
+  border-radius: var(--#{$prefix}-dropdowns-sub-link-last-expanded-border-radius);
+}
+
+// Split sub link
+
+// Toggler
+.sm-sub-link--split + .sm-sub-link--split {
+  border-radius: var(--#{$prefix}-dropdowns-sub-link-split-toggler-border-radius) !important;
+}
+
+// Separator
+.sm-sub-link--split + .sm-sub-link--split::before {
+  margin: var(--#{$prefix}-dropdowns-sub-link-split-separator-fullsize-offset) 0;
+  border-left: var(--#{$prefix}-dropdowns-sub-link-split-separator-border);
+  opacity: var(--#{$prefix}-dropdowns-sub-link-split-separator-opacity);
+}
+
+// Make room for the split toggler
+.sm-sub-link--split:not(.sm-sub-link--split + .sm-sub-link--split) {
+  @if not $rtl {
+    padding-right: calc((var(--#{$prefix}-dropdowns-sub-link-padding-x) * 3) + var(--#{$prefix}-dropdowns-sub-toggler-icon-size) + (var(--#{$prefix}-dropdowns-sub-toggler-split-icon-spacing) * 2));
+  } @else {
+    padding-left: calc((var(--#{$prefix}-dropdowns-sub-link-padding-x) * 3) + var(--#{$prefix}-dropdowns-sub-toggler-icon-size) + (var(--#{$prefix}-dropdowns-sub-toggler-split-icon-spacing) * 2));
+  }
+}
+
+// Emulate active state for the split toggler
+.sm-sub-link--split:active:not(.sm-expanded, .sm-selected, .sm-disabled) + .sm-sub-link--split {
+  color: var(--#{$prefix}-dropdowns-sub-link-active-color);
+}

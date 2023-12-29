@@ -1,0 +1,30 @@
+& {
+  --site-light: #{$light};
+  --site-dark: #{$dark};
+
+  --site-brand: #{$brand};
+  --site-brand-em: #{$brand-em};
+  --site-brand-soft: #{$brand-soft};
+
+  --site-accent: #{$accent};
+  --site-accent-em: #{$accent-em};
+  --site-accent-soft: #{$accent-soft};
+
+  --site-bg: #{$bg};
+  --site-bg-soft: #{$bg-soft};
+  --site-text: #{$text};
+  --site-text-muted: #{$text-muted};
+  --site-text-disabled: #{$text-disabled};
+
+  --site-bg-alt: #{$bg-alt};
+  --site-bg-alt-soft: #{$bg-alt-soft};
+  --site-text-alt: #{$text-alt};
+  --site-text-alt-muted: #{$text-alt-muted};
+  --site-text-alt-disabled: #{$text-alt-disabled};
+
+  --site-separator: #{$separator};
+  --site-border: #{$border};
+  --site-text-shadow: #{$text-shadow};
+  --site-box-shadow: #{$box-shadow};
+  --site-overlay-bg: #{$overlay-bg};
+}

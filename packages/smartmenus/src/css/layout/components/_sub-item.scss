@@ -1,0 +1,14 @@
+// Sub Item
+
+.sm-sub-item {
+  display: grid;
+  grid-template:
+    'link link-split-toggler' auto
+    'sub  sub' auto
+    / 1fr   auto;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+}

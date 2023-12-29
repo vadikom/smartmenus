@@ -1,0 +1,34 @@
+{
+  "name": "smartmenus",
+  "version": "2.0.0-alpha.0",
+  "title": "SmartMenus",
+  "description": "Website/web app navbars with collapsible navs or dropdowns made easy yet highly configurable.",
+  "author": {
+    "name": "Vasil Dinkov",
+    "email": "vasko.dinkov@gmail.com",
+    "url": "https://vadikom.com"
+  },
+  "homepage": "https://www.smartmenus.org/",
+  "bugs": "https://github.com/vadikom/smartmenus/issues",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vadikom/smartmenus.git",
+    "directory": "packages/smartmenus"
+  },
+  "main": "dist/js/smartmenus.cjs.js",
+  "module": "dist/js/smartmenus.esm.js",
+  "browser": "dist/js/smartmenus.browser.js",
+  "browserGlobal": "SmartMenus",
+  "style": "dist/css/smartmenus.css",
+  "sass": "src/css/smartmenus.scss",
+  "scripts": {
+    "build": "npm run lint && rollup -c ../../rollup.config.js",
+    "dev": "rollup -c ../../rollup.config.js -w",
+    "lint": "eslint ./src/js --ext js --fix && stylelint './src/css/**/*.scss' --fix",
+    "version": "npm run build"
+  }
+}

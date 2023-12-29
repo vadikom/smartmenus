@@ -1,0 +1,5 @@
+@import '../node_modules/prism-theme-github/themes/prism-theme-github-light';
+
+[data-theme='dark'] {
+  @import '../node_modules/prism-theme-github/themes/prism-theme-github-dark';
+}

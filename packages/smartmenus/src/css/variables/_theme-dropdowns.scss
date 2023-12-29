@@ -1,0 +1,196 @@
+//
+// Theme dropdowns - Variables
+//
+
+
+// === Navbar variables ===
+
+// Navbar
+$dropdowns-navbar-color:                          var(--#{$prefix}-text-alt) !default;
+$dropdowns-navbar-bg:                             var(--#{$prefix}-bg-alt) !default;
+$dropdowns-navbar-border-width:                   0px !default;
+$dropdowns-navbar-border-style:                   solid !default;
+$dropdowns-navbar-border-color:                   var(--#{$prefix}-border) !default;
+$dropdowns-navbar-padding-y:                      6px !default;
+$dropdowns-navbar-padding-x:                      6px !default;
+$dropdowns-navbar-text-shadow:                    0 1px 0 var(--#{$prefix}-text-shadow) !default;
+$dropdowns-navbar-box-shadow:                     0 0 0 var(--#{$prefix}-box-shadow) !default;
+
+// Brand
+$dropdowns-brand-color:                           var(--#{$prefix}-dropdowns-navbar-color) !default;
+$dropdowns-brand-font-size:                       calc(var(--#{$prefix}-font-size) * 1.25) !default;
+$dropdowns-brand-font-weight:                     normal !default;
+
+// Nav Item Separator
+$dropdowns-nav-item-separator-border:             1px solid var(--#{$prefix}-separator) !default;
+$dropdowns-nav-item-separator-spacing:            6px !default;
+$dropdowns-nav-item-separator-fullsize-offset:    6px !default;
+
+// Nav Link
+$dropdowns-nav-link-color:                        var(--#{$prefix}-dropdowns-navbar-color) !default;
+$dropdowns-nav-link-bg:                           transparent !default;
+$dropdowns-nav-link-border-radius:                var(--#{$prefix}-border-radius) !default;
+$dropdowns-nav-link-first-border-radius:          var(--#{$prefix}-dropdowns-nav-link-border-radius) !default;
+$dropdowns-nav-link-last-border-radius:           var(--#{$prefix}-dropdowns-nav-link-border-radius) !default;
+$dropdowns-nav-link-font-weight:                  normal !default;
+$dropdowns-nav-link-hover-color:                  var(--#{$prefix}-text-alt) !default;
+$dropdowns-nav-link-hover-bg:                     var(--#{$prefix}-bg-alt-soft) !default;
+$dropdowns-nav-link-active-color:                 var(--#{$prefix}-brand-contrast) !default;
+$dropdowns-nav-link-active-bg:                    var(--#{$prefix}-brand) !default;
+$dropdowns-nav-link-expanded-color:               var(--#{$prefix}-brand-contrast) !default; // highlighting a parent item when its sub is displayed
+$dropdowns-nav-link-expanded-bg:                  var(--#{$prefix}-brand) !default;
+$dropdowns-nav-link-expanded-border-radius:               var(--#{$prefix}-dropdowns-nav-link-border-radius) !default;
+$dropdowns-nav-link-first-expanded-border-radius:         var(--#{$prefix}-dropdowns-nav-link-first-border-radius) !default;
+$dropdowns-nav-link-last-expanded-border-radius:          var(--#{$prefix}-dropdowns-nav-link-last-border-radius) !default;
+$dropdowns-nav-link-selected-color:               var(--#{$prefix}-accent-contrast) !default;
+$dropdowns-nav-link-selected-bg:                  var(--#{$prefix}-accent) !default;
+$dropdowns-nav-link-selected-font-weight:         bold !default;
+$dropdowns-nav-link-disabled-color:               var(--#{$prefix}-text-alt-disabled) !default;
+$dropdowns-nav-link-padding-y:                    11px !default;
+$dropdowns-nav-link-padding-x:                    12px !default;
+$dropdowns-nav-link-split-separator-border:               1px solid currentcolor !default;
+$dropdowns-nav-link-split-separator-fullsize-offset:      8px !default;
+$dropdowns-nav-link-split-separator-opacity:              0.2 !default;
+$dropdowns-nav-link-split-toggler-border-radius:          var(--#{$prefix}-dropdowns-nav-link-border-radius) !default;
+$dropdowns-nav-link-split-toggler-border-radius:          var(--#{$prefix}-dropdowns-nav-link-border-radius) !default;
+
+// Sub Toggler
+$dropdowns-sub-toggler-color:                 currentcolor !default;
+$dropdowns-sub-toggler-icon-size:             0.45rem !default;
+$dropdowns-sub-toggler-icon-spacing:          0.4rem !default;
+$dropdowns-sub-toggler-split-icon-spacing:    0px !default;
+$dropdowns-sub-toggler-opacity:               0.7 !default;
+
+
+// === Dropdowns variables ===
+
+// Sub
+$dropdowns-sub-bg:                            var(--#{$prefix}-bg) !default;
+$dropdowns-sub-border-width:                  1px !default;
+$dropdowns-sub-border-style:                  solid !default;
+$dropdowns-sub-border-color:                  var(--#{$prefix}-border) !default;
+$dropdowns-sub-border-radius:                 var(--#{$prefix}-border-radius) !default;
+$dropdowns-sub-first-level-border-radius:     var(--#{$prefix}-border-radius) !default;
+$dropdowns-sub-padding-y:                     6px !default;
+$dropdowns-sub-padding-x:                     6px !default;
+$dropdowns-sub-text-shadow:                   0 1px 0 var(--#{$prefix}-text-shadow) !default;
+$dropdowns-sub-box-shadow:                    0 3px 8px var(--#{$prefix}-box-shadow) !default;
+
+// Sub Item Separator
+$dropdowns-sub-item-separator-border:                 var(--#{$prefix}-dropdowns-nav-item-separator-border) !default;
+$dropdowns-sub-item-separator-spacing:                var(--#{$prefix}-dropdowns-nav-item-separator-spacing) !default;
+$dropdowns-sub-item-separator-fullsize-offset:        var(--#{$prefix}-dropdowns-nav-item-separator-fullsize-offset) !default;
+
+// Sub Link
+$dropdowns-sub-link-color:                    var(--#{$prefix}-text) !default;
+$dropdowns-sub-link-bg:                       transparent !default;
+$dropdowns-sub-link-border-radius:            var(--#{$prefix}-border-radius-small) !default;
+$dropdowns-sub-link-first-border-radius:      var(--#{$prefix}-dropdowns-sub-link-border-radius) !default;
+$dropdowns-sub-link-last-border-radius:       var(--#{$prefix}-dropdowns-sub-link-border-radius) !default;
+$dropdowns-sub-link-font-weight:              normal !default;
+$dropdowns-sub-link-hover-color:              var(--#{$prefix}-text) !default;
+$dropdowns-sub-link-hover-bg:                 var(--#{$prefix}-bg-soft) !default;
+$dropdowns-sub-link-active-color:             var(--#{$prefix}-dropdowns-nav-link-active-color) !default;
+$dropdowns-sub-link-active-bg:                var(--#{$prefix}-dropdowns-nav-link-active-bg) !default;
+$dropdowns-sub-link-expanded-color:           var(--#{$prefix}-dropdowns-nav-link-expanded-color) !default; // highlighting a parent item when its sub is displayed
+$dropdowns-sub-link-expanded-bg:              var(--#{$prefix}-dropdowns-nav-link-expanded-bg) !default;
+$dropdowns-sub-link-expanded-border-radius:           var(--#{$prefix}-dropdowns-sub-link-border-radius) !default;
+$dropdowns-sub-link-first-expanded-border-radius:     var(--#{$prefix}-dropdowns-sub-link-first-border-radius) !default;
+$dropdowns-sub-link-last-expanded-border-radius:      var(--#{$prefix}-dropdowns-sub-link-last-border-radius) !default;
+$dropdowns-sub-link-selected-color:           var(--#{$prefix}-dropdowns-nav-link-selected-color) !default;
+$dropdowns-sub-link-selected-bg:              var(--#{$prefix}-dropdowns-nav-link-selected-bg) !default;
+$dropdowns-sub-link-selected-font-weight:     bold !default;
+$dropdowns-sub-link-disabled-color:           var(--#{$prefix}-text-disabled) !default;
+$dropdowns-sub-link-padding-y:                8px !default;
+$dropdowns-sub-link-padding-x:                12px !default;
+$dropdowns-sub-link-split-separator-border:           var(--#{$prefix}-dropdowns-nav-link-split-separator-border) !default;
+$dropdowns-sub-link-split-separator-fullsize-offset:  var(--#{$prefix}-dropdowns-nav-link-split-separator-fullsize-offset) !default;
+$dropdowns-sub-link-split-separator-opacity:          var(--#{$prefix}-dropdowns-nav-link-split-separator-opacity) !default;
+$dropdowns-sub-link-split-toggler-border-radius:      var(--#{$prefix}-dropdowns-sub-link-border-radius) !default;
+
+
+#{$var-scope} {
+  --#{$prefix}-dropdowns-navbar-color: #{$dropdowns-navbar-color};
+  --#{$prefix}-dropdowns-navbar-bg: #{$dropdowns-navbar-bg};
+  --#{$prefix}-dropdowns-navbar-border-width: #{$dropdowns-navbar-border-width};
+  --#{$prefix}-dropdowns-navbar-border-style: #{$dropdowns-navbar-border-style};
+  --#{$prefix}-dropdowns-navbar-border-color: #{$dropdowns-navbar-border-color};
+  --#{$prefix}-dropdowns-navbar-padding-y: #{$dropdowns-navbar-padding-y};
+  --#{$prefix}-dropdowns-navbar-padding-x: #{$dropdowns-navbar-padding-x};
+  --#{$prefix}-dropdowns-navbar-text-shadow: #{$dropdowns-navbar-text-shadow};
+  --#{$prefix}-dropdowns-navbar-box-shadow: #{$dropdowns-navbar-box-shadow};
+  --#{$prefix}-dropdowns-brand-color: #{$dropdowns-brand-color};
+  --#{$prefix}-dropdowns-brand-font-size: #{$dropdowns-brand-font-size};
+  --#{$prefix}-dropdowns-brand-font-weight: #{$dropdowns-brand-font-weight};
+  --#{$prefix}-dropdowns-nav-item-separator-border: #{$dropdowns-nav-item-separator-border};
+  --#{$prefix}-dropdowns-nav-item-separator-spacing: #{$dropdowns-nav-item-separator-spacing};
+  --#{$prefix}-dropdowns-nav-item-separator-fullsize-offset: #{$dropdowns-nav-item-separator-fullsize-offset};
+  --#{$prefix}-dropdowns-nav-link-color: #{$dropdowns-nav-link-color};
+  --#{$prefix}-dropdowns-nav-link-bg: #{$dropdowns-nav-link-bg};
+  --#{$prefix}-dropdowns-nav-link-border-radius: #{$dropdowns-nav-link-border-radius};
+  --#{$prefix}-dropdowns-nav-link-first-border-radius: #{$dropdowns-nav-link-first-border-radius};
+  --#{$prefix}-dropdowns-nav-link-last-border-radius: #{$dropdowns-nav-link-last-border-radius};
+  --#{$prefix}-dropdowns-nav-link-font-weight: #{$dropdowns-nav-link-font-weight};
+  --#{$prefix}-dropdowns-nav-link-hover-color: #{$dropdowns-nav-link-hover-color};
+  --#{$prefix}-dropdowns-nav-link-hover-bg: #{$dropdowns-nav-link-hover-bg};
+  --#{$prefix}-dropdowns-nav-link-active-color: #{$dropdowns-nav-link-active-color};
+  --#{$prefix}-dropdowns-nav-link-active-bg: #{$dropdowns-nav-link-active-bg};
+  --#{$prefix}-dropdowns-nav-link-expanded-color: #{$dropdowns-nav-link-expanded-color};
+  --#{$prefix}-dropdowns-nav-link-expanded-bg: #{$dropdowns-nav-link-expanded-bg};
+  --#{$prefix}-dropdowns-nav-link-expanded-border-radius: #{$dropdowns-nav-link-expanded-border-radius};
+  --#{$prefix}-dropdowns-nav-link-first-expanded-border-radius: #{$dropdowns-nav-link-first-expanded-border-radius};
+  --#{$prefix}-dropdowns-nav-link-last-expanded-border-radius: #{$dropdowns-nav-link-last-expanded-border-radius};
+  --#{$prefix}-dropdowns-nav-link-selected-color: #{$dropdowns-nav-link-selected-color};
+  --#{$prefix}-dropdowns-nav-link-selected-bg: #{$dropdowns-nav-link-selected-bg};
+  --#{$prefix}-dropdowns-nav-link-selected-font-weight: #{$dropdowns-nav-link-selected-font-weight};
+  --#{$prefix}-dropdowns-nav-link-disabled-color: #{$dropdowns-nav-link-disabled-color};
+  --#{$prefix}-dropdowns-nav-link-padding-y: #{$dropdowns-nav-link-padding-y};
+  --#{$prefix}-dropdowns-nav-link-padding-x: #{$dropdowns-nav-link-padding-x};
+  --#{$prefix}-dropdowns-nav-link-split-separator-border: #{$dropdowns-nav-link-split-separator-border};
+  --#{$prefix}-dropdowns-nav-link-split-separator-fullsize-offset: #{$dropdowns-nav-link-split-separator-fullsize-offset};
+  --#{$prefix}-dropdowns-nav-link-split-separator-opacity: #{$dropdowns-nav-link-split-separator-opacity};
+  --#{$prefix}-dropdowns-nav-link-split-toggler-border-radius: #{$dropdowns-nav-link-split-toggler-border-radius};
+  --#{$prefix}-dropdowns-sub-toggler-color: #{$dropdowns-sub-toggler-color};
+  --#{$prefix}-dropdowns-sub-toggler-icon-size: #{$dropdowns-sub-toggler-icon-size};
+  --#{$prefix}-dropdowns-sub-toggler-icon-spacing: #{$dropdowns-sub-toggler-icon-spacing};
+  --#{$prefix}-dropdowns-sub-toggler-split-icon-spacing: #{$dropdowns-sub-toggler-split-icon-spacing};
+  --#{$prefix}-dropdowns-sub-toggler-opacity: #{$dropdowns-sub-toggler-opacity};
+  --#{$prefix}-dropdowns-sub-bg: #{$dropdowns-sub-bg};
+  --#{$prefix}-dropdowns-sub-border-width: #{$dropdowns-sub-border-width};
+  --#{$prefix}-dropdowns-sub-border-style: #{$dropdowns-sub-border-style};
+  --#{$prefix}-dropdowns-sub-border-color: #{$dropdowns-sub-border-color};
+  --#{$prefix}-dropdowns-sub-border-radius: #{$dropdowns-sub-border-radius};
+  --#{$prefix}-dropdowns-sub-first-level-border-radius: #{$dropdowns-sub-first-level-border-radius};
+  --#{$prefix}-dropdowns-sub-padding-y: #{$dropdowns-sub-padding-y};
+  --#{$prefix}-dropdowns-sub-padding-x: #{$dropdowns-sub-padding-x};
+  --#{$prefix}-dropdowns-sub-text-shadow: #{$dropdowns-sub-text-shadow};
+  --#{$prefix}-dropdowns-sub-box-shadow: #{$dropdowns-sub-box-shadow};
+  --#{$prefix}-dropdowns-sub-item-separator-border: #{$dropdowns-sub-item-separator-border};
+  --#{$prefix}-dropdowns-sub-item-separator-spacing: #{$dropdowns-sub-item-separator-spacing};
+  --#{$prefix}-dropdowns-sub-item-separator-fullsize-offset: #{$dropdowns-sub-item-separator-fullsize-offset};
+  --#{$prefix}-dropdowns-sub-link-color: #{$dropdowns-sub-link-color};
+  --#{$prefix}-dropdowns-sub-link-bg: #{$dropdowns-sub-link-bg};
+  --#{$prefix}-dropdowns-sub-link-border-radius: #{$dropdowns-sub-link-border-radius};
+  --#{$prefix}-dropdowns-sub-link-first-border-radius: #{$dropdowns-sub-link-first-border-radius};
+  --#{$prefix}-dropdowns-sub-link-last-border-radius: #{$dropdowns-sub-link-last-border-radius};
+  --#{$prefix}-dropdowns-sub-link-font-weight: #{$dropdowns-sub-link-font-weight};
+  --#{$prefix}-dropdowns-sub-link-hover-color: #{$dropdowns-sub-link-hover-color};
+  --#{$prefix}-dropdowns-sub-link-hover-bg: #{$dropdowns-sub-link-hover-bg};
+  --#{$prefix}-dropdowns-sub-link-active-color: #{$dropdowns-sub-link-active-color};
+  --#{$prefix}-dropdowns-sub-link-active-bg: #{$dropdowns-sub-link-active-bg};
+  --#{$prefix}-dropdowns-sub-link-expanded-color: #{$dropdowns-sub-link-expanded-color};
+  --#{$prefix}-dropdowns-sub-link-expanded-bg: #{$dropdowns-sub-link-expanded-bg};
+  --#{$prefix}-dropdowns-sub-link-expanded-border-radius: #{$dropdowns-sub-link-expanded-border-radius};
+  --#{$prefix}-dropdowns-sub-link-first-expanded-border-radius: #{$dropdowns-sub-link-first-expanded-border-radius};
+  --#{$prefix}-dropdowns-sub-link-last-expanded-border-radius: #{$dropdowns-sub-link-last-expanded-border-radius};
+  --#{$prefix}-dropdowns-sub-link-selected-color: #{$dropdowns-sub-link-selected-color};
+  --#{$prefix}-dropdowns-sub-link-selected-bg: #{$dropdowns-sub-link-selected-bg};
+  --#{$prefix}-dropdowns-sub-link-selected-font-weight: #{$dropdowns-sub-link-selected-font-weight};
+  --#{$prefix}-dropdowns-sub-link-disabled-color: #{$dropdowns-sub-link-disabled-color};
+  --#{$prefix}-dropdowns-sub-link-padding-y: #{$dropdowns-sub-link-padding-y};
+  --#{$prefix}-dropdowns-sub-link-padding-x: #{$dropdowns-sub-link-padding-x};
+  --#{$prefix}-dropdowns-sub-link-split-separator-border: #{$dropdowns-sub-link-split-separator-border};
+  --#{$prefix}-dropdowns-sub-link-split-separator-fullsize-offset: #{$dropdowns-sub-link-split-separator-fullsize-offset};
+  --#{$prefix}-dropdowns-sub-link-split-separator-opacity: #{$dropdowns-sub-link-split-separator-opacity};
+  --#{$prefix}-dropdowns-sub-link-split-toggler-border-radius: #{$dropdowns-sub-link-split-toggler-border-radius};
+}

@@ -1,0 +1,21 @@
+// Animations
+
+@keyframes sm-ani-collapse {
+  from {
+    max-height: 0;
+    overflow: hidden;
+  }
+  to {
+    max-height: var(--#{$prefix}-height, 100vh);
+    overflow: hidden;
+  }
+}
+
+@keyframes sm-ani-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

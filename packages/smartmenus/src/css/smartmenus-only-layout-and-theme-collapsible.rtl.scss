@@ -1,0 +1,17 @@
+$rtl:             true !default;
+
+
+// Layout
+
+@import 'variables/layout';
+@import 'layout/layout';
+
+
+// Theme
+
+// base variables
+@import 'variables/theme-base';
+
+// collapsible
+@import 'variables/theme-collapsible';
+@import 'theme/collapsible';

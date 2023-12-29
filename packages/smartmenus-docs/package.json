@@ -1,0 +1,48 @@
+{
+  "name": "smartmenus-docs",
+  "version": "2.0.0-alpha.0",
+  "private": true,
+  "title": "SmartMenus Docs",
+  "description": "The SmartMenus docs.",
+  "author": {
+    "name": "Vasil Dinkov",
+    "email": "vasko.dinkov@gmail.com",
+    "url": "https://vadikom.com"
+  },
+  "homepage": "https://docs.smartmenus.org/",
+  "bugs": "https://github.com/vadikom/smartmenus/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vadikom/smartmenus.git",
+    "directory": "packages/smartmenus-docs"
+  },
+  "scripts": {
+    "build": "npm run lint && vite build",
+    "dev": "vite --open",
+    "preview": "npm run build && vite preview --open",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore && prettier --write pages/ renderer/",
+    "version": "npm run build"
+  },
+  "dependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/compiler-sfc": "^3.3.4",
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/server-renderer": "^3.3.4",
+    "browserslist-to-esbuild": "^1.2.0",
+    "eslint": "^8.39.0",
+    "eslint-plugin-vue": "^9.11.0",
+    "markdown-it": "^13.0.2",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-prism": "^2.3.0",
+    "prettier": "^2.8.8",
+    "prism-theme-github": "^1.0.1",
+    "smartmenus": "2.0.0-alpha.0",
+    "vite": "^4.4.9",
+    "vite-plugin-md": "^0.22.5",
+    "vite-plugin-ssr": "^0.4.139",
+    "vue": "^3.3.4"
+  },
+  "type": "module"
+}

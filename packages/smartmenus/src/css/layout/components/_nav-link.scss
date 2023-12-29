@@ -1,0 +1,61 @@
+// Nav Link
+
+.sm-nav-link {
+  grid-area: link;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  line-height: inherit;
+}
+.sm-navbar--dropdowns-only .sm-nav-link {
+  white-space: nowrap;
+}
+@media (min-width: $vp-large-min) {
+  .sm-navbar:not(.sm-navbar--collapsible-only) .sm-nav-link {
+    white-space: nowrap;
+  }
+}
+.sm-nav-link.sm-disabled {
+  cursor: default;
+}
+
+@if $support-navbar-vertical {
+  // Vertical navbar (for navbars with dropdowns)
+  .sm-navbar--vertical.sm-navbar--dropdowns-only .sm-nav-link {
+    white-space: normal;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-navbar--vertical:not(.sm-navbar--collapsible-only) .sm-nav-link {
+      white-space: normal;
+    }
+  }
+}
+
+
+// Nav Link variants
+
+// Split nav link
+
+// Toggler
+.sm-nav-link--split + .sm-nav-link--split {
+  grid-area: link-split-toggler;
+  cursor: pointer;
+}
+
+// Separator
+.sm-nav-link--split + .sm-nav-link--split::before {
+  content: '';
+  position: absolute;
+  @if not $rtl {
+    left: 0;
+  } @else {
+    right: 0;
+  }
+
+  top: 0;
+  bottom: 0;
+  margin: 6px 0;
+  border-left: 1px solid;
+  overflow: hidden;
+}

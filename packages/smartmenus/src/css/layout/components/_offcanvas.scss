@@ -1,0 +1,72 @@
+@if $support-navbar-offcanvas {
+  // Offcanvas
+
+  .sm-offcanvas {
+    display: none;
+    flex-basis: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--#{$prefix}-offcanvas-width);
+    overflow-y: auto;
+    --#{$prefix}-offcanvas-transform-from: translateX(-100%);
+  }
+  .sm-navbar--offcanvas-right .sm-offcanvas {
+    left: auto;
+    right: 0;
+    --#{$prefix}-offcanvas-transform-from: translateX(100%);
+  }
+  .sm-navbar--offcanvas-top .sm-offcanvas,
+  .sm-navbar--offcanvas-bottom .sm-offcanvas {
+    right: 0;
+    width: auto;
+    --#{$prefix}-offcanvas-transform-from: translateY(-100%);
+  }
+  .sm-navbar--offcanvas-bottom .sm-offcanvas {
+    --#{$prefix}-offcanvas-transform-from: translateY(100%);
+  }
+  .sm-offcanvas.sm-show,
+  .sm-offcanvas.sm-hiding {
+    display: block;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sm-offcanvas.sm-showing {
+      animation: sm-offcanvas-toggle 0.25s;
+    }
+    .sm-offcanvas.sm-hiding {
+      animation: sm-offcanvas-toggle 0.25s reverse;
+    }
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-navbar:not(.sm-navbar--offcanvas-only) .sm-offcanvas {
+      display: inherit;
+      flex-flow: inherit;
+      align-items: inherit;
+      justify-content: inherit;
+      position: static;
+      width: auto;
+      padding: 0 !important;
+      background: transparent !important;
+      overflow-y: visible;
+      transform: none;
+    }
+  }
+  .sm-navbar--dropdowns-only .sm-offcanvas {
+    overflow-y: visible;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-navbar:not(.sm-navbar--collapsible-only) .sm-offcanvas {
+      overflow-y: visible;
+    }
+  }
+
+  @keyframes sm-offcanvas-toggle {
+    from {
+      transform: var(--#{$prefix}-offcanvas-transform-from);
+    }
+    to {
+      transform: none;
+    }
+  }
+}

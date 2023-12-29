@@ -1,0 +1,30 @@
+// Sub Toggler
+
+.sm-sub-toggler::after {
+  --#{$prefix}-sub-toggler-icon-size: 0.7rem;
+  --#{$prefix}-sub-toggler-icon-spacing: 0.4rem;
+  --#{$prefix}-sub-toggler-split-icon-spacing: 0px;
+
+  content: '+';
+  display: inline-block;
+  @if not $rtl {
+    margin-left: var(--#{$prefix}-sub-toggler-icon-spacing);
+  } @else {
+    margin-right: var(--#{$prefix}-sub-toggler-icon-spacing);
+  }
+
+  width: var(--#{$prefix}-sub-toggler-icon-size);
+  height: var(--#{$prefix}-sub-toggler-icon-size);
+  line-height: var(--#{$prefix}-sub-toggler-icon-size);
+  text-align: center;
+}
+.sm-expanded.sm-sub-toggler::after {
+  content: '-';
+}
+
+// Split nav/sub link
+.sm-nav-link--split.sm-sub-toggler::after,
+.sm-sub-link--split.sm-sub-toggler::after {
+  margin-left: var(--#{$prefix}-sub-toggler-split-icon-spacing);
+  margin-right: var(--#{$prefix}-sub-toggler-split-icon-spacing);
+}

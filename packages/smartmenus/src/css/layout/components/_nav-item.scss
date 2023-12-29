@@ -1,0 +1,46 @@
+// Nav Item
+
+.sm-nav-item {
+  display: grid;
+  grid-template:
+    'link link-split-toggler' auto
+    'sub  sub' auto
+    / 1fr   auto;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+}
+
+@if $support-nav-fill {
+  // Full-width nav with proportional-width items that fill all the space
+  .sm-navbar--dropdowns-only .sm-nav--fill > .sm-nav-item {
+    flex: 1 1 auto;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-nav--fill > .sm-nav-item {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+@if $support-nav-justify {
+  // Full-width nav with equal-width items that fill all the space
+  .sm-navbar--dropdowns-only .sm-nav--justify > .sm-nav-item {
+    flex: 1 1 0;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-nav--justify > .sm-nav-item {
+      flex: 1 1 0;
+    }
+  }
+}
+
+
+// Nav Item variants
+
+// Nav item with a mega sub
+.sm-nav-item--has-mega {
+  position: static;
+}

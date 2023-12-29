@@ -1,0 +1,49 @@
+@import 'variables-sass';
+@import 'variables-css';
+@import 'reset';
+@import 'prismjs';
+@import 'markdown';
+@import 'smartmenus-custom';
+
+html {
+  font: var(--site-font-size) var(--site-font-family);
+  background: var(--site-bg);
+  color: var(--site-text);
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+abbr,
+acronym {
+  border-bottom: 1px dotted var(--site-text-muted);
+}
+code {
+  font-family: var(--site-font-mono) !important;
+  font-size: 0.875rem !important;
+}
+.visually-hidden {
+  position: absolute;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  overflow: hidden;
+}
+// Add top offset for local anchors
+:target::before {
+  content: '';
+  display: block;
+  height: 90px;
+  margin-top: -90px;
+}
+@media (min-width: $vp-large-min) {
+  :target::before {
+    height: 30px;
+    margin-top: -30px;
+  }
+}

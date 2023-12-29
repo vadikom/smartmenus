@@ -1,0 +1,36 @@
+// Layout
+
+@import 'variables/layout';
+@import 'layout/layout';
+
+
+// Theme
+
+// base variables
+@import 'variables/theme-base';
+
+// collapsible
+@import 'variables/theme-collapsible';
+@media (max-width: $vp-small-max) {
+  .sm-navbar:not(.sm-navbar--dropdowns-only) {
+    @import 'theme/collapsible';
+  }
+}
+@media (min-width: $vp-large-min) {
+  .sm-navbar--collapsible-only {
+    @import 'theme/collapsible';
+  }
+}
+
+// dropdowns
+@import 'variables/theme-dropdowns';
+@media (max-width: $vp-small-max) {
+  .sm-navbar--dropdowns-only {
+    @import 'theme/dropdowns';
+  }
+}
+@media (min-width: $vp-large-min) {
+  .sm-navbar:not(.sm-navbar--collapsible-only) {
+    @import 'theme/dropdowns';
+  }
+}

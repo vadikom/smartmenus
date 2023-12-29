@@ -1,0 +1,8 @@
+a {
+  color: var(--q-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.q-dialog.fullscreen {
+  z-index: 10003;
+}

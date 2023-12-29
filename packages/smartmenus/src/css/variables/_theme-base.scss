@@ -1,0 +1,71 @@
+//
+// Theme - Base variables
+//
+
+
+// Colors
+$light:                   #fff !default;
+$dark:                    #262626 !default;
+
+$brand:                   #1c72e3 !default;
+$brand-contrast:          $light !default;
+
+$accent:                  #74ecc8 !default;
+$accent-contrast:         $dark !default;
+
+// usually these should correspond to your main surface bg/text colors (e.g. whitish bg for a light theme and blackish bg for a dark theme)
+$bg:                      $light !default;
+$bg-soft:                 rgba(mix(black, $bg, 15%), 0.3) !default;
+$text:                    $dark !default;
+$text-disabled:           rgba($text, 0.38) !default;
+
+// usually these should correspond to your alternative surface bg/text colors (e.g. grayish bg for neutral sidebars, teasers, buttons, etc.)
+$bg-alt:                  mix(black, $bg, 3%) !default;
+$bg-alt-soft:             rgba(mix(black, $bg-alt, 15%), 0.3) !default;
+$text-alt:                $text !default;
+$text-alt-disabled:       rgba($text-alt, 0.38) !default;
+
+$separator:               rgba($text, 0.2) !default;
+$border:                  rgba($text, 0.1) !default;
+$text-shadow:             none !default;
+$box-shadow:              rgba(0, 0, 0, 0.1) !default;
+
+// Typography
+$font-family:             inherit !default;
+$font-size:               1rem !default;
+$font-size-small:         0.875rem !default;
+$line-height:             23px !default;
+
+// Border radius
+$border-radius:           8px !default;
+$border-radius-large:     10px !default;
+$border-radius-small:     6px !default;
+
+
+#{$var-scope} {
+  --#{$prefix}-light: #{$light};
+  --#{$prefix}-dark: #{$dark};
+  --#{$prefix}-brand: #{$brand};
+  --#{$prefix}-brand-contrast: #{$brand-contrast};
+  --#{$prefix}-accent: #{$accent};
+  --#{$prefix}-accent-contrast: #{$accent-contrast};
+  --#{$prefix}-bg: #{$bg};
+  --#{$prefix}-bg-soft: #{$bg-soft};
+  --#{$prefix}-text: #{$text};
+  --#{$prefix}-text-disabled: #{$text-disabled};
+  --#{$prefix}-bg-alt: #{$bg-alt};
+  --#{$prefix}-bg-alt-soft: #{$bg-alt-soft};
+  --#{$prefix}-text-alt: #{$text-alt};
+  --#{$prefix}-text-alt-disabled: #{$text-alt-disabled};
+  --#{$prefix}-separator: #{$separator};
+  --#{$prefix}-border: #{$border};
+  --#{$prefix}-text-shadow: #{$text-shadow};
+  --#{$prefix}-box-shadow: #{$box-shadow};
+  --#{$prefix}-font-family: #{$font-family};
+  --#{$prefix}-font-size: #{$font-size};
+  --#{$prefix}-font-size-small: #{$font-size-small};
+  --#{$prefix}-line-height: #{$line-height};
+  --#{$prefix}-border-radius: #{$border-radius};
+  --#{$prefix}-border-radius-large: #{$border-radius-large};
+  --#{$prefix}-border-radius-small: #{$border-radius-small};
+}

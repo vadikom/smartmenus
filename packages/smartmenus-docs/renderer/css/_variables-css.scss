@@ -1,0 +1,89 @@
+// Colors (light)
+$light: #fff;
+$dark: #262626;
+
+$brand: #1c72e3;
+$brand-em: mix(black, $brand, 10%);
+$brand-soft: rgba($brand, 0.14);
+
+$accent: #74ecc8;
+$accent-em: mix(black, $accent, 10%);
+$accent-soft: rgba($accent, 0.14);
+
+$bg: $light;
+$bg-soft: rgba(mix(black, $bg, 15%), 0.3);
+$text: $dark;
+$text-muted: rgba($text, 0.7);
+$text-disabled: rgba($text, 0.38);
+
+$bg-alt: mix(black, $bg, 3%);
+$bg-alt-soft: rgba(mix(black, $bg-alt, 15%), 0.3);
+$text-alt: $text;
+$text-alt-muted: rgba($text-alt, 0.7);
+$text-alt-disabled: rgba($text-alt, 0.38);
+
+$separator: rgba($text, 0.1);
+$border: rgba($text, 0.1);
+$text-shadow: none;
+$box-shadow: rgba(0, 0, 0, 0.1);
+$overlay-bg: rgba(0, 0, 0, 0.3);
+
+:root {
+  @import 'variables-css-colors';
+}
+
+// Colors (dark)
+$light: $light;
+$dark: #1c1c1c;
+
+$brand: desaturate($brand, 10%);
+$brand-em: mix(white, $brand, 20%);
+$brand-soft: rgba($brand, 0.14);
+
+$accent: desaturate($accent, 20%);
+$accent-em: mix(white, $accent, 20%);
+$accent-soft: rgba($accent, 0.14);
+
+$bg: $dark;
+$bg-soft: rgba(mix(white, $bg, 15%), 0.3);
+$text: rgba($light, 0.87);
+$text-muted: rgba($text, 0.6);
+$text-disabled: rgba($text, 0.38);
+
+$bg-alt: mix(black, $bg, 30%);
+$bg-alt-soft: rgba(mix(white, $bg-alt, 15%), 0.3);
+$text-alt: $text;
+$text-alt-muted: rgba($text-alt, 0.6);
+$text-alt-disabled: rgba($text-alt, 0.38);
+
+$separator: rgba($text, 0.1);
+$border: rgba($text, 0.1);
+$text-shadow: none;
+$box-shadow: rgba(0, 0, 0, 0.1);
+$overlay-bg: rgba(0, 0, 0, 0.7);
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  @import 'variables-css-colors';
+}
+
+:root {
+  // Layout
+  --site-layout-max-width: 1200px;
+  --site-content-max-width-large: 800px;
+  --site-content-max-width-small: 684px;
+  --site-sidebar-width: 310px;
+
+  // Typography
+  --site-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Helvetica, Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
+  --site-font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  --site-font-size: 17px;
+  --site-font-size-small: 0.875rem;
+  --site-line-height: 28px;
+
+  // Border radius
+  --site-border-radius: 8px;
+}

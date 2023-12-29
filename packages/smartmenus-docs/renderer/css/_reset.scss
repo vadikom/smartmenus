@@ -1,0 +1,44 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+form,
+input,
+select,
+dl,
+dt,
+dd,
+fieldset,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+a img {
+  border: none;
+}
+img {
+  max-width: 100%;
+}
+fieldset {
+  display: block;
+  border: 0 solid;
+}

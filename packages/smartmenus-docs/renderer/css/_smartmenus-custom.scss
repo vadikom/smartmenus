@@ -1,0 +1,56 @@
+// Layout
+
+// Features support (you may disable any feature you don't need to decrease the size of the generated CSS)
+$support-navbar-vertical: false;
+$support-navbar-inline: false;
+$support-navbar-sticky: false;
+$support-navbar-offcanvas: true;
+$support-navbar-fixed: true;
+$support-navbar-sidebar: true;
+$support-nav-left: false;
+$support-nav-center: false;
+$support-nav-right: false;
+$support-nav-fill: false;
+$support-nav-justify: false;
+
+$navbar-sidebar-width: var(--site-sidebar-width);
+$navbar-sidebar-centered-layout-max-width: var(--site-layout-max-width);
+
+$offcanvas-overlay-bg: var(--site-overlay-bg);
+
+// Theme
+$brand: var(--site-brand);
+$brand-contrast: var(--site-light);
+
+$accent: var(--site-accent);
+$accent-contrast: var(--site-dark);
+
+$bg: var(--site-bg);
+$bg-soft: var(--site-bg-soft);
+$text: var(--site-text);
+$text-disabled: var(--site-text-disabled);
+
+$bg-alt: var(--site-bg-alt);
+$bg-alt-soft: var(--site-bg-alt-soft);
+$text-alt: var(--site-text-alt);
+$text-alt-disabled: var(--site-text-alt-disabled);
+
+$separator: var(--site-separator);
+$border: var(--site-border);
+$text-shadow: var(--site-text-shadow);
+$box-shadow: var(--site-box-shadow);
+
+$font-size: 16px;
+$font-size-small: 14px;
+$collapsible-navbar-padding-x: 12px;
+$collapsible-brand-font-weight: bold;
+
+@import '../node_modules/smartmenus/src/css/smartmenus-only-layout-and-theme-collapsible.scss';
+
+// Custom CSS
+
+.sm-brand-sub {
+  margin-left: 0.4rem;
+  color: var(--site-brand-em);
+  font-weight: normal;
+}

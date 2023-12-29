@@ -1,0 +1,46 @@
+// Nav Item Separator
+
+.sm-nav-item-separator {
+  --#{$prefix}-nav-item-separator-border: 1px solid;
+  --#{$prefix}-nav-item-separator-spacing: 0.5rem;
+  --#{$prefix}-nav-item-separator-fullsize-offset: 6px;
+
+  margin: var(--#{$prefix}-nav-item-separator-spacing) var(--#{$prefix}-nav-item-separator-fullsize-offset);
+  border: 0;
+  border-top: var(--#{$prefix}-nav-item-separator-border);
+  height: 0;
+  color: currentcolor;
+  overflow: hidden;
+}
+.sm-navbar--dropdowns-only .sm-nav-item-separator {
+  margin: var(--#{$prefix}-nav-item-separator-fullsize-offset) var(--#{$prefix}-nav-item-separator-spacing);
+  border: 0;
+  border-left: var(--#{$prefix}-nav-item-separator-border);
+  height: auto;
+}
+@media (min-width: $vp-large-min) {
+  .sm-navbar:not(.sm-navbar--collapsible-only) .sm-nav-item-separator {
+    margin: var(--#{$prefix}-nav-item-separator-fullsize-offset) var(--#{$prefix}-nav-item-separator-spacing);
+    border: 0;
+    border-left: var(--#{$prefix}-nav-item-separator-border);
+    height: auto;
+  }
+}
+
+@if $support-navbar-vertical {
+  // Vertical navbar
+  .sm-navbar--vertical.sm-navbar--dropdowns-only .sm-nav-item-separator {
+    margin: var(--#{$prefix}-nav-item-separator-spacing) var(--#{$prefix}-nav-item-separator-fullsize-offset);
+    border: 0;
+    border-top: var(--#{$prefix}-nav-item-separator-border);
+    height: 0;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-navbar--vertical:not(.sm-navbar--collapsible-only) .sm-nav-item-separator {
+      margin: var(--#{$prefix}-nav-item-separator-spacing) var(--#{$prefix}-nav-item-separator-fullsize-offset);
+      border: 0;
+      border-top: var(--#{$prefix}-nav-item-separator-border);
+      height: 0;
+    }
+  }
+}

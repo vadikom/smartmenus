@@ -1,0 +1,13 @@
+// Utility
+
+@media (max-width: $vp-small-max) {
+  .sm-hide-small {
+    display: none !important;
+  }
+}
+
+@media (min-width: $vp-large-min) {
+  .sm-hide-large {
+    display: none !important;
+  }
+}

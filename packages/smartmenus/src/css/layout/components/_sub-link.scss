@@ -1,0 +1,49 @@
+// Sub Link
+
+.sm-sub-link {
+  grid-area: link;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  line-height: inherit;
+}
+.sm-navbar--dropdowns-only .sm-sub-link {
+  white-space: nowrap;
+}
+@media (min-width: $vp-large-min) {
+  .sm-navbar:not(.sm-navbar--collapsible-only) .sm-sub-link {
+    white-space: nowrap;
+  }
+}
+.sm-sub-link.sm-disabled {
+  cursor: default;
+}
+
+
+// Sub Link variants
+
+// Split sub link
+
+// Toggler
+.sm-sub-link--split + .sm-sub-link--split {
+  grid-area: link-split-toggler;
+  cursor: pointer;
+}
+
+// Separator
+.sm-sub-link--split + .sm-sub-link--split::before {
+  content: '';
+  position: absolute;
+  @if not $rtl {
+    left: 0;
+  } @else {
+    right: 0;
+  }
+
+  top: 0;
+  bottom: 0;
+  margin: 6px 0;
+  border-left: 1px solid;
+  overflow: hidden;
+}

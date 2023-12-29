@@ -1,0 +1,323 @@
+//
+// Theme collapsible - CSS
+//
+
+// This is used when all the rules below need to be scoped to a custom .sm-navbar selector (e.g. in the max stylesheet)
+$scope-class: #{if(&, '&', '')};
+
+
+// Navbar
+
+#{$scope-class}.sm-navbar {
+  border-width: var(--#{$prefix}-collapsible-navbar-border-width);
+  border-style: var(--#{$prefix}-collapsible-navbar-border-style);
+  border-color: var(--#{$prefix}-collapsible-navbar-border-color);
+  padding: var(--#{$prefix}-collapsible-navbar-padding-y) var(--#{$prefix}-collapsible-navbar-padding-x);
+  background: var(--#{$prefix}-collapsible-navbar-bg);
+  color: var(--#{$prefix}-collapsible-navbar-color);
+  text-shadow: var(--#{$prefix}-collapsible-navbar-text-shadow);
+  box-shadow: var(--#{$prefix}-collapsible-navbar-box-shadow);
+
+  // internal use
+  @if $support-navbar-sidebar {
+    --#{$prefix}-navbar-sidebar-centered-padding-x: var(--#{$prefix}-collapsible-navbar-padding-x);
+  }
+}
+
+
+// Brand
+
+.sm-brand {
+  padding: var(--#{$prefix}-collapsible-nav-link-padding-y) var(--#{$prefix}-collapsible-nav-link-padding-x);
+  color: var(--#{$prefix}-collapsible-brand-color);
+  font-family: var(--#{$prefix}-font-family);
+  font-size: var(--#{$prefix}-collapsible-brand-font-size);
+  font-weight: var(--#{$prefix}-collapsible-brand-font-weight);
+  line-height: var(--#{$prefix}-line-height);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.sm-brand > a,
+.sm-brand > a:hover,
+.sm-brand > a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+// Toggler
+
+.sm-toggler-anchor {
+  padding: var(--#{$prefix}-collapsible-nav-link-padding-y) var(--#{$prefix}-collapsible-nav-link-padding-x);
+  line-height: var(--#{$prefix}-line-height);
+  text-shadow: none;
+}
+
+
+// Offcanvas
+
+.sm-offcanvas {
+  padding: var(--#{$prefix}-collapsible-navbar-padding-y) var(--#{$prefix}-collapsible-navbar-padding-x);
+  background: var(--#{$prefix}-collapsible-navbar-bg);
+}
+
+
+// Nav Item
+
+.sm-nav-item + .sm-nav-item {
+  margin-top: var(--#{$prefix}-collapsible-nav-item-spacing-y);
+}
+
+
+// Nav Item Separator
+
+.sm-nav-item-separator {
+  --#{$prefix}-nav-item-separator-border: var(--#{$prefix}-collapsible-nav-item-separator-border);
+  --#{$prefix}-nav-item-separator-spacing: var(--#{$prefix}-collapsible-nav-item-separator-spacing);
+  --#{$prefix}-nav-item-separator-fullsize-offset: var(--#{$prefix}-collapsible-nav-item-separator-fullsize-offset);
+}
+
+
+// Nav Link
+
+.sm-nav-link {
+  grid-area: link / link / link / link-split-toggler;
+  border-radius: var(--#{$prefix}-collapsible-nav-link-border-radius);
+  padding: var(--#{$prefix}-collapsible-nav-link-padding-y) var(--#{$prefix}-collapsible-nav-link-padding-x);
+  background: var(--#{$prefix}-collapsible-nav-link-bg);
+  color: var(--#{$prefix}-collapsible-nav-link-color);
+  font-family: var(--#{$prefix}-font-family);
+  font-size: var(--#{$prefix}-font-size);
+  font-weight: var(--#{$prefix}-collapsible-nav-link-font-weight);
+  line-height: var(--#{$prefix}-line-height);
+  text-decoration: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .sm-nav-link:hover {
+    background: var(--#{$prefix}-collapsible-nav-link-hover-bg);
+    color: var(--#{$prefix}-collapsible-nav-link-hover-color);
+  }
+}
+.sm-nav-link:active {
+  background: var(--#{$prefix}-collapsible-nav-link-active-bg);
+  color: var(--#{$prefix}-collapsible-nav-link-active-color);
+}
+
+.sm-nav-link.sm-expanded {
+  border-radius: var(--#{$prefix}-collapsible-nav-link-expanded-border-radius);
+  background: var(--#{$prefix}-collapsible-nav-link-expanded-bg);
+  color: var(--#{$prefix}-collapsible-nav-link-expanded-color);
+}
+.sm-nav-link.sm-selected {
+  background: var(--#{$prefix}-collapsible-nav-link-selected-bg);
+  color: var(--#{$prefix}-collapsible-nav-link-selected-color);
+  font-weight: var(--#{$prefix}-collapsible-nav-link-selected-font-weight);
+}
+.sm-nav-link.sm-disabled {
+  background: var(--#{$prefix}-collapsible-nav-link-bg);
+  color: var(--#{$prefix}-collapsible-nav-link-disabled-color);
+}
+
+// Round the corners of the first and last items
+.sm-nav-item:first-child .sm-nav-link {
+  border-radius: var(--#{$prefix}-collapsible-nav-link-first-border-radius);
+}
+.sm-nav-item:last-child .sm-nav-link {
+  border-radius: var(--#{$prefix}-collapsible-nav-link-last-border-radius);
+}
+.sm-nav-item:first-child .sm-nav-link.sm-expanded {
+  border-radius: var(--#{$prefix}-collapsible-nav-link-first-expanded-border-radius);
+}
+.sm-nav-item:last-child .sm-nav-link.sm-expanded {
+  border-radius: var(--#{$prefix}-collapsible-nav-link-last-expanded-border-radius);
+}
+
+// Split nav link
+
+// Toggler
+.sm-nav-link--split + .sm-nav-link--split {
+  border-radius: var(--#{$prefix}-collapsible-nav-link-split-toggler-border-radius) !important;
+}
+
+// Separator
+.sm-nav-link--split + .sm-nav-link--split::before {
+  margin: var(--#{$prefix}-collapsible-nav-link-split-separator-fullsize-offset) 0;
+  border-left: var(--#{$prefix}-collapsible-nav-link-split-separator-border);
+  opacity: var(--#{$prefix}-collapsible-nav-link-split-separator-opacity);
+}
+
+// Make room for the split toggler
+.sm-nav-link--split:not(.sm-nav-link--split + .sm-nav-link--split) {
+  @if not $rtl {
+    padding-right: calc((var(--#{$prefix}-collapsible-nav-link-padding-x) * 3) + var(--#{$prefix}-collapsible-sub-toggler-icon-size) + (var(--#{$prefix}-collapsible-sub-toggler-icon-spacing) * 2));
+  } @else {
+    padding-left: calc((var(--#{$prefix}-collapsible-nav-link-padding-x) * 3) + var(--#{$prefix}-collapsible-sub-toggler-icon-size) + (var(--#{$prefix}-collapsible-sub-toggler-icon-spacing) * 2));
+  }
+}
+
+// Emulate active state for the split toggler
+.sm-nav-link--split:active:not(.sm-expanded, .sm-selected, .sm-disabled) + .sm-nav-link--split {
+  color: var(--#{$prefix}-collapsible-nav-link-active-color);
+}
+
+
+// Sub Toggler
+
+.sm-sub-toggler {
+  border: 0;
+}
+
+// The chevron
+.sm-sub-toggler::after {
+  --#{$prefix}-sub-toggler-icon-size: var(--#{$prefix}-collapsible-sub-toggler-icon-size);
+
+  content: '' !important;
+  margin: 0 var(--#{$prefix}-collapsible-sub-toggler-icon-spacing) !important;
+  margin-top: calc(-0.5 * var(--#{$prefix}-collapsible-sub-toggler-icon-size)) !important;
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+  border-color: var(--#{$prefix}-collapsible-sub-toggler-color);
+  opacity: var(--#{$prefix}-collapsible-sub-toggler-opacity);
+  transform: rotate(-45deg);
+}
+.sm-expanded.sm-sub-toggler::after {
+  margin-top: calc(0.5 * var(--#{$prefix}-collapsible-sub-toggler-icon-size)) !important;
+  transform: rotate(-225deg);
+}
+
+
+// Sub
+
+.sm-sub {
+  border-radius: var(--#{$prefix}-collapsible-sub-first-level-border-radius);
+  padding: var(--#{$prefix}-collapsible-sub-padding-y) var(--#{$prefix}-collapsible-sub-padding-x);
+  background: var(--#{$prefix}-collapsible-sub-first-level-bg);
+  text-shadow: var(--#{$prefix}-collapsible-sub-text-shadow);
+}
+.sm-sub .sm-sub {
+  border-radius: var(--#{$prefix}-collapsible-sub-border-radius);
+  background: var(--#{$prefix}-collapsible-sub-bg);
+}
+
+
+// Sub Item
+
+.sm-sub-item + .sm-sub-item {
+  margin-top: var(--#{$prefix}-collapsible-sub-item-spacing-y);
+}
+
+
+// Sub Item Separator
+
+.sm-sub-item-separator {
+  margin: var(--#{$prefix}-collapsible-sub-item-separator-spacing) var(--#{$prefix}-collapsible-sub-item-separator-fullsize-offset);
+  border-top: var(--#{$prefix}-collapsible-sub-item-separator-border);
+}
+
+
+// Sub Link
+
+.sm-sub-link {
+  grid-area: link / link / link / link-split-toggler;
+  border-radius: var(--#{$prefix}-collapsible-sub-link-border-radius);
+  padding: var(--#{$prefix}-collapsible-sub-link-padding-y) var(--#{$prefix}-collapsible-sub-link-padding-x);
+  background: var(--#{$prefix}-collapsible-sub-link-bg);
+  color: var(--#{$prefix}-collapsible-sub-link-color);
+  font-family: var(--#{$prefix}-font-family);
+  font-size: var(--#{$prefix}-font-size-small);
+  font-weight: var(--#{$prefix}-collapsible-sub-link-font-weight);
+  line-height: var(--#{$prefix}-line-height);
+  text-decoration: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .sm-sub-link:hover {
+    background: var(--#{$prefix}-collapsible-sub-link-hover-bg);
+    color: var(--#{$prefix}-collapsible-sub-link-hover-color);
+  }
+}
+.sm-sub-link:active {
+  background: var(--#{$prefix}-collapsible-sub-link-active-bg);
+  color: var(--#{$prefix}-collapsible-sub-link-active-color);
+}
+
+.sm-sub-link.sm-expanded {
+  border-radius: var(--#{$prefix}-collapsible-sub-link-expanded-border-radius);
+  background: var(--#{$prefix}-collapsible-sub-link-expanded-bg);
+  color: var(--#{$prefix}-collapsible-sub-link-expanded-color);
+}
+.sm-sub-link.sm-selected {
+  background: var(--#{$prefix}-collapsible-sub-link-selected-bg);
+  color: var(--#{$prefix}-collapsible-sub-link-selected-color);
+  font-weight: var(--#{$prefix}-collapsible-sub-link-selected-font-weight);
+}
+.sm-sub-link.sm-disabled {
+  background: var(--#{$prefix}-collapsible-sub-link-bg);
+  color: var(--#{$prefix}-collapsible-sub-link-disabled-color);
+}
+
+// Round the corners of the first and last items
+.sm-sub-item:first-child > .sm-sub-link {
+  border-radius: var(--#{$prefix}-collapsible-sub-link-first-border-radius);
+}
+.sm-sub-item:last-child > .sm-sub-link {
+  border-radius: var(--#{$prefix}-collapsible-sub-link-last-border-radius);
+}
+.sm-sub-item:first-child > .sm-sub-link.sm-expanded {
+  border-radius: var(--#{$prefix}-collapsible-sub-link-first-expanded-border-radius);
+}
+.sm-sub-item:last-child > .sm-sub-link.sm-expanded {
+  border-radius: var(--#{$prefix}-collapsible-sub-link-last-expanded-border-radius);
+}
+
+// Add indentation for sub menus text
+.sm-sub .sm-sub-item {
+  --#{$prefix}-level: 0;
+}
+.sm-sub .sm-sub .sm-sub-item {
+  --#{$prefix}-level: 1;
+}
+.sm-sub .sm-sub .sm-sub .sm-sub-item {
+  --#{$prefix}-level: 2;
+}
+.sm-sub .sm-sub .sm-sub .sm-sub .sm-sub-item {
+  --#{$prefix}-level: 3;
+}
+.sm-sub .sm-sub .sm-sub .sm-sub .sm-sub .sm-sub-item {
+  --#{$prefix}-level: 4;
+}
+.sm-sub-link:not(.sm-sub-link--split + .sm-sub-link--split) {
+  @if not $rtl {
+    border-left: calc(var(--#{$prefix}-collapsible-sub-text-indent) + (var(--#{$prefix}-collapsible-sub-sub-text-indent) * var(--#{$prefix}-level))) solid transparent;
+  } @else {
+    border-right: calc(var(--#{$prefix}-collapsible-sub-text-indent) + (var(--#{$prefix}-collapsible-sub-sub-text-indent) * var(--#{$prefix}-level))) solid transparent;
+  }
+}
+
+// Split sub link
+
+// Toggler
+.sm-sub-link--split + .sm-sub-link--split {
+  border-radius: var(--#{$prefix}-collapsible-sub-link-split-toggler-border-radius) !important;
+}
+
+// Separator
+.sm-sub-link--split + .sm-sub-link--split::before {
+  margin: var(--#{$prefix}-collapsible-sub-link-split-separator-fullsize-offset) 0;
+  border-left: var(--#{$prefix}-collapsible-sub-link-split-separator-border);
+  opacity: var(--#{$prefix}-collapsible-sub-link-split-separator-opacity);
+}
+
+// Make room for the split toggler
+.sm-sub-link--split:not(.sm-sub-link--split + .sm-sub-link--split) {
+  @if not $rtl {
+    padding-right: calc((var(--#{$prefix}-collapsible-sub-link-padding-x) * 3) + var(--#{$prefix}-collapsible-sub-toggler-icon-size) + (var(--#{$prefix}-collapsible-sub-toggler-icon-spacing) * 2));
+  } @else {
+    padding-left: calc((var(--#{$prefix}-collapsible-sub-link-padding-x) * 3) + var(--#{$prefix}-collapsible-sub-toggler-icon-size) + (var(--#{$prefix}-collapsible-sub-toggler-icon-spacing) * 2));
+  }
+}
+
+// Emulate active state for the split toggler
+.sm-sub-link--split:active:not(.sm-expanded, .sm-selected, .sm-disabled) + .sm-sub-link--split {
+  color: var(--#{$prefix}-collapsible-sub-link-active-color);
+}

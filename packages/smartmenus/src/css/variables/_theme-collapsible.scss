@@ -1,0 +1,199 @@
+//
+// Theme collapsible - Variables
+//
+
+
+// === Navbar variables ===
+
+// Navbar
+$collapsible-navbar-color:                        var(--#{$prefix}-text-alt) !default;
+$collapsible-navbar-bg:                           var(--#{$prefix}-bg-alt) !default;
+$collapsible-navbar-border-width:                 0px !default;
+$collapsible-navbar-border-style:                 solid !default;
+$collapsible-navbar-border-color:                 var(--#{$prefix}-border) !default;
+$collapsible-navbar-padding-y:                    6px !default;
+$collapsible-navbar-padding-x:                    6px !default;
+$collapsible-navbar-text-shadow:                  0 1px 0 var(--#{$prefix}-text-shadow) !default;
+$collapsible-navbar-box-shadow:                   0 0 0 var(--#{$prefix}-box-shadow) !default;
+
+// Brand
+$collapsible-brand-color:                         var(--#{$prefix}-collapsible-navbar-color) !default;
+$collapsible-brand-font-size:                     calc(var(--#{$prefix}-font-size) * 1.25) !default;
+$collapsible-brand-font-weight:                   normal !default;
+
+// Nav Item
+$collapsible-nav-item-spacing-y:                  2px !default;
+
+// Nav Item Separator
+$collapsible-nav-item-separator-border:           1px solid var(--#{$prefix}-separator) !default;
+$collapsible-nav-item-separator-spacing:          6px !default;
+$collapsible-nav-item-separator-fullsize-offset:  6px !default;
+
+// Nav Link
+$collapsible-nav-link-color:                      var(--#{$prefix}-collapsible-navbar-color) !default;
+$collapsible-nav-link-bg:                         transparent !default;
+$collapsible-nav-link-border-radius:              var(--#{$prefix}-border-radius) !default;
+$collapsible-nav-link-first-border-radius:        var(--#{$prefix}-collapsible-nav-link-border-radius) !default;
+$collapsible-nav-link-last-border-radius:         var(--#{$prefix}-collapsible-nav-link-border-radius) !default;
+$collapsible-nav-link-font-weight:                normal !default;
+$collapsible-nav-link-hover-color:                var(--#{$prefix}-text-alt) !default;
+$collapsible-nav-link-hover-bg:                   var(--#{$prefix}-bg-alt-soft) !default;
+$collapsible-nav-link-active-color:               var(--#{$prefix}-brand-contrast) !default;
+$collapsible-nav-link-active-bg:                  var(--#{$prefix}-brand) !default;
+$collapsible-nav-link-expanded-color:             var(--#{$prefix}-brand-contrast) !default; // highlighting a parent item when its sub is displayed
+$collapsible-nav-link-expanded-bg:                var(--#{$prefix}-brand) !default;
+$collapsible-nav-link-expanded-border-radius:             var(--#{$prefix}-border-radius) var(--#{$prefix}-border-radius) 0 0 !default;
+$collapsible-nav-link-first-expanded-border-radius:       var(--#{$prefix}-collapsible-nav-link-expanded-border-radius) !default;
+$collapsible-nav-link-last-expanded-border-radius:        var(--#{$prefix}-collapsible-nav-link-expanded-border-radius) !default;
+$collapsible-nav-link-selected-color:             var(--#{$prefix}-accent-contrast) !default;
+$collapsible-nav-link-selected-bg:                var(--#{$prefix}-accent) !default;
+$collapsible-nav-link-selected-font-weight:       bold !default;
+$collapsible-nav-link-disabled-color:             var(--#{$prefix}-text-alt-disabled) !default;
+$collapsible-nav-link-padding-y:                  10px !default;
+$collapsible-nav-link-padding-x:                  12px !default;
+$collapsible-nav-link-split-separator-border:             1px solid currentcolor !default;
+$collapsible-nav-link-split-separator-fullsize-offset:    8px !default;
+$collapsible-nav-link-split-separator-opacity:            0.2 !default;
+$collapsible-nav-link-split-toggler-border-radius:        var(--#{$prefix}-collapsible-nav-link-border-radius) !default;
+
+// Sub Toggler
+$collapsible-sub-toggler-color:               currentcolor !default;
+$collapsible-sub-toggler-icon-size:           0.6rem !default;
+$collapsible-sub-toggler-icon-spacing:        0.45rem !default;
+$collapsible-sub-toggler-opacity:             0.7 !default;
+
+
+// === Sub menus variables ===
+
+// Sub
+$collapsible-sub-bg:                          var(--#{$prefix}-bg-soft) !default; // darken the background of the 2+ level sub menus
+$collapsible-sub-first-level-bg:              var(--#{$prefix}-bg) !default;
+$collapsible-sub-border-radius:               var(--#{$prefix}-border-radius) !default;
+$collapsible-sub-first-level-border-radius:   0 0 var(--#{$prefix}-border-radius) var(--#{$prefix}-border-radius) !default;
+$collapsible-sub-padding-y:                   5px !default;
+$collapsible-sub-padding-x:                   5px !default;
+$collapsible-sub-text-shadow:                 0 1px 0 var(--#{$prefix}-text-shadow) !default;
+$collapsible-sub-text-indent:                 0px !default; // text indentation for first level sub menus (always include units)
+$collapsible-sub-sub-text-indent:             15px !default; // text indentation for second+ level sub menus (always include units)
+
+// Sub Item
+$collapsible-sub-item-spacing-y:              var(--#{$prefix}-collapsible-nav-item-spacing-y) !default;
+
+// Sub Item Separator
+$collapsible-sub-item-separator-border:               var(--#{$prefix}-collapsible-nav-item-separator-border) !default;
+$collapsible-sub-item-separator-spacing:              var(--#{$prefix}-collapsible-nav-item-separator-spacing) !default;
+$collapsible-sub-item-separator-fullsize-offset:      var(--#{$prefix}-collapsible-nav-item-separator-fullsize-offset) !default;
+
+// Sub Link
+$collapsible-sub-link-color:                  var(--#{$prefix}-text) !default;
+$collapsible-sub-link-bg:                     transparent !default;
+$collapsible-sub-link-border-radius:          var(--#{$prefix}-border-radius) !default;
+$collapsible-sub-link-first-border-radius:    var(--#{$prefix}-collapsible-sub-link-border-radius) !default;
+$collapsible-sub-link-last-border-radius:     var(--#{$prefix}-collapsible-sub-link-border-radius) !default;
+$collapsible-sub-link-font-weight:            normal !default;
+$collapsible-sub-link-hover-color:            var(--#{$prefix}-text) !default;
+$collapsible-sub-link-hover-bg:               var(--#{$prefix}-bg-soft) !default;
+$collapsible-sub-link-active-color:           var(--#{$prefix}-collapsible-nav-link-active-color) !default;
+$collapsible-sub-link-active-bg:              var(--#{$prefix}-collapsible-nav-link-active-bg) !default;
+$collapsible-sub-link-expanded-color:         var(--#{$prefix}-collapsible-sub-link-color) !default; // highlight a parent item when its sub is displayed
+$collapsible-sub-link-expanded-bg:            var(--#{$prefix}-collapsible-sub-link-bg) !default;
+$collapsible-sub-link-expanded-border-radius:         var(--#{$prefix}-border-radius) !default;
+$collapsible-sub-link-first-expanded-border-radius:   var(--#{$prefix}-collapsible-sub-link-expanded-border-radius) !default;
+$collapsible-sub-link-last-expanded-border-radius:    var(--#{$prefix}-collapsible-sub-link-expanded-border-radius) !default;
+$collapsible-sub-link-selected-color:         var(--#{$prefix}-collapsible-nav-link-selected-color) !default;
+$collapsible-sub-link-selected-bg:            var(--#{$prefix}-collapsible-nav-link-selected-bg) !default;
+$collapsible-sub-link-selected-font-weight:   bold !default;
+$collapsible-sub-link-disabled-color:         var(--#{$prefix}-text-disabled) !default;
+$collapsible-sub-link-padding-y:              8px !default;
+$collapsible-sub-link-padding-x:              12px !default;
+$collapsible-sub-link-split-separator-border:           var(--#{$prefix}-collapsible-nav-link-split-separator-border) !default;
+$collapsible-sub-link-split-separator-fullsize-offset:  var(--#{$prefix}-collapsible-nav-link-split-separator-fullsize-offset) !default;
+$collapsible-sub-link-split-separator-opacity:          var(--#{$prefix}-collapsible-nav-link-split-separator-opacity) !default;
+$collapsible-sub-link-split-toggler-border-radius:      var(--#{$prefix}-collapsible-sub-link-border-radius) !default;
+
+
+#{$var-scope} {
+  --#{$prefix}-collapsible-navbar-color: #{$collapsible-navbar-color};
+  --#{$prefix}-collapsible-navbar-bg: #{$collapsible-navbar-bg};
+  --#{$prefix}-collapsible-navbar-border-width: #{$collapsible-navbar-border-width};
+  --#{$prefix}-collapsible-navbar-border-style: #{$collapsible-navbar-border-style};
+  --#{$prefix}-collapsible-navbar-border-color: #{$collapsible-navbar-border-color};
+  --#{$prefix}-collapsible-navbar-padding-y: #{$collapsible-navbar-padding-y};
+  --#{$prefix}-collapsible-navbar-padding-x: #{$collapsible-navbar-padding-x};
+  --#{$prefix}-collapsible-navbar-text-shadow: #{$collapsible-navbar-text-shadow};
+  --#{$prefix}-collapsible-navbar-box-shadow: #{$collapsible-navbar-box-shadow};
+  --#{$prefix}-collapsible-brand-color: #{$collapsible-brand-color};
+  --#{$prefix}-collapsible-brand-font-size: #{$collapsible-brand-font-size};
+  --#{$prefix}-collapsible-brand-font-weight: #{$collapsible-brand-font-weight};
+  --#{$prefix}-collapsible-nav-item-spacing-y: #{$collapsible-nav-item-spacing-y};
+  --#{$prefix}-collapsible-nav-item-separator-border: #{$collapsible-nav-item-separator-border};
+  --#{$prefix}-collapsible-nav-item-separator-spacing: #{$collapsible-nav-item-separator-spacing};
+  --#{$prefix}-collapsible-nav-item-separator-fullsize-offset: #{$collapsible-nav-item-separator-fullsize-offset};
+  --#{$prefix}-collapsible-nav-link-color: #{$collapsible-nav-link-color};
+  --#{$prefix}-collapsible-nav-link-bg: #{$collapsible-nav-link-bg};
+  --#{$prefix}-collapsible-nav-link-border-radius: #{$collapsible-nav-link-border-radius};
+  --#{$prefix}-collapsible-nav-link-first-border-radius: #{$collapsible-nav-link-first-border-radius};
+  --#{$prefix}-collapsible-nav-link-last-border-radius: #{$collapsible-nav-link-last-border-radius};
+  --#{$prefix}-collapsible-nav-link-font-weight: #{$collapsible-nav-link-font-weight};
+  --#{$prefix}-collapsible-nav-link-hover-color: #{$collapsible-nav-link-hover-color};
+  --#{$prefix}-collapsible-nav-link-hover-bg: #{$collapsible-nav-link-hover-bg};
+  --#{$prefix}-collapsible-nav-link-active-color: #{$collapsible-nav-link-active-color};
+  --#{$prefix}-collapsible-nav-link-active-bg: #{$collapsible-nav-link-active-bg};
+  --#{$prefix}-collapsible-nav-link-expanded-color: #{$collapsible-nav-link-expanded-color};
+  --#{$prefix}-collapsible-nav-link-expanded-bg: #{$collapsible-nav-link-expanded-bg};
+  --#{$prefix}-collapsible-nav-link-expanded-border-radius: #{$collapsible-nav-link-expanded-border-radius};
+  --#{$prefix}-collapsible-nav-link-first-expanded-border-radius: #{$collapsible-nav-link-first-expanded-border-radius};
+  --#{$prefix}-collapsible-nav-link-last-expanded-border-radius: #{$collapsible-nav-link-last-expanded-border-radius};
+  --#{$prefix}-collapsible-nav-link-selected-color: #{$collapsible-nav-link-selected-color};
+  --#{$prefix}-collapsible-nav-link-selected-bg: #{$collapsible-nav-link-selected-bg};
+  --#{$prefix}-collapsible-nav-link-selected-font-weight: #{$collapsible-nav-link-selected-font-weight};
+  --#{$prefix}-collapsible-nav-link-disabled-color: #{$collapsible-nav-link-disabled-color};
+  --#{$prefix}-collapsible-nav-link-padding-y: #{$collapsible-nav-link-padding-y};
+  --#{$prefix}-collapsible-nav-link-padding-x: #{$collapsible-nav-link-padding-x};
+  --#{$prefix}-collapsible-nav-link-split-separator-border: #{$collapsible-nav-link-split-separator-border};
+  --#{$prefix}-collapsible-nav-link-split-separator-fullsize-offset: #{$collapsible-nav-link-split-separator-fullsize-offset};
+  --#{$prefix}-collapsible-nav-link-split-separator-opacity: #{$collapsible-nav-link-split-separator-opacity};
+  --#{$prefix}-collapsible-nav-link-split-toggler-border-radius: #{$collapsible-nav-link-split-toggler-border-radius};
+  --#{$prefix}-collapsible-sub-toggler-color: #{$collapsible-sub-toggler-color};
+  --#{$prefix}-collapsible-sub-toggler-icon-size: #{$collapsible-sub-toggler-icon-size};
+  --#{$prefix}-collapsible-sub-toggler-icon-spacing: #{$collapsible-sub-toggler-icon-spacing};
+  --#{$prefix}-collapsible-sub-toggler-opacity: #{$collapsible-sub-toggler-opacity};
+  --#{$prefix}-collapsible-sub-bg: #{$collapsible-sub-bg};
+  --#{$prefix}-collapsible-sub-first-level-bg: #{$collapsible-sub-first-level-bg};
+  --#{$prefix}-collapsible-sub-border-radius: #{$collapsible-sub-border-radius};
+  --#{$prefix}-collapsible-sub-first-level-border-radius: #{$collapsible-sub-first-level-border-radius};
+  --#{$prefix}-collapsible-sub-padding-y: #{$collapsible-sub-padding-y};
+  --#{$prefix}-collapsible-sub-padding-x: #{$collapsible-sub-padding-x};
+  --#{$prefix}-collapsible-sub-text-shadow: #{$collapsible-sub-text-shadow};
+  --#{$prefix}-collapsible-sub-text-indent: #{$collapsible-sub-text-indent};
+  --#{$prefix}-collapsible-sub-sub-text-indent: #{$collapsible-sub-sub-text-indent};
+  --#{$prefix}-collapsible-sub-item-spacing-y: #{$collapsible-sub-item-spacing-y};
+  --#{$prefix}-collapsible-sub-item-separator-border: #{$collapsible-sub-item-separator-border};
+  --#{$prefix}-collapsible-sub-item-separator-spacing: #{$collapsible-sub-item-separator-spacing};
+  --#{$prefix}-collapsible-sub-item-separator-fullsize-offset: #{$collapsible-sub-item-separator-fullsize-offset};
+  --#{$prefix}-collapsible-sub-link-color: #{$collapsible-sub-link-color};
+  --#{$prefix}-collapsible-sub-link-bg: #{$collapsible-sub-link-bg};
+  --#{$prefix}-collapsible-sub-link-border-radius: #{$collapsible-sub-link-border-radius};
+  --#{$prefix}-collapsible-sub-link-first-border-radius: #{$collapsible-sub-link-first-border-radius};
+  --#{$prefix}-collapsible-sub-link-last-border-radius: #{$collapsible-sub-link-last-border-radius};
+  --#{$prefix}-collapsible-sub-link-font-weight: #{$collapsible-sub-link-font-weight};
+  --#{$prefix}-collapsible-sub-link-hover-color: #{$collapsible-sub-link-hover-color};
+  --#{$prefix}-collapsible-sub-link-hover-bg: #{$collapsible-sub-link-hover-bg};
+  --#{$prefix}-collapsible-sub-link-active-color: #{$collapsible-sub-link-active-color};
+  --#{$prefix}-collapsible-sub-link-active-bg: #{$collapsible-sub-link-active-bg};
+  --#{$prefix}-collapsible-sub-link-expanded-color: #{$collapsible-sub-link-expanded-color};
+  --#{$prefix}-collapsible-sub-link-expanded-bg: #{$collapsible-sub-link-expanded-bg};
+  --#{$prefix}-collapsible-sub-link-expanded-border-radius: #{$collapsible-sub-link-expanded-border-radius};
+  --#{$prefix}-collapsible-sub-link-first-expanded-border-radius: #{$collapsible-sub-link-first-expanded-border-radius};
+  --#{$prefix}-collapsible-sub-link-last-expanded-border-radius: #{$collapsible-sub-link-last-expanded-border-radius};
+  --#{$prefix}-collapsible-sub-link-selected-color: #{$collapsible-sub-link-selected-color};
+  --#{$prefix}-collapsible-sub-link-selected-bg: #{$collapsible-sub-link-selected-bg};
+  --#{$prefix}-collapsible-sub-link-selected-font-weight: #{$collapsible-sub-link-selected-font-weight};
+  --#{$prefix}-collapsible-sub-link-disabled-color: #{$collapsible-sub-link-disabled-color};
+  --#{$prefix}-collapsible-sub-link-padding-y: #{$collapsible-sub-link-padding-y};
+  --#{$prefix}-collapsible-sub-link-padding-x: #{$collapsible-sub-link-padding-x};
+  --#{$prefix}-collapsible-sub-link-split-separator-border: #{$collapsible-sub-link-split-separator-border};
+  --#{$prefix}-collapsible-sub-link-split-separator-fullsize-offset: #{$collapsible-sub-link-split-separator-fullsize-offset};
+  --#{$prefix}-collapsible-sub-link-split-separator-opacity: #{$collapsible-sub-link-split-separator-opacity};
+  --#{$prefix}-collapsible-sub-link-split-toggler-border-radius: #{$collapsible-sub-link-split-toggler-border-radius};
+}

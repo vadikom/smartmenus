@@ -1,0 +1,141 @@
+.md-doc {
+  max-width: 690px;
+}
+.md-doc a {
+  color: var(--site-brand-em);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-wrap: break-word;
+}
+.md-doc a:hover,
+.md-doc a:focus {
+  opacity: 0.9;
+}
+.md-doc h1 {
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+}
+.md-doc h2 {
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+  border-top: 1px solid var(--site-separator);
+  padding-top: 1.5rem;
+  font-size: 1.9rem;
+}
+.md-doc h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.md-doc h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+.md-doc h5 {
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.md-doc p,
+.md-doc ul,
+.md-doc ol,
+.md-doc dl,
+.md-doc table {
+  margin-bottom: 1rem;
+  line-height: var(--site-line-height);
+}
+.md-doc ul {
+  list-style-type: disc;
+  padding-left: 1.3rem;
+}
+.md-doc ol {
+  padding-left: 1.3rem;
+}
+.md-doc ul ul {
+  margin-bottom: 0;
+}
+.md-doc dl {
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-border-radius);
+}
+.md-doc dt {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.md-doc dd {
+  margin: 0 1rem 1rem 1rem;
+}
+.md-doc hr {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid var(--site-separator);
+}
+.md-doc pre[class*='language-'],
+.md-doc pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  padding: 1em;
+  max-height: 600px;
+  background: var(--site-bg-alt);
+  font-size: 0.875rem;
+  overflow: auto;
+}
+.md-doc code[class*='language-'],
+.md-doc code {
+  text-shadow: none;
+}
+.md-doc :not(pre) > code {
+  border-radius: 6px;
+  padding: 0.2em 0.3em;
+  background: var(--site-bg-alt);
+  color: var(--site-brand-em);
+}
+.md-doc .note,
+.md-doc .tip {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  padding: 1.1em 1em;
+  font-size: var(--site-font-size-small);
+  background: var(--site-accent-soft);
+  color: var(--site-text);
+}
+.md-doc .tip {
+  background: var(--site-brand-soft);
+}
+.md-doc .note::before,
+.md-doc .tip::before {
+  content: 'Note';
+  display: block;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.md-doc .tip::before {
+  content: 'Tip';
+}
+.md-doc .note a,
+.md-doc .tip a {
+  color: var(--site-brand-em);
+}
+.md-doc .note > :last-child,
+.md-doc .tip > :last-child {
+  margin-bottom: 0;
+}
+.md-doc .button {
+  display: inline-block;
+  border-radius: var(--site-border-radius);
+  padding: 9px 12px;
+  background: var(--site-brand);
+  color: var(--site-light);
+  text-decoration: none;
+  font-weight: bold;
+}
+.md-doc .text-small {
+  font-size: var(--site-font-size-small);
+}
+.md-doc .text-muted {
+  color: var(--site-text-muted);
+}

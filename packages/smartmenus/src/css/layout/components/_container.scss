@@ -1,0 +1,12 @@
+// Container
+
+.sm-container {
+  display: inherit;
+  flex-flow: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--#{$prefix}-container-max-width);
+}

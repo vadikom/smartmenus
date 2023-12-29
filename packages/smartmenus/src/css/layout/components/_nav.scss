@@ -1,0 +1,97 @@
+// Nav
+
+.sm-nav {
+  display: flex;
+  flex-flow: column nowrap;
+  flex-basis: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  line-height: inherit;
+}
+.sm-navbar--dropdowns-only .sm-nav {
+  flex-flow: row wrap;
+}
+@media (min-width: $vp-large-min) {
+  .sm-navbar:not(.sm-navbar--collapsible-only) .sm-nav {
+    flex-flow: row wrap;
+  }
+}
+
+@if $support-navbar-vertical {
+  // Vertical navbar
+  .sm-navbar--vertical.sm-navbar--dropdowns-only .sm-nav {
+    flex-flow: column nowrap;
+    align-items: normal;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-navbar--vertical:not(.sm-navbar--collapsible-only) .sm-nav {
+      flex-flow: column nowrap;
+      align-items: normal;
+    }
+  }
+}
+
+
+// Nav variants (for navbars with dropdowns)
+
+@if $support-nav-left {
+  // Left-aligned nav
+  .sm-navbar--dropdowns-only .sm-nav--left {
+    justify-content: flex-start;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-nav--left {
+      justify-content: flex-start;
+    }
+  }
+}
+
+@if $support-nav-center {
+  // Center-aligned nav
+  .sm-navbar--dropdowns-only .sm-nav--center {
+    justify-content: center;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-nav--center {
+      justify-content: center;
+    }
+  }
+}
+
+@if $support-nav-right {
+  // Right-aligned nav
+  .sm-navbar--dropdowns-only .sm-nav--right {
+    justify-content: flex-end;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-nav--right {
+      justify-content: flex-end;
+    }
+  }
+}
+
+@if $support-nav-fill {
+  // Full-width nav with proportional-width items that fill all the space
+  .sm-navbar--dropdowns-only .sm-nav--fill {
+    flex: 1 1 auto;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-nav--fill {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+@if $support-nav-justify {
+  // Full-width nav with equal-width items that fill all the space
+  .sm-navbar--dropdowns-only .sm-nav--justify {
+    flex: 1 1 0;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-nav--justify {
+      flex: 1 1 0;
+    }
+  }
+}

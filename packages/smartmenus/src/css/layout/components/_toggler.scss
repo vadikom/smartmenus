@@ -1,0 +1,131 @@
+// Toggler
+
+.sm-toggler {
+  display: inline-block;
+  position: relative;
+}
+.sm-navbar--dropdowns-only .sm-toggler {
+  display: none;
+}
+@media (min-width: $vp-large-min) {
+  .sm-navbar:not(.sm-navbar--collapsible-only) .sm-toggler {
+    display: none;
+  }
+}
+
+// State element
+.sm-toggler-state {
+  display: none;
+}
+
+// Anchors
+.sm-toggler-anchor {
+  display: block;
+  color: currentcolor !important;
+}
+.sm-toggler-anchor--hide {
+  display: none;
+}
+.sm-toggler-state.sm-show ~ .sm-toggler .sm-toggler-anchor--show,
+.sm-toggler-state:target ~ .sm-toggler .sm-toggler-anchor--show {
+  display: none;
+}
+.sm-toggler-state.sm-show ~ .sm-toggler .sm-toggler-anchor--hide,
+.sm-toggler-state:target ~ .sm-toggler .sm-toggler-anchor--hide {
+  display: block;
+}
+
+// Icons
+.sm-toggler-icon {
+  display: block;
+  position: relative;
+  width: 26px;
+  height: 18px;
+}
+
+// Show icon (hamburger)
+.sm-toggler-icon--show {
+  border-top: 2px solid;
+}
+.sm-toggler-icon--show::before,
+.sm-toggler-icon--show::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 0;
+  right: 0;
+  border-top: 2px solid;
+  height: 0;
+  overflow: hidden;
+}
+.sm-toggler-icon--show::after {
+  top: auto;
+  bottom: 0;
+}
+
+// Hide icon (x)
+.sm-toggler-icon--hide::before,
+.sm-toggler-icon--hide::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  right: 0;
+  border-top: 2px solid;
+  height: 0;
+  overflow: hidden;
+  transform: rotate(-45deg);
+}
+.sm-toggler-icon--hide::after {
+  transform: rotate(45deg);
+}
+
+// Show the collapse when needed
+.sm-toggler-state:target ~ .sm-collapse {
+  display: block;
+}
+
+@if $support-navbar-offcanvas {
+  // Offcanvas navbar
+  // Show the toggler when needed
+  .sm-navbar[class*='sm-navbar--offcanvas'] .sm-toggler {
+    display: inline-block;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-navbar[class*='sm-navbar--offcanvas']:not(.sm-navbar--offcanvas-only) .sm-toggler {
+      display: none;
+    }
+  }
+
+  // Always show any hide anchors nested in an offcanvas
+  .sm-offcanvas .sm-toggler-anchor--hide {
+    display: block;
+  }
+
+  // Show the offcanvas when needed
+  .sm-toggler-state:target ~ .sm-offcanvas {
+    display: block;
+  }
+
+  // Show the overlay when needed
+  .sm-toggler-state:target ~ .sm-offcanvas-overlay {
+    display: block;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-navbar:not(.sm-navbar--offcanvas-only) .sm-offcanvas-overlay {
+      display: none;
+    }
+  }
+}
+
+@if $support-navbar-sidebar {
+  // Sidebar navbar
+  .sm-navbar--sidebar-only .sm-toggler {
+    display: none;
+  }
+  @media (min-width: $vp-large-min) {
+    .sm-navbar[class*='sm-navbar--sidebar'] .sm-toggler {
+      display: none;
+    }
+  }
+}

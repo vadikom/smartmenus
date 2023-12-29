@@ -1,0 +1,96 @@
+//
+// SASS-only variables
+//
+
+
+// Viewport breakpoints
+$vp-large-min:      768px !default;
+$vp-small-max:      $vp-large-min - 0.02 !default;
+
+
+// Features support (you may disable any feature you don't need to decrease the size of the generated CSS)
+$support-navbar-vertical:         true !default;
+$support-navbar-inline:           true !default;
+$support-navbar-sticky:           true !default;
+$support-navbar-fixed:            true !default;
+$support-navbar-offcanvas:        true !default;
+$support-navbar-sidebar:          true !default;
+$support-nav-left:                true !default;
+$support-nav-center:              true !default;
+$support-nav-right:               true !default;
+$support-nav-fill:                true !default;
+$support-nav-justify:             true !default;
+
+
+// CSS variables prefix
+$prefix:            sm !default;
+
+
+// CSS variables scope (you could change this to :root if you like)
+$var-scope:         '.sm-navbar' !default;
+
+
+// RTL mode
+$rtl:               false !default;
+
+
+//
+// SASS and CSS variables
+//
+
+
+// Components
+
+// Navbar
+$navbar-z-index:                        9999 !default;
+
+// Sticky top navbar
+$navbar-sticky-top-offset:              0 !default;
+
+// Sticky bottom navbar
+$navbar-sticky-bottom-offset:           0 !default;
+
+// Sidebar navbar
+$navbar-sidebar-width:                        300px !default;
+$navbar-sidebar-centered-layout-max-width:    1200px !default;
+
+// Container
+$container-max-width:                   960px !default;
+
+// Collapse
+$collapse-max-height:                   calc(100vh - 70px) !default;
+$collapse-show-animation:               sm-ani-collapse 0.25s ease-in !default;
+$collapse-hide-animation:               sm-ani-collapse 0.25s ease-in reverse !default;
+
+// Offcanvas
+$offcanvas-width:                       300px !default;
+
+// Offcanvas Overlay
+$offcanvas-overlay-bg:                  rgba(0, 0, 0, 0.3) !default;
+
+// Sub
+$sub-min-width:                         12em !default;
+$sub-collapsible-show-animation:        sm-ani-collapse 0.25s ease-in !default;
+$sub-collapsible-hide-animation:        sm-ani-collapse 0.25s ease-in reverse !default;
+$sub-dropdowns-show-animation:          none !default;
+$sub-dropdowns-hide-animation:          sm-ani-fade 0.25s ease-in reverse !default;
+
+
+#{$var-scope} {
+  --#{$prefix}-navbar-z-index: #{$navbar-z-index};
+  --#{$prefix}-navbar-sticky-top-offset: #{$navbar-sticky-top-offset};
+  --#{$prefix}-navbar-sticky-bottom-offset: #{$navbar-sticky-bottom-offset};
+  --#{$prefix}-navbar-sidebar-width: #{$navbar-sidebar-width};
+  --#{$prefix}-navbar-sidebar-centered-layout-max-width: #{$navbar-sidebar-centered-layout-max-width};
+  --#{$prefix}-container-max-width: #{$container-max-width};
+  --#{$prefix}-collapse-max-height: #{$collapse-max-height};
+  --#{$prefix}-collapse-show-animation: #{$collapse-show-animation};
+  --#{$prefix}-collapse-hide-animation: #{$collapse-hide-animation};
+  --#{$prefix}-offcanvas-width: #{$offcanvas-width};
+  --#{$prefix}-offcanvas-overlay-bg: #{$offcanvas-overlay-bg};
+  --#{$prefix}-sub-min-width: #{$sub-min-width};
+  --#{$prefix}-sub-collapsible-show-animation: #{$sub-collapsible-show-animation};
+  --#{$prefix}-sub-collapsible-hide-animation: #{$sub-collapsible-hide-animation};
+  --#{$prefix}-sub-dropdowns-show-animation: #{$sub-dropdowns-show-animation};
+  --#{$prefix}-sub-dropdowns-hide-animation: #{$sub-dropdowns-hide-animation};
+}

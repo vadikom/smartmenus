@@ -1,0 +1,22 @@
+// Layout
+
+@import 'variables/layout';
+@import 'layout/layout';
+
+
+// Theme
+
+// base variables
+@import 'variables/theme-base';
+
+// collapsible
+@import 'variables/theme-collapsible';
+@media (max-width: $vp-small-max) {
+  @import 'theme/collapsible';
+}
+
+// dropdowns
+@import 'variables/theme-dropdowns';
+@media (min-width: $vp-large-min) {
+  @import 'theme/dropdowns';
+}
