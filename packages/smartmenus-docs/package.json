@@ -38,7 +38,7 @@
     "markdown-it-prism": "^2.3.0",
     "prettier": "^2.8.8",
     "prism-theme-github": "^1.0.1",
-    "smartmenus": "2.0.0-alpha.0",
+    "smartmenus": "2.0.0-alpha.1",
     "vite": "^4.4.9",
     "vite-plugin-md": "^0.22.5",
     "vite-plugin-ssr": "^0.4.139",

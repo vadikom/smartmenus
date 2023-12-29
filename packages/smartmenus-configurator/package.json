@@ -32,7 +32,7 @@
     "prism-theme-github": "^1.0.1",
     "prismjs": "^1.29.0",
     "quasar": "^2.12.0",
-    "smartmenus": "2.0.0-alpha.0",
+    "smartmenus": "2.0.0-alpha.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {
